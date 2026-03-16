@@ -67,3 +67,13 @@ body {
   outline: 2px solid #2563EB;
   outline-offset: 2px;
 }
+
+/* Jobber embedded form — force full width on mobile */
+#d414ffea-724d-4732-bb6f-884d8b3b05e6-2259100,
+#d414ffea-724d-4732-bb6f-884d8b3b05e6-2259100 iframe,
+#d414ffea-724d-4732-bb6f-884d8b3b05e6-2259100 > div,
+#d414ffea-724d-4732-bb6f-884d8b3b05e6-2259100 form {
+  width: 100% !important;
+  max-width: 100% !important;
+  min-width: 0 !important;
+}

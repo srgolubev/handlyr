@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import ContactForm from '@/components/sections/ContactForm';
+import PageHero from '@/components/sections/PageHero';
 
 export const metadata: Metadata = {
   title: 'Contact — Get a Free Handyman Estimate in NYC',
@@ -35,26 +36,11 @@ export const metadata: Metadata = {
 export default function ContactPage() {
   return (
     <>
-      {/* Page hero */}
-      <section
-        className="py-20 px-4 text-center"
-        style={{ background: 'linear-gradient(135deg, #0B1F4A 0%, #0D2860 100%)' }}
-      >
-        <div className="max-w-3xl mx-auto">
-          <p className="text-xs font-semibold uppercase tracking-widest mb-4 text-white/60">
-            Get in Touch
-          </p>
-          <h1
-            className="font-heading font-extrabold text-4xl lg:text-5xl text-white mb-4"
-            style={{ letterSpacing: '-0.02em' }}
-          >
-            Contact Us
-          </h1>
-          <p className="text-lg text-white/80 max-w-xl mx-auto">
-            Tell us what you need. Free estimates, fast response.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        label="Get in Touch"
+        title="Contact Us"
+        description="Tell us what you need. Free estimates, fast response."
+      />
 
       <ContactForm />
     </>

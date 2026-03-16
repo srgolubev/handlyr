@@ -1,11 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
-import Header from '@/components/layout/Header';
-import Footer from '@/components/layout/Footer';
-import StickyMobileCTA from '@/components/layout/StickyMobileCTA';
-import JsonLd from '@/components/JsonLd';
-import GoogleAnalytics from '@/components/GoogleAnalytics';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -60,25 +55,6 @@ export const metadata: Metadata = {
   },
 };
 
-const localBusinessSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  name: 'Handlyr',
-  description:
-    'Professional handyman services in New York City — furniture assembly, TV mounting, shelving, drywall repair and more.',
-  url: 'https://handlyr.org',
-  telephone: '(347) 799-8402',
-  address: {
-    '@type': 'PostalAddress',
-    addressLocality: 'New York',
-    addressRegion: 'NY',
-    addressCountry: 'US',
-  },
-  areaServed: ['Brooklyn', 'Manhattan', 'Jersey City', 'Hoboken', 'Weehawken'],
-  priceRange: '$$',
-  openingHours: 'Mo-Su 08:00-20:00',
-};
-
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -86,16 +62,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" className={`${inter.variable} ${plusJakartaSans.variable}`}>
-      <head>
-        <JsonLd schema={localBusinessSchema} />
-        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ''} />
-      </head>
-      <body className="font-body antialiased pb-20 lg:pb-0">
-        <Header />
-        <main>{children}</main>
-        <Footer />
-        <StickyMobileCTA />
-      </body>
+      <body className="font-body antialiased">{children}</body>
     </html>
   );
 }

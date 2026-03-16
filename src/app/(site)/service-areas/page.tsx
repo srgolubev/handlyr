@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import ServiceAreas from '@/components/sections/ServiceAreas';
 import ContactForm from '@/components/sections/ContactForm';
+import PageHero from '@/components/sections/PageHero';
 
 export const metadata: Metadata = {
   title: 'Service Areas — Handyman in Brooklyn, Manhattan, Jersey City & More',
@@ -37,26 +38,11 @@ export const metadata: Metadata = {
 export default function ServiceAreasPage() {
   return (
     <>
-      {/* Page hero */}
-      <section
-        className="py-20 px-4 text-center"
-        style={{ background: 'linear-gradient(135deg, #0B1F4A 0%, #0D2860 100%)' }}
-      >
-        <div className="max-w-3xl mx-auto">
-          <p className="text-xs font-semibold uppercase tracking-widest mb-4 text-white/60">
-            Where We Work
-          </p>
-          <h1
-            className="font-heading font-extrabold text-4xl lg:text-5xl text-white mb-4"
-            style={{ letterSpacing: '-0.02em' }}
-          >
-            Service Areas
-          </h1>
-          <p className="text-lg text-white/80 max-w-xl mx-auto">
-            Serving homeowners, renters, and landlords across NYC and New Jersey.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        label="Where We Work"
+        title="Service Areas"
+        description="Serving homeowners, renters, and landlords across NYC and New Jersey."
+      />
 
       <ServiceAreas />
       <ContactForm />

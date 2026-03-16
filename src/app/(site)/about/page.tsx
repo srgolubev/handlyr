@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { BUSINESS } from '@/lib/constants';
+import PageHero from '@/components/sections/PageHero';
 
 export const metadata: Metadata = {
   title: 'About Us — Trusted NYC Handyman | 15+ Years Experience',
@@ -35,26 +36,11 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      {/* Page hero */}
-      <section
-        className="py-20 px-4 text-center"
-        style={{ background: 'linear-gradient(135deg, #0B1F4A 0%, #0D2860 100%)' }}
-      >
-        <div className="max-w-3xl mx-auto">
-          <p className="text-xs font-semibold uppercase tracking-widest mb-4 text-white/60">
-            Who We Are
-          </p>
-          <h1
-            className="font-heading font-extrabold text-4xl lg:text-5xl text-white mb-4"
-            style={{ letterSpacing: '-0.02em' }}
-          >
-            About Handlyr
-          </h1>
-          <p className="text-lg text-white/80 max-w-xl mx-auto">
-            {BUSINESS.experience} years of trusted handyman work in New York City.
-          </p>
-        </div>
-      </section>
+      <PageHero
+        label="Who We Are"
+        title="About Handlyr"
+        description={`${BUSINESS.experience} years of trusted handyman work in New York City.`}
+      />
 
       {/* About content */}
       <section className="bg-white py-16 px-4 lg:py-24">
