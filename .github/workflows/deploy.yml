@@ -19,7 +19,7 @@ jobs:
           script: |
             cd /var/www/handlyr
             git pull origin main
-            npm ci --omit=dev
+            npm ci
             npm run build
             pm2 restart handlyr || pm2 start npm --name handlyr -- start -- -p 3001
             pm2 save
