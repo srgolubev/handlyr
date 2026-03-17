@@ -42,8 +42,8 @@
   --color-brand-orange-dark: #EA6C0A;
 
   /* Font families */
-  --font-heading: var(--font-plus-jakarta-sans), system-ui, -apple-system, sans-serif;
-  --font-body: var(--font-inter), system-ui, -apple-system, sans-serif;
+  --font-heading: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  --font-body: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
 :root {
