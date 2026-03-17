@@ -39,3 +39,10 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local dev tools
+.claude/
+.playwright-cli/
+_photos/
+claude.md
+design-spec.md

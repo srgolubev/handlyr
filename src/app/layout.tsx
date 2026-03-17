@@ -43,6 +43,7 @@ export const metadata: Metadata = {
     type: 'website',
     url: 'https://handlyr.org',
     siteName: 'Handlyr',
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Handlyr — NYC Handyman' }],
   },
   twitter: {
     card: 'summary_large_image',

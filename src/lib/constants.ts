@@ -133,12 +133,12 @@ export const TRUST_BADGES = [
 ] as const;
 
 export const GALLERY_ITEMS = [
-  { id: 1, label: 'TV Mounting', location: 'Manhattan', color: 'bg-slate-600' },
-  { id: 2, label: 'Furniture Assembly', location: 'Brooklyn', color: 'bg-blue-800' },
-  { id: 3, label: 'Floating Shelves', location: 'Hoboken', color: 'bg-indigo-700' },
-  { id: 4, label: 'Drywall Repair', location: 'Jersey City', color: 'bg-slate-700' },
-  { id: 5, label: 'Cabinet Install', location: 'Brooklyn', color: 'bg-blue-900' },
-  { id: 6, label: 'Blinds Installation', location: 'Manhattan', color: 'bg-indigo-800' },
+  { id: 1, label: 'TV Mounting', location: 'Manhattan', image: '/gallery-tv-mounting.jpg' },
+  { id: 2, label: 'Furniture Assembly', location: 'Brooklyn', image: '/gallery-furniture-assembly.jpg' },
+  { id: 3, label: 'Floating Shelves', location: 'Hoboken', image: '/gallery-floating-shelves.jpg' },
+  { id: 4, label: 'Drywall Repair', location: 'Jersey City', image: '/gallery-drywall-repair.jpg' },
+  { id: 5, label: 'Cabinet Install', location: 'Brooklyn', image: '/gallery-cabinet-install.jpg' },
+  { id: 6, label: 'Blinds Installation', location: 'Manhattan', image: '/gallery-blinds-installation.jpg' },
 ] as const;
 
 export const NAV_LINKS = [

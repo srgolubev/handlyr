@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
+import Image from 'next/image';
 import { BUSINESS } from '@/lib/constants';
 import PageHero from '@/components/sections/PageHero';
 
@@ -86,8 +87,19 @@ export default function AboutPage() {
               </div>
             </div>
 
+            {/* Portrait */}
+            <div className="relative w-full rounded-3xl overflow-hidden" style={{ height: '420px' }}>
+              <Image
+                src="/about-portrait.jpg"
+                alt="Serge — professional handyman, Handlyr NYC"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
+              />
+            </div>
+
             {/* Stats */}
-            <div className="grid grid-cols-2 gap-4">
+            <div className="grid grid-cols-2 gap-4 mt-4">
               {[
                 { number: '15+', label: 'Years of Experience' },
                 { number: '500+', label: 'Jobs Completed' },

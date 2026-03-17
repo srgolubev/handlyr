@@ -1,31 +1,9 @@
 'use client';
 
 import { useState } from 'react';
+import Image from 'next/image';
 import { GALLERY_ITEMS } from '@/lib/constants';
-
-function XIcon() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" aria-hidden="true">
-      <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
-    </svg>
-  );
-}
-
-function ChevronLeftIcon() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" aria-hidden="true">
-      <path d="m15 18-6-6 6-6" />
-    </svg>
-  );
-}
-
-function ChevronRightIcon() {
-  return (
-    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-6 h-6" aria-hidden="true">
-      <path d="m9 18 6-6-6-6" />
-    </svg>
-  );
-}
+import { XIcon, ChevronLeftIcon, ChevronRightIcon } from '@/components/icons';
 
 export default function Gallery() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
@@ -79,17 +57,13 @@ export default function Gallery() {
                 className="group relative aspect-square overflow-hidden rounded-xl cursor-pointer focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
                 aria-label={`View ${item.label} — ${item.location}`}
               >
-                {/* Placeholder colored background */}
-                <div
-                  className={`w-full h-full ${item.color} transition-transform duration-300 group-hover:scale-105 flex items-center justify-center`}
-                >
-                  <span
-                    className="text-sm font-medium text-center px-3 pointer-events-none"
-                    style={{ color: 'rgba(255,255,255,0.3)' }}
-                  >
-                    Project Photo
-                  </span>
-                </div>
+                <Image
+                  src={item.image}
+                  alt={`${item.label} in ${item.location}`}
+                  fill
+                  sizes="(max-width: 768px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                />
 
                 {/* Hover overlay */}
                 <div className="absolute inset-0 bg-primary-900/0 group-hover:bg-primary-900/60 transition-colors duration-300" />
@@ -123,7 +97,7 @@ export default function Gallery() {
             className="absolute top-4 right-4 text-white hover:text-neutral-300 transition-colors duration-150 p-2"
             aria-label="Close lightbox"
           >
-            <XIcon />
+            <XIcon className="w-6 h-6" />
           </button>
 
           {/* Previous button */}
@@ -132,17 +106,24 @@ export default function Gallery() {
             className="absolute left-4 text-white hover:text-neutral-300 transition-colors duration-150 p-2"
             aria-label="Previous image"
           >
-            <ChevronLeftIcon />
+            <ChevronLeftIcon className="w-6 h-6" />
           </button>
 
-          {/* Image placeholder */}
+          {/* Image */}
           <div
-            className={`${currentItem.color} rounded-2xl flex items-center justify-center`}
+            className="relative rounded-2xl overflow-hidden"
             style={{ width: '90vw', maxWidth: '700px', height: '60vh' }}
           >
-            <div className="text-center" style={{ color: 'rgba(255,255,255,0.5)' }}>
-              <p className="text-lg font-semibold">{currentItem.label}</p>
-              <p className="text-sm mt-1">{currentItem.location}</p>
+            <Image
+              src={currentItem.image}
+              alt={`${currentItem.label} in ${currentItem.location}`}
+              fill
+              sizes="90vw"
+              className="object-cover"
+              priority
+            />
+            <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
+              <p className="text-white text-base font-semibold">{currentItem.label} — {currentItem.location}</p>
             </div>
           </div>
 
@@ -152,7 +133,7 @@ export default function Gallery() {
             className="absolute right-4 text-white hover:text-neutral-300 transition-colors duration-150 p-2"
             aria-label="Next image"
           >
-            <ChevronRightIcon />
+            <ChevronRightIcon className="w-6 h-6" />
           </button>
 
           {/* Counter */}

@@ -170,14 +170,6 @@ export async function POST(request: Request) {
       ...(attachments.length > 0 ? { attachments } : {}),
     });
 
-    console.log('[Contact Form Submission]', {
-      name,
-      phone,
-      service,
-      message: message || '(none)',
-      hasPhoto: attachments.length > 0,
-    });
-
     return NextResponse.json(
       { success: true, message: 'Request received. We will be in touch shortly.' },
       { status: 200 }
