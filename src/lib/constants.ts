@@ -2,10 +2,11 @@ export const BUSINESS = {
   name: 'Handlyr',
   phone: '(347) 799-8402',
   phoneHref: 'tel:+13477998402',
+  smsHref: 'sms:+13477998402?&body=Hi%20Serge!%20I%20need%20help%20with%20',
   location: 'New York City',
   experience: '15+',
   founded: '2009',
-  email: 'hello@handlyr.org',
+  email: 'order@handlyr.org',
   tagline: 'Professional handyman services across New York City.',
 };
 

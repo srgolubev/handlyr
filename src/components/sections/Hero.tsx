@@ -77,12 +77,11 @@ export default function Hero() {
             {/* CTA buttons */}
             <div className="mt-8 flex flex-col sm:flex-row items-stretch gap-3 justify-center lg:justify-start">
               <a
-                href={BUSINESS.phoneHref}
+                href={BUSINESS.smsHref}
                 className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-bold text-white w-full sm:w-auto min-h-[56px] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl hover:opacity-90 active:scale-95 focus-visible:ring-4 focus-visible:ring-orange-300"
                 style={{ backgroundColor: '#F97316' }}
               >
-                <PhoneIcon className="w-5 h-5" />
-                Call Now
+                Text Now
               </a>
               <Link
                 href="/contact?type=photo"

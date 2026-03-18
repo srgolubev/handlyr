@@ -79,10 +79,10 @@ export default function AboutPage() {
                   Get a Free Estimate
                 </Link>
                 <a
-                  href={BUSINESS.phoneHref}
+                  href={BUSINESS.smsHref}
                   className="inline-flex items-center px-6 py-3 rounded-xl text-base font-semibold text-primary-700 border-2 border-primary-200 hover:border-primary-400 transition-colors duration-200"
                 >
-                  Call {BUSINESS.phone}
+                  Text {BUSINESS.phone}
                 </a>
               </div>
             </div>

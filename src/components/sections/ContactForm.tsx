@@ -63,12 +63,11 @@ export default function ContactForm() {
             </div>
 
             <a
-              href={BUSINESS.phoneHref}
+              href={BUSINESS.smsHref}
               className="flex items-center justify-center gap-2 w-full py-4 rounded-xl text-lg font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl hover:opacity-90 active:scale-95"
               style={{ backgroundColor: '#F97316' }}
             >
-              <PhoneIcon className="w-5 h-5" />
-              Call Now — {BUSINESS.phone}
+              Text Now — {BUSINESS.phone}
             </a>
           </div>
 

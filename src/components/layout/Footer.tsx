@@ -1,6 +1,7 @@
 import Link from 'next/link';
+import Image from 'next/image';
 import { BUSINESS, SERVICES, SERVICE_AREAS } from '@/lib/constants';
-import { PhoneIcon, MapPinIcon, MailIcon } from '@/components/icons';
+import { MapPinIcon, MailIcon } from '@/components/icons';
 
 export default function Footer() {
   return (
@@ -10,9 +11,13 @@ export default function Footer() {
           {/* Column 1: Brand */}
           <div>
             <Link href="/" className="flex items-center gap-2 mb-4">
-              <div className="w-9 h-9 rounded-lg flex items-center justify-center font-heading font-extrabold text-lg bg-white/10 text-white">
-                H
-              </div>
+              <Image
+                src="/favicon/android-chrome-192x192.png"
+                alt="Handlyr logo"
+                width={36}
+                height={36}
+                className="rounded-lg"
+              />
               <span className="font-heading font-extrabold text-xl tracking-tight text-white">
                 Handlyr
               </span>
@@ -70,10 +75,9 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href={BUSINESS.phoneHref}
+                  href={BUSINESS.smsHref}
                   className="flex items-center gap-2 text-sm font-medium text-white transition-colors duration-150 hover:text-accent-500"
                 >
-                  <PhoneIcon className="w-4 h-4 flex-shrink-0" />
                   {BUSINESS.phone}
                 </a>
               </li>

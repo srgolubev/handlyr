@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import { BUSINESS } from '@/lib/constants';
-import { PhoneIcon, ClipboardIcon } from '@/components/icons';
+import { ClipboardIcon } from '@/components/icons';
 
 export default function StickyMobileCTA() {
   const [visible, setVisible] = useState(false);
@@ -36,13 +36,12 @@ export default function StickyMobileCTA() {
       </p>
       <div className="flex gap-3 max-w-sm mx-auto">
         <a
-          href={BUSINESS.phoneHref}
+          href={BUSINESS.smsHref}
           className="flex-1 flex items-center justify-center gap-2 py-3.5 rounded-xl text-sm font-bold text-white transition-all duration-150 hover:opacity-90 active:scale-95 min-h-[52px]"
           style={{ backgroundColor: '#F97316' }}
           tabIndex={visible ? 0 : -1}
         >
-          <PhoneIcon className="w-5 h-5" />
-          Call Now
+          Text Now
         </a>
         <a
           href="#contact"

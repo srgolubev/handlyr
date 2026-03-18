@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import Image from 'next/image';
 
 const JOBBER_FORM_URL =
   'https://clienthub.getjobber.com/hubs/d414ffea-724d-4732-bb6f-884d8b3b05e6/public/requests/2259100/new';
@@ -19,12 +20,13 @@ export default function QuickOrderPage() {
           className="flex flex-col items-center gap-3 group"
           aria-label="Handlyr — go to homepage"
         >
-          <div
-            className="w-16 h-16 rounded-2xl flex items-center justify-center text-white font-heading font-extrabold text-3xl shadow-lg group-hover:scale-105 transition-transform duration-200"
-            style={{ backgroundColor: '#0D2860' }}
-          >
-            H
-          </div>
+          <Image
+            src="/favicon/android-chrome-192x192.png"
+            alt="Handlyr logo"
+            width={64}
+            height={64}
+            className="rounded-2xl shadow-lg group-hover:scale-105 transition-transform duration-200"
+          />
           <span
             className="font-heading font-extrabold text-2xl tracking-tight group-hover:opacity-80 transition-opacity"
             style={{ color: '#0D2860' }}

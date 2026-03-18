@@ -69,7 +69,7 @@ export default function Header() {
           {/* Desktop right side */}
           <div className="hidden lg:flex items-center gap-4">
             <a
-              href={BUSINESS.phoneHref}
+              href={BUSINESS.smsHref}
               className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-150 hover:bg-orange-50 focus-visible:ring-2 focus-visible:ring-orange-300"
               style={{ color: '#F97316' }}
             >
@@ -88,7 +88,7 @@ export default function Header() {
           {/* Mobile right side */}
           <div className="flex lg:hidden items-center gap-2">
             <a
-              href={BUSINESS.phoneHref}
+              href={BUSINESS.smsHref}
               className="flex items-center justify-center w-11 h-11 rounded-full bg-primary-100 text-primary-700 hover:bg-primary-200 transition-colors duration-150"
               aria-label={`Call us at ${BUSINESS.phone}`}
             >
@@ -144,13 +144,13 @@ export default function Header() {
 
           <div className="p-4 border-t border-neutral-200">
             <a
-              href={BUSINESS.phoneHref}
+              href={BUSINESS.smsHref}
               className="flex items-center justify-center gap-2 w-full py-4 rounded-xl text-base font-bold text-white transition-colors duration-150"
               style={{ backgroundColor: '#F97316' }}
               onClick={() => setMenuOpen(false)}
             >
               <PhoneIcon className="w-5 h-5" />
-              Call Now — {BUSINESS.phone}
+              Text Now — {BUSINESS.phone}
             </a>
           </div>
         </nav>
