@@ -77,7 +77,7 @@ export default function ServiceAreas() {
           </div>
 
           {/* Right column: interactive Leaflet service-areas map */}
-          <div className="rounded-2xl overflow-hidden shadow-lg" style={{ height: '420px' }}>
+          <div className="rounded-2xl overflow-hidden shadow-lg" style={{ height: '420px', isolation: 'isolate' }}>
             <ServiceAreasMap />
           </div>
         </div>
