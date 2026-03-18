@@ -55,7 +55,7 @@ export default function Hero() {
                 letterSpacing: '0.06em',
               }}
             >
-              Serving NYC Since {BUSINESS.founded}
+              Serving Since {BUSINESS.founded}
             </div>
 
             {/* H1 */}
@@ -114,26 +114,10 @@ export default function Hero() {
                 {[...Array(5)].map((_, i) => <StarIcon key={i} className="w-4 h-4 text-yellow-400" />)}
               </div>
               <span className="text-sm font-medium" style={{ color: 'rgba(255,255,255,0.85)' }}>
-                100+ happy customers in NYC
+                100+ happy customers
               </span>
             </div>
 
-            {/* Trust badges */}
-            <div className="mt-4 grid grid-cols-2 gap-3 lg:flex lg:flex-row lg:gap-4 max-w-lg mx-auto lg:mx-0">
-              {trustBadges.map((badge) => (
-                <div
-                  key={badge.label}
-                  className="flex items-center gap-2 px-4 py-3 rounded-xl border"
-                  style={{
-                    backgroundColor: 'rgba(255,255,255,0.08)',
-                    borderColor: 'rgba(255,255,255,0.15)',
-                  }}
-                >
-                  <span className="text-white flex-shrink-0">{badge.icon}</span>
-                  <span className="text-xs font-medium text-white whitespace-nowrap">{badge.label}</span>
-                </div>
-              ))}
-            </div>
           </div>
 
           {/* Right column: visual */}

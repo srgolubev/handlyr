@@ -57,7 +57,7 @@ export default function ContactForm() {
                     <StarIcon key={i} className="w-4 h-4 text-yellow-400" />
                   ))}
                 </div>
-                <p className="text-sm font-medium text-white">Trusted by 100+ NYC homeowners</p>
+                <p className="text-sm font-medium text-white">Trusted by 100+ homeowners</p>
                 <p className="text-xs" style={{ color: 'rgba(255,255,255,0.6)' }}>500+ jobs completed · Available today</p>
               </div>
             </div>
