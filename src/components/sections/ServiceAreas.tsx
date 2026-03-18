@@ -58,44 +58,18 @@ export default function ServiceAreas() {
             </p>
           </div>
 
-          {/* Right column: Map placeholder */}
-          <div
-            className="rounded-2xl overflow-hidden shadow-lg flex items-center justify-center"
-            style={{
-              height: '400px',
-              background: 'linear-gradient(135deg, #0B1F4A 0%, #0D2860 100%)',
-            }}
-            aria-label="Map showing service areas in the Greater NYC area"
-          >
-            <div className="text-center p-8">
-              <div style={{ color: 'rgba(255,255,255,0.3)' }}>
-                <MapPinIcon className="w-[18px] h-[18px] flex-shrink-0" />
-              </div>
-              <div className="mt-4">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="1"
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  className="w-16 h-16 mx-auto mb-4"
-                  style={{ color: 'rgba(255,255,255,0.2)' }}
-                  aria-hidden="true"
-                >
-                  <polygon points="3 6 9 3 15 6 21 3 21 18 15 21 9 18 3 21" />
-                  <line x1="9" x2="9" y1="3" y2="18" />
-                  <line x1="15" x2="15" y1="6" y2="21" />
-                </svg>
-                <p className="text-white font-semibold text-lg">Greater NYC Area</p>
-                <p className="mt-2 text-sm" style={{ color: 'rgba(255,255,255,0.6)' }}>
-                  Brooklyn • Manhattan • Jersey City
-                  <br />
-                  Hoboken • Weehawken
-                </p>
-              </div>
-            </div>
+          {/* Right column: Google Maps embed */}
+          <div className="rounded-2xl overflow-hidden shadow-lg" style={{ height: '420px' }}>
+            <iframe
+              title="Handlyr service areas map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96708.34194156103!2d-74.0811!3d40.7128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1710000000000!5m2!1sen!2sus"
+              width="100%"
+              height="100%"
+              style={{ border: 0 }}
+              allowFullScreen
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
           </div>
         </div>
       </div>
