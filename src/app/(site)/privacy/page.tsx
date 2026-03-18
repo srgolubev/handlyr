@@ -15,7 +15,7 @@ export default function PrivacyPage() {
       <PageHero
         label="Legal"
         title="Privacy Policy"
-        description="How we collect and use your information. Updated March 2026."
+        description="How we collect and use your information."
       />
 
       <section className="bg-white py-16 px-4 lg:py-24">

@@ -1,5 +1,23 @@
+'use client';
+
+import dynamic from 'next/dynamic';
 import { SERVICE_AREAS, BUSINESS } from '@/lib/constants';
 import { MapPinIcon } from '@/components/icons';
+
+// Dynamic import with SSR disabled — Leaflet requires the browser DOM
+const ServiceAreasMap = dynamic(
+  () => import('@/components/sections/ServiceAreasMap'),
+  {
+    ssr: false,
+    loading: () => (
+      <div
+        className="w-full rounded-2xl bg-neutral-100 animate-pulse"
+        style={{ height: '420px' }}
+        aria-label="Loading map…"
+      />
+    ),
+  }
+);
 
 export default function ServiceAreas() {
   return (
@@ -58,18 +76,9 @@ export default function ServiceAreas() {
             </p>
           </div>
 
-          {/* Right column: Google Maps embed */}
+          {/* Right column: interactive Leaflet service-areas map */}
           <div className="rounded-2xl overflow-hidden shadow-lg" style={{ height: '420px' }}>
-            <iframe
-              title="Handlyr service areas map"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d96708.34194156103!2d-74.0811!3d40.7128!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY!5e0!3m2!1sen!2sus!4v1710000000000!5m2!1sen!2sus"
-              width="100%"
-              height="100%"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+            <ServiceAreasMap />
           </div>
         </div>
       </div>
