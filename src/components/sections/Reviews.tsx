@@ -62,12 +62,12 @@ export default function Reviews() {
         <p className="mt-8 text-center text-sm text-text-muted">
           Read more reviews on{' '}
           <a
-            href="https://google.com"
+            href="https://www.thumbtack.com/profile/services/573077145150963741/reviews"
             target="_blank"
             rel="noopener noreferrer"
             className="font-medium text-primary-600 hover:text-primary-700 transition-colors duration-150 underline underline-offset-2"
           >
-            Google
+            Thumbtack
           </a>
         </p>
       </div>
