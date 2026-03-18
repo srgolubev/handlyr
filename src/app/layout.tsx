@@ -39,6 +39,7 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://handlyr.org',
   },
+  themeColor: '#ffffff',
   icons: {
     icon: [
       { url: '/favicon/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
