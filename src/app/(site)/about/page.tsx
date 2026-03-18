@@ -7,7 +7,7 @@ import PageHero from '@/components/sections/PageHero';
 export const metadata: Metadata = {
   title: 'About Us — Trusted NYC Handyman | 15+ Years Experience',
   description:
-    'Handlyr has 15+ years of professional handyman experience in NYC. Trusted by hundreds of homeowners and renters in Brooklyn, Manhattan, Jersey City, Hoboken & Weehawken.',
+    'Handlyr brings 15+ years of professional handyman experience to NYC. Trusted by hundreds of homeowners and renters in Brooklyn, Manhattan, Jersey City, Hoboken & Weehawken.',
   keywords: [
     'about Handlyr',
     'trusted handyman NYC',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'About Handlyr | Trusted NYC Handyman',
     description:
-      '15+ years of professional handyman experience in NYC. Trusted by hundreds of homeowners across Brooklyn, Manhattan, and New Jersey.',
+      '15+ years of professional handyman experience, now serving NYC. Trusted by hundreds of homeowners across Brooklyn, Manhattan, and New Jersey.',
     type: 'website',
     url: 'https://handlyr.org/about',
   },
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'About Handlyr | Trusted NYC Handyman',
     description:
-      '15+ years of professional handyman experience in NYC. Trusted by hundreds of homeowners across Brooklyn, Manhattan, and New Jersey.',
+      '15+ years of professional handyman experience, now serving NYC. Trusted by hundreds of homeowners across Brooklyn, Manhattan, and New Jersey.',
   },
   alternates: {
     canonical: 'https://handlyr.org/about',
@@ -40,7 +40,7 @@ export default function AboutPage() {
       <PageHero
         label="Who We Are"
         title="About Handlyr"
-        description={`${BUSINESS.experience} years of trusted handyman work in New York City.`}
+        description={`${BUSINESS.experience} years of experience. Now serving New York City.`}
       />
 
       {/* About content */}
@@ -59,9 +59,9 @@ export default function AboutPage() {
                   find someone who shows up on time, does the job right, and charges a fair price.
                 </p>
                 <p>
-                  With {BUSINESS.experience} years of hands-on experience across hundreds of homes and
-                  apartments in Brooklyn, Manhattan, Jersey City, Hoboken, and Weehawken, we have
-                  built a reputation on clean work and honest service.
+                  With {BUSINESS.experience} years of hands-on experience, we now serve homes and
+                  apartments across Brooklyn, Manhattan, Jersey City, Hoboken, and Weehawken —
+                  building a reputation on clean work and honest service.
                 </p>
                 <p>
                   Whether you need IKEA furniture assembled, a TV mounted on your wall, or a

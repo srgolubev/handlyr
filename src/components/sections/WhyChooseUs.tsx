@@ -5,7 +5,7 @@ const valueProps = [
     id: 'experience',
     icon: <ShieldCheckIcon className="w-8 h-8" />,
     title: '15+ Years Experience',
-    description: 'Over a decade and a half of hands-on work across NYC homes and apartments.',
+    description: 'Over a decade and a half of hands-on work — now serving homes and apartments across NYC.',
   },
   {
     id: 'response',
@@ -50,7 +50,7 @@ export default function WhyChooseUs() {
             What Makes Us Different
           </h2>
           <p className="mt-3 text-lg text-text-muted">
-            15 years of experience, professional tools, and a reputation built on clean, reliable work.
+            15+ years of experience, professional tools, and a commitment to clean, reliable work.
           </p>
         </div>
 
