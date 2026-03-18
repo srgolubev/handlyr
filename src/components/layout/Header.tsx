@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import Image from 'next/image';
 import { useState, useEffect } from 'react';
 import { BUSINESS, NAV_LINKS } from '@/lib/constants';
 import { PhoneIcon, MenuIcon, XIcon } from '@/components/icons';
@@ -36,12 +37,13 @@ export default function Header() {
             className="flex items-center gap-2 flex-shrink-0"
             aria-label="Handlyr — home"
           >
-            <div
-              className="w-9 h-9 rounded-lg flex items-center justify-center text-white font-heading font-extrabold text-lg"
-              style={{ backgroundColor: '#0D2860' }}
-            >
-              H
-            </div>
+            <Image
+              src="/favicon/android-chrome-192x192.png"
+              alt="Handlyr logo"
+              width={36}
+              height={36}
+              className="rounded-lg"
+            />
             <span
               className="font-heading font-extrabold text-xl tracking-tight"
               style={{ color: '#0D2860' }}
