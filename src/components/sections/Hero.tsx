@@ -139,35 +139,6 @@ export default function Hero() {
                 priority
               />
 
-              {/* Floating card 1: Quick response */}
-              <div
-                className="absolute bottom-6 -left-6 bg-white rounded-2xl shadow-2xl px-4 py-3 flex items-center gap-3"
-                style={{ minWidth: '190px' }}
-              >
-                <div
-                  className="w-9 h-9 rounded-xl flex items-center justify-center flex-shrink-0"
-                  style={{ backgroundColor: '#FFEDD5', color: '#F97316' }}
-                >
-                  <ClockIcon className="w-4 h-4" />
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-text-dark">Quick response</p>
-                  <p className="text-xs text-text-muted">Usually within the hour</p>
-                </div>
-              </div>
-
-              {/* Floating card 2: Happy customers */}
-              <div
-                className="absolute top-6 -right-6 bg-white rounded-2xl shadow-2xl px-4 py-3 flex items-center gap-2"
-                style={{ minWidth: '160px' }}
-              >
-                <div className="flex">
-                  {[...Array(5)].map((_, i) => <StarIcon key={i} className="w-4 h-4 text-yellow-400" />)}
-                </div>
-                <div>
-                  <p className="text-xs font-bold text-text-dark">500+ Jobs</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
