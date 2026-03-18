@@ -47,6 +47,8 @@ export default function ServiceAreasMap() {
         dragging: true,
         doubleClickZoom: true,
         attributionControl: true,
+        center: [40.700, -74.020],
+        zoom: 11,
       });
 
       mapRef.current = map;
@@ -84,7 +86,10 @@ export default function ServiceAreasMap() {
         },
       }).addTo(map);
 
-      map.fitBounds(geoLayer.getBounds(), { padding: [28, 28] });
+      const bounds = geoLayer.getBounds();
+      if (bounds.isValid()) {
+        map.fitBounds(bounds, { padding: [28, 28] });
+      }
     });
 
     return () => {
