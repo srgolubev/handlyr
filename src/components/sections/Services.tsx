@@ -39,7 +39,7 @@ export default function Services() {
             Professional Handyman Services
           </h2>
           <p className="mt-3 text-lg text-text-muted">
-            From furniture assembly to drywall repair — quality work done right.
+            From furniture assembly to drywall repair in NYC and surrounding boroughs — quality work done right.
           </p>
         </div>
 
@@ -48,7 +48,7 @@ export default function Services() {
           {SERVICES.map((service) => (
             <Link
               key={service.id}
-              href={`/contact?service=${service.slug}`}
+              href={`/services/${service.slug}`}
               className="group relative flex flex-col p-6 bg-white border border-neutral-200 rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 hover:border-primary-200 focus-visible:ring-2 focus-visible:ring-primary-500"
             >
               {/* Icon */}
