@@ -20,6 +20,7 @@ jobs:
             cd /var/www/handlyr
             git pull origin main
             npm ci
+            rm -rf .next/cache/images
             npm run build
             pm2 restart handlyr || pm2 start npm --name handlyr -- start -- -p 3001
             pm2 save
