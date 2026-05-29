@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import PageHero from '@/components/sections/PageHero';
 import { BUSINESS, SERVICE_AREAS, REVIEWS, PRICING, SHARED_FAQS } from '@/lib/constants';
+import { SERVICE_ICON } from '@/lib/serviceIcons';
+import { PhoneIcon } from '@/components/icons';
 
 // ─── Service data ─────────────────────────────────────────────────────────────
 
@@ -398,17 +400,15 @@ export default async function ServicePage({
         <div className="max-w-4xl mx-auto flex flex-col sm:flex-row gap-3 items-center justify-center">
           <a
             href={`${BUSINESS.smsHref}${encodeURIComponent(service.name)}`}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-white text-base transition-all duration-200 hover:scale-[1.02]"
-            style={{ backgroundColor: '#F97316' }}
+            className="btn btn-md btn-primary w-full sm:w-auto"
           >
-            <span aria-hidden="true">💬</span> Text for a Free Quote
+            Text for a Free Quote
           </a>
           <a
             href={BUSINESS.phoneHref}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-base border-2 transition-colors duration-200"
-            style={{ borderColor: '#0D2860', color: '#0D2860' }}
+            className="btn btn-md btn-outline-dark w-full sm:w-auto"
           >
-            <span aria-hidden="true">📞</span> Call {BUSINESS.phone}
+            <PhoneIcon className="w-5 h-5" /> Call {BUSINESS.phone}
           </a>
         </div>
       </section>
@@ -417,11 +417,15 @@ export default async function ServicePage({
       <section className="bg-white py-16 px-4 lg:py-20">
         <div className="max-w-4xl mx-auto">
           <div className="flex items-center gap-4 mb-8">
-            <span className="text-5xl" aria-hidden="true">{service.icon}</span>
-            <h2
-              className="font-heading font-bold text-3xl"
-              style={{ color: '#0D2860' }}
-            >
+            {(() => {
+              const Icon = SERVICE_ICON[service.slug];
+              return (
+                <span className="w-14 h-14 rounded-2xl flex items-center justify-center flex-shrink-0 bg-primary-100 text-primary-600">
+                  {Icon && <Icon className="w-7 h-7" />}
+                </span>
+              );
+            })()}
+            <h2 className="font-heading font-bold text-3xl text-primary-800">
               {service.name} in NYC
             </h2>
           </div>

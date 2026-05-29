@@ -3,6 +3,8 @@ import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import PageHero from '@/components/sections/PageHero';
 import { BUSINESS, SERVICES, REVIEWS, PRICING, SHARED_FAQS } from '@/lib/constants';
+import { SERVICE_ICON } from '@/lib/serviceIcons';
+import { PhoneIcon, ShieldCheckIcon, ZapIcon, SparklesIcon, DollarSignIcon } from '@/components/icons';
 
 // ─── Area data ───────────────────────────────────────────────────────────────
 
@@ -154,18 +156,6 @@ export async function generateMetadata({
   };
 }
 
-// ─── Service icons ────────────────────────────────────────────────────────────
-
-const SERVICE_ICONS: Record<string, string> = {
-  'furniture-assembly': '📦',
-  'tv-mounting': '📺',
-  'shelf-installation': '🗂️',
-  'blinds-installation': '🪟',
-  'cabinet-installation': '🗄️',
-  'drywall-repair': '🔧',
-  'general-repairs': '⚙️',
-};
-
 // ─── Star helper ──────────────────────────────────────────────────────────────
 
 function Stars({ count }: { count: number }) {
@@ -263,17 +253,15 @@ export default async function ServiceAreaPage({
         <div className="max-w-4xl mx-auto flex flex-col sm:flex-row gap-3 items-center justify-center">
           <a
             href={BUSINESS.phoneHref}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-white text-base transition-all duration-200 hover:scale-[1.02]"
-            style={{ backgroundColor: '#F97316' }}
+            className="btn btn-md btn-primary w-full sm:w-auto"
           >
-            <span aria-hidden="true">📞</span> Call Now — {BUSINESS.phone}
+            <PhoneIcon className="w-5 h-5" /> Call Now — {BUSINESS.phone}
           </a>
           <a
             href={`${BUSINESS.smsHref}handyman%20services%20in%20${encodeURIComponent(area.name)}`}
-            className="w-full sm:w-auto inline-flex items-center justify-center gap-2 px-6 py-3 rounded-xl font-semibold text-base border-2 transition-colors duration-200"
-            style={{ borderColor: '#0D2860', color: '#0D2860' }}
+            className="btn btn-md btn-outline-dark w-full sm:w-auto"
           >
-            <span aria-hidden="true">💬</span> Text for a Quick Estimate
+            Text for a Quick Estimate
           </a>
         </div>
       </section>
@@ -281,23 +269,22 @@ export default async function ServiceAreaPage({
       {/* Services list */}
       <section className="bg-white py-16 px-4 lg:py-20">
         <div className="max-w-6xl mx-auto">
-          <h2
-            className="font-heading font-bold text-3xl text-center mb-2"
-            style={{ color: '#0D2860' }}
-          >
+          <h2 className="font-heading font-bold text-3xl text-center mb-2 text-primary-800">
             Services Available in {area.name}
           </h2>
           <p className="text-center text-text-muted mb-10">
             Every job includes a free text quote and professional, clean work — ${PRICING.hourlyRate}/hour, {PRICING.minimumHours}-hour minimum.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-            {SERVICES.map((service) => (
+            {SERVICES.map((service) => {
+              const Icon = SERVICE_ICON[service.id];
+              return (
               <div
                 key={service.id}
-                className="flex flex-col p-6 bg-white border border-neutral-200 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300"
+                className="flex flex-col p-6 card hover:shadow-lg transition-shadow duration-300"
               >
-                <div className="text-4xl mb-3" aria-hidden="true">
-                  {SERVICE_ICONS[service.id]}
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 bg-primary-100 text-primary-600 mb-3">
+                  {Icon && <Icon className="w-6 h-6" />}
                 </div>
                 <h3 className="text-lg font-heading font-bold text-text-dark mb-1">
                   <Link
@@ -313,8 +300,7 @@ export default async function ServiceAreaPage({
                 <div className="mt-4 flex flex-wrap items-center gap-3">
                   <a
                     href={`${BUSINESS.smsHref}${encodeURIComponent(service.name)}%20in%20${encodeURIComponent(area.name)}`}
-                    className="inline-flex items-center justify-center px-4 py-2 rounded-xl text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.02]"
-                    style={{ backgroundColor: '#F97316' }}
+                    className="btn btn-sm btn-primary"
                   >
                     Get a Quote
                   </a>
@@ -327,18 +313,16 @@ export default async function ServiceAreaPage({
                   </Link>
                 </div>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* Why Handlyr in [Area] */}
-      <section className="py-16 px-4 lg:py-20" style={{ backgroundColor: '#F9FAFB' }}>
+      <section className="py-16 px-4 lg:py-20 bg-neutral-50">
         <div className="max-w-4xl mx-auto">
-          <h2
-            className="font-heading font-bold text-3xl mb-8"
-            style={{ color: '#0D2860' }}
-          >
+          <h2 className="font-heading font-bold text-3xl mb-8 text-primary-800">
             {area.whyTitle}
           </h2>
           <div className="space-y-5">
@@ -352,17 +336,17 @@ export default async function ServiceAreaPage({
           {/* Trust badges */}
           <div className="mt-10 grid grid-cols-2 sm:grid-cols-4 gap-4">
             {[
-              { icon: '🛡️', label: '15+ Years Experience' },
-              { icon: '⚡', label: 'Fast Response' },
-              { icon: '✨', label: 'Clean Work' },
-              { icon: '💰', label: 'Fair Pricing' },
+              { Icon: ShieldCheckIcon, label: '15+ Years Experience' },
+              { Icon: ZapIcon, label: 'Fast Response' },
+              { Icon: SparklesIcon, label: 'Clean Work' },
+              { Icon: DollarSignIcon, label: 'Fair Pricing' },
             ].map((badge) => (
               <div
                 key={badge.label}
                 className="flex flex-col items-center text-center p-4 bg-white rounded-2xl border border-neutral-200"
               >
-                <span className="text-2xl mb-1" aria-hidden="true">
-                  {badge.icon}
+                <span className="text-primary-600 mb-1">
+                  <badge.Icon className="w-6 h-6" />
                 </span>
                 <span className="text-sm font-semibold text-text-dark">{badge.label}</span>
               </div>
@@ -371,10 +355,7 @@ export default async function ServiceAreaPage({
 
           {/* Neighborhoods */}
           <div className="mt-10">
-            <h3
-              className="font-heading font-semibold text-xl mb-4"
-              style={{ color: '#0D2860' }}
-            >
+            <h3 className="font-heading font-semibold text-xl mb-4 text-primary-800">
               Neighborhoods We Serve in {area.name}
             </h3>
             <div className="flex flex-wrap gap-2">

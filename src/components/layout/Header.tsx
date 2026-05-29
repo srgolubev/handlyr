@@ -27,6 +27,7 @@ export default function Header() {
   // Mobile drawer: focus management, Escape to close, and Tab focus-trap.
   useEffect(() => {
     if (!menuOpen) return;
+    const toggle = toggleRef.current;
     const drawer = drawerRef.current;
     const focusables = drawer?.querySelectorAll<HTMLElement>(
       'a[href], button:not([disabled])'
@@ -53,7 +54,7 @@ export default function Header() {
     return () => {
       document.removeEventListener('keydown', onKeyDown);
       // Return focus to the toggle when the drawer closes.
-      toggleRef.current?.focus();
+      toggle?.focus();
     };
   }, [menuOpen]);
 
@@ -79,10 +80,7 @@ export default function Header() {
               height={36}
               className="rounded-lg"
             />
-            <span
-              className="font-heading font-extrabold text-xl tracking-tight"
-              style={{ color: '#0D2860' }}
-            >
+            <span className="font-heading font-extrabold text-xl tracking-tight text-primary-800">
               Handlyr
             </span>
           </Link>
@@ -105,18 +103,13 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-4">
             <a
               href={BUSINESS.phoneHref}
-              className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-150 hover:bg-orange-50 focus-visible:ring-2 focus-visible:ring-orange-300"
-              style={{ color: '#F97316' }}
+              className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold text-accent-700 transition-all duration-150 hover:bg-accent-100"
               aria-label={`Call us at ${BUSINESS.phone}`}
             >
               <PhoneIcon className="w-4 h-4" />
               {BUSINESS.phone}
             </a>
-            <Link
-              href="/contact"
-              className="inline-flex items-center px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.02] active:scale-95 focus-visible:ring-4 focus-visible:ring-orange-300 hover:opacity-90"
-              style={{ backgroundColor: '#F97316' }}
-            >
+            <Link href="/contact" className="btn btn-sm btn-primary">
               Get a Quote
             </Link>
           </div>
@@ -184,8 +177,7 @@ export default function Header() {
           <div className="p-4 border-t border-neutral-200">
             <a
               href={BUSINESS.smsHref}
-              className="flex items-center justify-center gap-2 w-full py-4 rounded-xl text-base font-bold text-white transition-colors duration-150"
-              style={{ backgroundColor: '#F97316' }}
+              className="btn btn-md btn-primary w-full text-base font-bold"
               onClick={() => setMenuOpen(false)}
             >
               <PhoneIcon className="w-5 h-5" />

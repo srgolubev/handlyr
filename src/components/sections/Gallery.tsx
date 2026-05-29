@@ -44,18 +44,12 @@ export default function Gallery() {
     <>
       <section
         id="projects"
-        className="py-16 px-4 lg:py-20 lg:px-6"
-        style={{ backgroundColor: '#F9FAFB' }}
+        className="py-16 px-4 lg:py-20 lg:px-6 bg-neutral-50"
       >
         <div className="max-w-6xl mx-auto">
           {/* Section header */}
           <div className="text-center max-w-2xl mx-auto mb-10">
-            <p
-              className="text-xs font-semibold uppercase tracking-widest mb-3"
-              style={{ color: '#1A4FD0', letterSpacing: '0.1em' }}
-            >
-              Our Work
-            </p>
+            <p className="eyebrow mb-3">Our Work</p>
             <h2
               className="font-heading font-bold text-3xl lg:text-4xl text-text-dark"
               style={{ letterSpacing: '-0.01em' }}

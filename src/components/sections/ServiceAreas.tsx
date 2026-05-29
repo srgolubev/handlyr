@@ -27,12 +27,7 @@ export default function ServiceAreas() {
           {/* Left column: text + area list */}
           <div>
             {/* Section header */}
-            <p
-              className="text-xs font-semibold uppercase tracking-widest mb-3"
-              style={{ color: '#F97316', letterSpacing: '0.1em' }}
-            >
-              Where We Work
-            </p>
+            <p className="eyebrow mb-3">Where We Work</p>
             <h2
               className="font-heading font-bold text-3xl lg:text-4xl text-text-dark mb-3"
               style={{ letterSpacing: '-0.01em' }}
@@ -48,10 +43,9 @@ export default function ServiceAreas() {
               {SERVICE_AREAS.map((area) => (
                 <div
                   key={area.name}
-                  className="flex items-start gap-3 py-3 px-4 rounded-xl border border-neutral-200"
-                  style={{ backgroundColor: '#F9FAFB' }}
+                  className="flex items-start gap-3 py-3 px-4 rounded-xl border border-neutral-200 bg-neutral-50"
                 >
-                  <span style={{ color: '#F97316', marginTop: '2px' }}>
+                  <span className="text-accent-600 mt-0.5">
                     <MapPinIcon className="w-[18px] h-[18px] flex-shrink-0" />
                   </span>
                   <div>
