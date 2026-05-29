@@ -7,19 +7,19 @@ import PageHero from '@/components/sections/PageHero';
 export const metadata: Metadata = {
   title: 'About Us — Trusted NYC Handyman | 15+ Years Experience',
   description:
-    'Handlyr brings 15+ years of professional handyman experience to NYC. Trusted by hundreds of homeowners and renters in Brooklyn, Manhattan, Jersey City, Hoboken & Weehawken.',
+    'Handlyr brings 15+ years of professional handyman experience to NYC. Trusted by hundreds of homeowners and renters in Brooklyn, Queens & Manhasset.',
   keywords: [
     'about Handlyr',
     'trusted handyman NYC',
     'experienced handyman Brooklyn',
-    'reliable handyman Manhattan',
+    'reliable handyman Queens',
     'professional handyman NYC',
     'handyman near me',
   ],
   openGraph: {
     title: 'About Handlyr | Trusted NYC Handyman',
     description:
-      '15+ years of professional handyman experience, now serving NYC. Trusted by hundreds of homeowners across Brooklyn, Manhattan, and New Jersey.',
+      '15+ years of professional handyman experience, now serving NYC. Trusted by hundreds of homeowners across Brooklyn, Queens, and Manhasset.',
     type: 'website',
     url: 'https://handlyr.org/about',
   },
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'About Handlyr | Trusted NYC Handyman',
     description:
-      '15+ years of professional handyman experience, now serving NYC. Trusted by hundreds of homeowners across Brooklyn, Manhattan, and New Jersey.',
+      '15+ years of professional handyman experience, now serving NYC. Trusted by hundreds of homeowners across Brooklyn, Queens, and Manhasset.',
   },
   alternates: {
     canonical: 'https://handlyr.org/about',
@@ -60,7 +60,7 @@ export default function AboutPage() {
                 </p>
                 <p>
                   With {BUSINESS.experience} years of hands-on experience, we now serve homes and
-                  apartments across Brooklyn, Manhattan, Jersey City, Hoboken, and Weehawken —
+                  apartments across Brooklyn, Queens, and Manhasset —
                   building a reputation on clean work and honest service.
                 </p>
                 <p>

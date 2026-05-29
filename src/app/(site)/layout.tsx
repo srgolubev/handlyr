@@ -25,10 +25,8 @@ const localBusinessSchema = {
   },
   areaServed: [
     { '@type': 'City', name: 'Brooklyn', containedInPlace: { '@type': 'State', name: 'New York' } },
-    { '@type': 'City', name: 'Manhattan', containedInPlace: { '@type': 'State', name: 'New York' } },
-    { '@type': 'City', name: 'Jersey City', containedInPlace: { '@type': 'State', name: 'New Jersey' } },
-    { '@type': 'City', name: 'Hoboken', containedInPlace: { '@type': 'State', name: 'New Jersey' } },
-    { '@type': 'City', name: 'Weehawken', containedInPlace: { '@type': 'State', name: 'New Jersey' } },
+    { '@type': 'City', name: 'Queens', containedInPlace: { '@type': 'State', name: 'New York' } },
+    { '@type': 'City', name: 'Manhasset', containedInPlace: { '@type': 'State', name: 'New York' } },
   ],
   priceRange: '$$',
   openingHoursSpecification: [

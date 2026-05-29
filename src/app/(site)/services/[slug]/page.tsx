@@ -27,7 +27,7 @@ const SERVICES_DETAIL: Record<string, ServiceData> = {
     body: [
       'Flat-pack furniture looks simple in the box — but the reality is hours of sorting hardware, decoding confusing instructions, and hoping you did not miss a step. We have assembled thousands of pieces across NYC: IKEA, Wayfair, West Elm, Amazon, CB2, and every other brand you can think of.',
       'Our approach is methodical and thorough. We lay out all parts, verify the count before starting, follow the manufacturer sequence, and double-check every connection before calling it done. The result is furniture that is solid, level, and built to last — not something that wobbles after a week.',
-      'We handle single items or full rooms. Moving into a new apartment in Brooklyn or Jersey City and need everything assembled in one go? Just send us the list and we will take care of it all in a single visit.',
+      'We handle single items or full rooms. Moving into a new apartment in Brooklyn or Queens and need everything assembled in one go? Just send us the list and we will take care of it all in a single visit.',
     ],
     whatToExpect: [
       'Hardware sorted and verified before assembly begins',
@@ -38,12 +38,12 @@ const SERVICES_DETAIL: Record<string, ServiceData> = {
     ],
     reviewIds: [3, 2],
     seoDescription:
-      'Professional furniture assembly in NYC. IKEA, Wayfair, West Elm & all brands. Serving Brooklyn, Manhattan, Jersey City, Hoboken, Weehawken. Fast, correct, no hassle.',
+      'Professional furniture assembly in NYC. IKEA, Wayfair, West Elm & all brands. Serving Brooklyn, Queens, Manhasset. Fast, correct, no hassle.',
     keywords: [
       'furniture assembly NYC',
       'IKEA assembly NYC',
       'furniture assembly Brooklyn',
-      'furniture assembly Manhattan',
+      'furniture assembly Queens',
       'Wayfair assembly NYC',
       'flat-pack furniture assembly',
       'handyman furniture assembly near me',
@@ -68,11 +68,11 @@ const SERVICES_DETAIL: Record<string, ServiceData> = {
     ],
     reviewIds: [1, 2],
     seoDescription:
-      'Professional TV mounting in NYC. All wall types: drywall, concrete, brick. Hidden cable management included. Serving Brooklyn, Manhattan, Jersey City, Hoboken, Weehawken.',
+      'Professional TV mounting in NYC. All wall types: drywall, concrete, brick. Hidden cable management included. Serving Brooklyn, Queens, Manhasset.',
     keywords: [
       'TV mounting NYC',
       'TV mounting Brooklyn',
-      'TV mounting Manhattan',
+      'TV mounting Queens',
       'TV mount concrete wall NYC',
       'TV installation NYC',
       'cable management NYC',
@@ -86,7 +86,7 @@ const SERVICES_DETAIL: Record<string, ServiceData> = {
     tagline: 'Custom shelving, floating shelves, and built-in shelf systems — level and secure.',
     body: [
       'Shelves sound straightforward, but a shelf that is not level, not anchored properly, or not aligned with the architecture of the room stands out immediately. We install floating shelves, bracket shelves, wall-mounted book cases, and modular systems like IKEA KALLAX and Billy — all level, all secure, all positioned where you want them.',
-      'We work with your wall type. In concrete buildings across Manhattan and the New Jersey waterfront, we use appropriate masonry anchors rated for the load. In drywall, we locate studs or use toggle anchors for heavy loads. No shelf we install will pull out of the wall.',
+      'We work with your wall type. In concrete high-rise buildings across Queens and Brooklyn, we use appropriate masonry anchors rated for the load. In drywall, we locate studs or use toggle anchors for heavy loads. No shelf we install will pull out of the wall.',
       'Beyond basic shelving, we also handle more complex built-in style installations: garage shelving, laundry room organization systems, and closet shelf builds. If you want it on a wall and holding weight, we can make it happen.',
     ],
     whatToExpect: [
@@ -98,11 +98,11 @@ const SERVICES_DETAIL: Record<string, ServiceData> = {
     ],
     reviewIds: [2, 6],
     seoDescription:
-      'Professional shelf installation in NYC. Floating shelves, bracket shelves, IKEA systems. All wall types. Serving Brooklyn, Manhattan, Jersey City, Hoboken, Weehawken.',
+      'Professional shelf installation in NYC. Floating shelves, bracket shelves, IKEA systems. All wall types. Serving Brooklyn, Queens, Manhasset.',
     keywords: [
       'shelf installation NYC',
       'floating shelf installation Brooklyn',
-      'shelf installation Manhattan',
+      'shelf installation Queens',
       'IKEA shelf installation NYC',
       'wall shelves NYC',
       'bookshelf installation NYC',
@@ -128,12 +128,12 @@ const SERVICES_DETAIL: Record<string, ServiceData> = {
     ],
     reviewIds: [1, 4],
     seoDescription:
-      'Professional blinds and shade installation in NYC. Roller shades, venetian blinds, curtain rods — all window types. Serving Brooklyn, Manhattan, Jersey City, Hoboken, Weehawken.',
+      'Professional blinds and shade installation in NYC. Roller shades, venetian blinds, curtain rods — all window types. Serving Brooklyn, Queens, Manhasset.',
     keywords: [
       'blinds installation NYC',
       'window shade installation Brooklyn',
       'curtain rod installation NYC',
-      'blinds installation Manhattan',
+      'blinds installation Queens',
       'roller shade installation NYC',
       'window treatment installation NYC',
       'handyman blinds near me',
@@ -158,13 +158,13 @@ const SERVICES_DETAIL: Record<string, ServiceData> = {
     ],
     reviewIds: [3, 6],
     seoDescription:
-      'Professional cabinet installation in NYC. Kitchen, bathroom, medicine cabinets & storage. All wall types. Serving Brooklyn, Manhattan, Jersey City, Hoboken, Weehawken.',
+      'Professional cabinet installation in NYC. Kitchen, bathroom, medicine cabinets & storage. All wall types. Serving Brooklyn, Queens, Manhasset.',
     keywords: [
       'cabinet installation NYC',
       'kitchen cabinet installation Brooklyn',
       'bathroom cabinet installation NYC',
       'medicine cabinet installation NYC',
-      'cabinet installation Manhattan',
+      'cabinet installation Queens',
       'storage cabinet installation NYC',
       'handyman cabinet installation near me',
     ],
@@ -177,7 +177,7 @@ const SERVICES_DETAIL: Record<string, ServiceData> = {
     body: [
       'Whether it is a doorknob hole, a patch left from old TV mounting hardware, water damage from a leak above, or a large section of damaged board — we repair drywall to a smooth, paint-ready finish. We carry the materials, tools, and experience to handle repairs from pinhole size up to full section replacement.',
       'The quality of a drywall repair shows in the texture and the paint. We take the time to feather compound properly and match the existing texture as closely as possible, whether that is smooth, orange peel, or knockdown. When we are done, the repair is nearly invisible — even in direct light.',
-      'Moving out and need walls patched before your lease inspection? We can do a full apartment walk-through, patch every hole, and leave the walls looking clean. It is one of the most common calls we get from renters in Brooklyn and Manhattan.',
+      'Moving out and need walls patched before your lease inspection? We can do a full apartment walk-through, patch every hole, and leave the walls looking clean. It is one of the most common calls we get from renters in Brooklyn and Queens.',
     ],
     whatToExpect: [
       'Damage assessed — correct repair method selected',
@@ -188,11 +188,11 @@ const SERVICES_DETAIL: Record<string, ServiceData> = {
     ],
     reviewIds: [1, 5],
     seoDescription:
-      'Professional drywall repair in NYC. Holes, cracks, water damage — smooth finish, ready to paint. Serving Brooklyn, Manhattan, Jersey City, Hoboken, Weehawken.',
+      'Professional drywall repair in NYC. Holes, cracks, water damage — smooth finish, ready to paint. Serving Brooklyn, Queens, Manhasset.',
     keywords: [
       'drywall repair NYC',
       'drywall patch Brooklyn',
-      'drywall repair Manhattan',
+      'drywall repair Queens',
       'wall repair NYC',
       'hole in wall repair NYC',
       'drywall repair near me',
@@ -218,11 +218,11 @@ const SERVICES_DETAIL: Record<string, ServiceData> = {
     ],
     reviewIds: [1, 4, 6],
     seoDescription:
-      'General handyman repairs in NYC. Doors, faucets, hinges, floors, fixtures and more — all in one visit. Serving Brooklyn, Manhattan, Jersey City, Hoboken, Weehawken.',
+      'General handyman repairs in NYC. Doors, faucets, hinges, floors, fixtures and more — all in one visit. Serving Brooklyn, Queens, Manhasset.',
     keywords: [
       'general handyman NYC',
       'handyman repairs Brooklyn',
-      'handyman repairs Manhattan',
+      'handyman repairs Queens',
       'home repairs NYC',
       'handyman near me NYC',
       'apartment repairs NYC',
@@ -248,7 +248,7 @@ export async function generateMetadata({
   const service = SERVICES_DETAIL[slug];
   if (!service) return {};
 
-  const title = `${service.name} NYC | Brooklyn, Manhattan & NJ | Handlyr`;
+  const title = `${service.name} NYC | Brooklyn, Queens & Manhasset | Handlyr`;
   const canonical = `https://handlyr.org/services/${service.slug}`;
 
   return {

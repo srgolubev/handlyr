@@ -10,7 +10,7 @@ import ContactForm from '@/components/sections/ContactForm';
 export const metadata: Metadata = {
   title: 'Handlyr | Reliable Handyman NYC — Furniture Assembly, TV Mounting & More',
   description:
-    'Top-rated handyman in NYC. Furniture assembly, TV mounting, shelf installation, drywall repair, blinds & more. Serving Brooklyn, Manhattan, Jersey City & Hoboken. Free estimates.',
+    'Top-rated handyman in NYC. Furniture assembly, TV mounting, shelf installation, drywall repair, blinds & more. Serving Brooklyn, Queens & Manhasset. Free estimates.',
   keywords: [
     'handyman NYC',
     'handyman Brooklyn',
@@ -21,7 +21,8 @@ export const metadata: Metadata = {
     'drywall repair NYC',
     'blinds installation NYC',
     'IKEA assembly NYC',
-    'handyman Manhattan',
+    'handyman Queens',
+    'handyman Manhasset',
   ],
   openGraph: {
     title: 'Handlyr | Reliable Handyman NYC',

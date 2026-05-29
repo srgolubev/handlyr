@@ -47,8 +47,8 @@ export default function ServiceAreasMap() {
         dragging: true,
         doubleClickZoom: true,
         attributionControl: true,
-        center: [40.700, -74.020],
-        zoom: 11,
+        center: [40.710, -73.870],
+        zoom: 10,
       });
 
       mapRef.current = map;

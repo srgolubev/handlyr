@@ -124,7 +124,7 @@ export default function QuickOrderPage() {
 
         {/* Trust footer */}
         <p className="text-xs text-gray-400 text-center leading-relaxed">
-          15+ years experience · Brooklyn · Manhattan · Jersey City · Hoboken
+          15+ years experience · Brooklyn · Queens · Manhasset
         </p>
       </div>
     </main>

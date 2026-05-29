@@ -21,7 +21,7 @@ export const metadata: Metadata = {
     template: '%s | Handlyr',
   },
   description:
-    'Professional handyman services in NYC: furniture assembly, TV mounting, shelf installation, drywall repair, and more. Serving Brooklyn, Manhattan, Jersey City, Hoboken, and Weehawken.',
+    'Professional handyman services in NYC: furniture assembly, TV mounting, shelf installation, drywall repair, and more. Serving Brooklyn, Queens, and Manhasset.',
   keywords: [
     'handyman NYC',
     'handyman Brooklyn',
@@ -31,7 +31,8 @@ export const metadata: Metadata = {
     'shelf installation NYC',
     'drywall repair NYC',
     'blinds installation NYC',
-    'handyman Manhattan',
+    'handyman Queens',
+    'handyman Manhasset',
     'IKEA assembly NYC',
   ],
   metadataBase: new URL('https://handlyr.org'),

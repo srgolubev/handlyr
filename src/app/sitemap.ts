@@ -14,10 +14,8 @@ const SERVICE_SLUGS = [
 
 const AREA_SLUGS = [
   'brooklyn',
-  'manhattan',
-  'jersey-city',
-  'hoboken',
-  'weehawken',
+  'queens',
+  'manhasset',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {

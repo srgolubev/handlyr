@@ -40,7 +40,7 @@ export default function ProjectsPage() {
       <PageHero
         label="Our Work"
         title="Recent Projects"
-        description={"A look at jobs we've completed across NYC and New Jersey."}
+        description={"A look at jobs we've completed across Brooklyn, Queens, and Manhasset."}
       />
 
       <Gallery />

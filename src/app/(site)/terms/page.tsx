@@ -25,7 +25,7 @@ export default function TermsPage() {
           <h2 className="font-heading font-bold text-2xl text-text-dark mt-8 mb-4">1. Services</h2>
           <p>
             Handlyr provides professional handyman services in New York City and surrounding areas including
-            Brooklyn, Manhattan, Jersey City, Hoboken, and Weehawken. All services are subject to availability
+            Brooklyn, Queens, and Manhasset. All services are subject to availability
             and a confirmed appointment.
           </p>
 

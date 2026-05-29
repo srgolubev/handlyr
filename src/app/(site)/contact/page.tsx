@@ -5,7 +5,7 @@ import PageHero from '@/components/sections/PageHero';
 export const metadata: Metadata = {
   title: 'Contact — Get a Free Handyman Estimate in NYC',
   description:
-    'Request a free estimate from Handlyr, NYC\'s trusted handyman. Describe your job, attach a photo, and get a response within the hour. Serving Brooklyn, Manhattan, Jersey City & more.',
+    'Request a free estimate from Handlyr, NYC\'s trusted handyman. Describe your job, attach a photo, and get a response within the hour. Serving Brooklyn, Queens, Manhasset & more.',
   keywords: [
     'contact handyman NYC',
     'free handyman estimate NYC',
@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Contact Handlyr | Free Handyman Estimate NYC',
     description:
-      'Get a free estimate from Handlyr. Tell us what you need done — we respond within the hour. Serving Brooklyn, Manhattan, Jersey City, Hoboken & Weehawken.',
+      'Get a free estimate from Handlyr. Tell us what you need done — we respond within the hour. Serving Brooklyn, Queens & Manhasset.',
     type: 'website',
     url: 'https://handlyr.org/contact',
   },

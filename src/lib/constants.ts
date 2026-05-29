@@ -78,24 +78,14 @@ export const SERVICE_AREAS = [
     description: 'Serving all Brooklyn neighborhoods from Bay Ridge to Williamsburg.',
   },
   {
-    name: 'Manhattan',
+    name: 'Queens',
     state: 'NY',
-    description: 'Upper West Side to the Financial District and everywhere in between.',
+    description: 'From Long Island City and Astoria out to Flushing and Jamaica.',
   },
   {
-    name: 'Jersey City',
-    state: 'NJ',
-    description: 'Downtown, Heights, and Journal Square areas covered.',
-  },
-  {
-    name: 'Hoboken',
-    state: 'NJ',
-    description: 'Full city coverage across all Hoboken neighborhoods.',
-  },
-  {
-    name: 'Weehawken',
-    state: 'NJ',
-    description: 'Hudson River waterfront and surrounding neighborhoods.',
+    name: 'Manhasset',
+    state: 'NY',
+    description: 'Serving Manhasset and the surrounding North Shore of Nassau County.',
   },
 ] as const;
 
@@ -158,12 +148,12 @@ export const TRUST_BADGES = [
 ] as const;
 
 export const GALLERY_ITEMS = [
-  { id: 1, label: 'TV Mounting', location: 'Manhattan', image: '/gallery-tv-mounting.jpg' },
+  { id: 1, label: 'TV Mounting', location: 'Queens', image: '/gallery-tv-mounting.jpg' },
   { id: 2, label: 'Furniture Assembly', location: 'Brooklyn', image: '/gallery-furniture-assembly.jpg' },
-  { id: 3, label: 'Floating Shelves', location: 'Hoboken', image: '/gallery-floating-shelves.jpg' },
-  { id: 4, label: 'Drywall Repair', location: 'Jersey City', image: '/gallery-drywall-repair.jpg' },
+  { id: 3, label: 'Floating Shelves', location: 'Manhasset', image: '/gallery-floating-shelves.jpg' },
+  { id: 4, label: 'Drywall Repair', location: 'Queens', image: '/gallery-drywall-repair.jpg' },
   { id: 5, label: 'Cabinet Install', location: 'Brooklyn', image: '/gallery-cabinet-install.jpg' },
-  { id: 6, label: 'Blinds Installation', location: 'Manhattan', image: '/gallery-blinds-installation.jpg' },
+  { id: 6, label: 'Blinds Installation', location: 'Manhasset', image: '/gallery-blinds-installation.jpg' },
 ] as const;
 
 export const NAV_LINKS = [
