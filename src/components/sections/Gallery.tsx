@@ -9,6 +9,7 @@ export default function Gallery() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const triggerRef = useRef<HTMLButtonElement | null>(null);
   const closeBtnRef = useRef<HTMLButtonElement>(null);
+  const dialogRef = useRef<HTMLDivElement>(null);
 
   const openLightbox = (index: number, el: HTMLButtonElement) => {
     triggerRef.current = el;
@@ -30,9 +31,26 @@ export default function Gallery() {
     if (lightboxIndex === null) return;
     closeBtnRef.current?.focus();
     const onKeyDown = (e: KeyboardEvent) => {
-      if (e.key === 'Escape') closeLightbox();
-      else if (e.key === 'ArrowLeft') prevImage();
-      else if (e.key === 'ArrowRight') nextImage();
+      if (e.key === 'Escape') {
+        closeLightbox();
+      } else if (e.key === 'ArrowLeft') {
+        prevImage();
+      } else if (e.key === 'ArrowRight') {
+        nextImage();
+      } else if (e.key === 'Tab') {
+        // Trap focus within the dialog.
+        const focusables = dialogRef.current?.querySelectorAll<HTMLElement>('button');
+        if (!focusables || focusables.length === 0) return;
+        const first = focusables[0];
+        const last = focusables[focusables.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+          e.preventDefault();
+          last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+          e.preventDefault();
+          first.focus();
+        }
+      }
     };
     document.addEventListener('keydown', onKeyDown);
     return () => document.removeEventListener('keydown', onKeyDown);
@@ -98,6 +116,7 @@ export default function Gallery() {
       {/* Lightbox modal */}
       {lightboxIndex !== null && currentItem && (
         <div
+          ref={dialogRef}
           className="fixed inset-0 z-[100] flex items-center justify-center"
           style={{ backgroundColor: 'rgba(0,0,0,0.9)' }}
           role="dialog"

@@ -136,7 +136,7 @@ export default function JobberForm() {
 
       {/* Fallback if the embed fails to load — keep a path to convert. */}
       {failed && !loaded && (
-        <div className="absolute inset-0 bg-white flex flex-col items-center justify-center text-center gap-4 px-4" role="status">
+        <div className="absolute inset-0 z-10 bg-white flex flex-col items-center justify-center text-center gap-4 px-4" role="status">
           <p className="text-text-dark font-semibold">The booking form didn&rsquo;t load.</p>
           <p className="text-text-muted text-sm">No problem — reach us directly and we&rsquo;ll reply {BUSINESS.responseTime}.</p>
           <div className="flex flex-col sm:flex-row gap-3 w-full max-w-xs">
@@ -146,17 +146,20 @@ export default function JobberForm() {
         </div>
       )}
 
-      {/* Skeleton: absolute overlay, fades out once form is ready */}
-      <div
-        className="absolute inset-0 bg-white transition-opacity duration-700"
-        style={{
-          opacity: loaded || failed ? 0 : 1,
-          pointerEvents: loaded || failed ? 'none' : 'auto',
-        }}
-        aria-hidden={loaded || failed}
-      >
-        <Skeleton />
-      </div>
+      {/* Skeleton: absolute overlay, fades out once form is ready. Fully removed
+          on failure so the fallback above is the only overlay in flow + a11y tree. */}
+      {!failed && (
+        <div
+          className="absolute inset-0 bg-white transition-opacity duration-700"
+          style={{
+            opacity: loaded ? 0 : 1,
+            pointerEvents: loaded ? 'none' : 'auto',
+          }}
+          aria-hidden={loaded}
+        >
+          <Skeleton />
+        </div>
+      )}
     </div>
   );
 }

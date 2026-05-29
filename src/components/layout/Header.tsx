@@ -34,6 +34,13 @@ export default function Header() {
     );
     focusables?.[0]?.focus();
 
+    // Make the rest of the page inert so AT/focus can't reach behind the drawer.
+    const background = [
+      document.getElementById('main'),
+      document.querySelector('footer'),
+    ].filter((el): el is HTMLElement => el !== null);
+    background.forEach((el) => el.setAttribute('inert', ''));
+
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         setMenuOpen(false);
@@ -53,6 +60,7 @@ export default function Header() {
     document.addEventListener('keydown', onKeyDown);
     return () => {
       document.removeEventListener('keydown', onKeyDown);
+      background.forEach((el) => el.removeAttribute('inert'));
       // Return focus to the toggle when the drawer closes.
       toggle?.focus();
     };
