@@ -376,10 +376,7 @@ export default async function ServiceAreaPage({
       {areaReviews.length > 0 && (
         <section className="bg-white py-16 px-4 lg:py-20">
           <div className="max-w-4xl mx-auto">
-            <h2
-              className="font-heading font-bold text-3xl mb-8 text-center"
-              style={{ color: '#0D2860' }}
-            >
+            <h2 className="font-heading font-bold text-3xl mb-8 text-center text-primary-800">
               What Customers Say
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -395,10 +392,7 @@ export default async function ServiceAreaPage({
                     &ldquo;{review.text}&rdquo;
                   </blockquote>
                   <figcaption className="flex items-center gap-3">
-                    <div
-                      className="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
-                      style={{ backgroundColor: '#0D2860' }}
-                    >
+                    <div className="w-10 h-10 rounded-full flex items-center justify-center bg-primary-800 text-white text-sm font-bold flex-shrink-0">
                       {review.initials}
                     </div>
                     <div>
@@ -416,10 +410,7 @@ export default async function ServiceAreaPage({
       {/* FAQ */}
       <section className="bg-white py-16 px-4 lg:py-20">
         <div className="max-w-3xl mx-auto">
-          <h2
-            className="font-heading font-bold text-3xl mb-8 text-center"
-            style={{ color: '#0D2860' }}
-          >
+          <h2 className="font-heading font-bold text-3xl mb-8 text-center text-primary-800">
             Handyman in {area.name} — FAQs
           </h2>
           <div className="space-y-4">
@@ -431,8 +422,7 @@ export default async function ServiceAreaPage({
                 <summary className="flex cursor-pointer items-center justify-between gap-3 font-semibold text-text-dark list-none">
                   {faq.q}
                   <span
-                    className="text-xl flex-shrink-0 transition-transform duration-200 group-open:rotate-45"
-                    style={{ color: '#F97316' }}
+                    className="text-xl flex-shrink-0 transition-transform duration-200 group-open:rotate-45 text-accent-600"
                     aria-hidden="true"
                   >
                     +
@@ -460,15 +450,11 @@ export default async function ServiceAreaPage({
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href={`${BUSINESS.smsHref}handyman%20in%20${encodeURIComponent(area.name)}`}
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-white text-base transition-all duration-200 hover:scale-[1.02]"
-              style={{ backgroundColor: '#F97316' }}
+              className="btn btn-md btn-primary"
             >
-              💬 Text for a Free Estimate
+              Text for a Free Estimate
             </a>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center px-7 py-3.5 rounded-xl font-semibold text-white text-base border-2 border-white/30 hover:border-white/60 transition-colors duration-200"
-            >
+            <Link href="/contact" className="btn btn-md btn-outline-light">
               Get a Quote Online
             </Link>
           </div>

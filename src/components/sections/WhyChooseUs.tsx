@@ -31,8 +31,7 @@ export default function WhyChooseUs() {
   return (
     <section
       id="why-us"
-      className="py-16 px-4 lg:py-20 lg:px-6"
-      style={{ backgroundColor: '#F9FAFB' }}
+      className="py-16 px-4 lg:py-20 lg:px-6 bg-neutral-50"
     >
       <div className="max-w-6xl mx-auto">
         {/* Section header */}

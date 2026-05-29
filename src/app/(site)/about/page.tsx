@@ -71,12 +71,8 @@ export default function AboutPage() {
               </div>
 
               <div className="mt-8 flex flex-wrap gap-4">
-                <Link
-                  href="/contact"
-                  className="inline-flex items-center px-6 py-3 rounded-xl text-base font-semibold text-white transition-all duration-200 hover:scale-[1.02]"
-                  style={{ backgroundColor: '#F97316' }}
-                >
-                  Get a Free Estimate
+                <Link href="/contact" className="btn btn-md btn-primary">
+                  Get a Free Quote
                 </Link>
                 <a
                   href={BUSINESS.smsHref}
@@ -108,10 +104,9 @@ export default function AboutPage() {
               ].map((stat) => (
                 <div
                   key={stat.label}
-                  className="p-6 rounded-2xl text-center border border-neutral-200"
-                  style={{ backgroundColor: '#F9FAFB' }}
+                  className="p-6 rounded-2xl text-center border border-neutral-200 bg-neutral-50"
                 >
-                  <p className="font-heading font-extrabold text-4xl" style={{ color: '#0D2860' }}>
+                  <p className="font-heading font-extrabold text-4xl text-primary-800">
                     {stat.number}
                   </p>
                   <p className="mt-1 text-sm text-text-muted">{stat.label}</p>

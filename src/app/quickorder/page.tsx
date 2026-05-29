@@ -4,14 +4,11 @@ import Image from 'next/image';
 const JOBBER_FORM_URL =
   'https://clienthub.getjobber.com/hubs/d414ffea-724d-4732-bb6f-884d8b3b05e6/public/requests/2259100/new';
 
-const SMS_HREF = 'sms:+13477998402?&body=Hi%20Serge!%20I%20need%20help%20with%20';
+const SMS_HREF = 'sms:+13477998402?body=Hi%20Serge!%20I%20need%20help%20with%20';
 
 export default function QuickOrderPage() {
   return (
-    <main
-      className="min-h-screen flex flex-col items-center justify-center px-6 py-12"
-      style={{ backgroundColor: '#F8F9FB' }}
-    >
+    <main className="min-h-[100svh] flex flex-col items-center justify-center px-6 py-12 bg-neutral-50">
       <div className="w-full max-w-sm flex flex-col items-center gap-10">
 
         {/* Logo + home link */}
@@ -27,16 +24,10 @@ export default function QuickOrderPage() {
             height={64}
             className="rounded-2xl shadow-lg group-hover:scale-105 transition-transform duration-200"
           />
-          <span
-            className="font-heading font-extrabold text-2xl tracking-tight group-hover:opacity-80 transition-opacity"
-            style={{ color: '#0D2860' }}
-          >
+          <span className="font-heading font-extrabold text-2xl tracking-tight text-primary-800 group-hover:opacity-80 transition-opacity">
             Handlyr
           </span>
-          <span
-            className="text-sm font-medium -mt-1 underline underline-offset-2"
-            style={{ color: '#6B7280' }}
-          >
+          <span className="text-sm font-medium -mt-1 underline underline-offset-2 text-text-muted">
             handlyr.org
           </span>
         </Link>
@@ -57,8 +48,7 @@ export default function QuickOrderPage() {
           {/* SMS button */}
           <a
             href={SMS_HREF}
-            className="flex items-center justify-center gap-3 w-full py-5 rounded-2xl text-white text-lg font-bold shadow-lg active:scale-95 transition-transform duration-150"
-            style={{ backgroundColor: '#0D2860' }}
+            className="flex items-center justify-center gap-3 w-full py-5 rounded-2xl text-white text-lg font-bold shadow-lg active:scale-95 transition-transform duration-150 bg-primary-800"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -82,8 +72,7 @@ export default function QuickOrderPage() {
             href={JOBBER_FORM_URL}
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-3 w-full py-5 rounded-2xl text-white text-lg font-bold shadow-lg active:scale-95 transition-transform duration-150"
-            style={{ backgroundColor: '#F97316' }}
+            className="flex items-center justify-center gap-3 w-full py-5 rounded-2xl text-white text-lg font-bold shadow-lg active:scale-95 transition-transform duration-150 bg-accent-500"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -107,8 +96,7 @@ export default function QuickOrderPage() {
             href="https://g.page/r/CZAXmeyU7f5eEAE/review"
             target="_blank"
             rel="noopener noreferrer"
-            className="flex items-center justify-center gap-3 w-full py-4 rounded-2xl text-lg font-bold border-2 bg-white active:scale-95 transition-transform duration-150"
-            style={{ borderColor: '#0D2860', color: '#0D2860' }}
+            className="flex items-center justify-center gap-3 w-full py-4 rounded-2xl text-lg font-bold border-2 bg-white active:scale-95 transition-transform duration-150 border-primary-800 text-primary-800"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"

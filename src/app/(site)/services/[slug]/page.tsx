@@ -4,7 +4,7 @@ import Link from 'next/link';
 import PageHero from '@/components/sections/PageHero';
 import { BUSINESS, SERVICE_AREAS, REVIEWS, PRICING, SHARED_FAQS } from '@/lib/constants';
 import { SERVICE_ICON } from '@/lib/serviceIcons';
-import { PhoneIcon } from '@/components/icons';
+import { PhoneIcon, MapPinIcon } from '@/components/icons';
 
 // ─── Service data ─────────────────────────────────────────────────────────────
 
@@ -438,22 +438,15 @@ export default async function ServicePage({
           </div>
 
           {/* What to expect */}
-          <div
-            className="mt-10 p-6 rounded-2xl border border-neutral-200"
-            style={{ backgroundColor: '#F9FAFB' }}
-          >
-            <h3
-              className="font-heading font-bold text-xl mb-4"
-              style={{ color: '#0D2860' }}
-            >
+          <div className="mt-10 p-6 rounded-2xl border border-neutral-200 bg-neutral-50">
+            <h3 className="font-heading font-bold text-xl mb-4 text-primary-800">
               What to Expect
             </h3>
             <ul className="space-y-2">
               {service.whatToExpect.map((item) => (
                 <li key={item} className="flex items-start gap-3 text-text-muted text-sm">
                   <span
-                    className="mt-0.5 w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center text-white text-xs font-bold"
-                    style={{ backgroundColor: '#0D2860' }}
+                    className="mt-0.5 w-5 h-5 rounded-full flex-shrink-0 flex items-center justify-center bg-primary-800 text-white text-xs font-bold"
                     aria-hidden="true"
                   >
                     ✓
@@ -465,18 +458,12 @@ export default async function ServicePage({
           </div>
 
           {/* Pricing */}
-          <div
-            className="mt-6 p-6 rounded-2xl border"
-            style={{ backgroundColor: '#FFF7ED', borderColor: '#FED7AA' }}
-          >
-            <h3
-              className="font-heading font-bold text-xl mb-3"
-              style={{ color: '#0D2860' }}
-            >
+          <div className="mt-6 p-6 rounded-2xl border border-accent-100 bg-accent-100/40">
+            <h3 className="font-heading font-bold text-xl mb-3 text-primary-800">
               Simple, Upfront Pricing
             </h3>
             <p className="text-text-muted text-base leading-relaxed">
-              <strong style={{ color: '#0D2860' }}>
+              <strong className="text-primary-800">
                 ${PRICING.hourlyRate}/hour
               </strong>{' '}
               with a {PRICING.minimumHours}-hour minimum (${PRICING.hourlyRate * PRICING.minimumHours} minimum).{' '}
@@ -490,12 +477,9 @@ export default async function ServicePage({
       </section>
 
       {/* Service areas */}
-      <section className="py-16 px-4 lg:py-20" style={{ backgroundColor: '#F9FAFB' }}>
+      <section className="py-16 px-4 lg:py-20 bg-neutral-50">
         <div className="max-w-4xl mx-auto">
-          <h2
-            className="font-heading font-bold text-3xl mb-2"
-            style={{ color: '#0D2860' }}
-          >
+          <h2 className="font-heading font-bold text-3xl mb-2 text-primary-800">
             Available Across the NYC Metro Area
           </h2>
           <p className="text-text-muted mb-8">
@@ -508,12 +492,9 @@ export default async function ServicePage({
                 href={`/service-areas/${area.slug}`}
                 className="flex items-start gap-3 p-4 bg-white rounded-2xl border border-neutral-200 hover:shadow-md transition-shadow duration-200 group"
               >
-                <span className="text-xl mt-0.5" aria-hidden="true">📍</span>
+                <span className="text-accent-600 mt-0.5"><MapPinIcon className="w-5 h-5" /></span>
                 <div>
-                  <p
-                    className="font-semibold text-sm group-hover:underline"
-                    style={{ color: '#0D2860' }}
-                  >
+                  <p className="font-semibold text-sm group-hover:underline text-primary-800">
                     {area.name}, {area.state}
                   </p>
                   <p className="text-xs text-text-muted mt-0.5">{area.description}</p>
@@ -528,10 +509,7 @@ export default async function ServicePage({
       {serviceReviews.length > 0 && (
         <section className="bg-white py-16 px-4 lg:py-20">
           <div className="max-w-4xl mx-auto">
-            <h2
-              className="font-heading font-bold text-3xl mb-8 text-center"
-              style={{ color: '#0D2860' }}
-            >
+            <h2 className="font-heading font-bold text-3xl mb-8 text-center text-primary-800">
               What Customers Say
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -547,10 +525,7 @@ export default async function ServicePage({
                     &ldquo;{review.text}&rdquo;
                   </blockquote>
                   <figcaption className="flex items-center gap-3">
-                    <div
-                      className="w-10 h-10 rounded-full flex items-center justify-center text-white text-sm font-bold flex-shrink-0"
-                      style={{ backgroundColor: '#0D2860' }}
-                    >
+                    <div className="w-10 h-10 rounded-full flex items-center justify-center bg-primary-800 text-white text-sm font-bold flex-shrink-0">
                       {review.initials}
                     </div>
                     <div>
@@ -566,12 +541,9 @@ export default async function ServicePage({
       )}
 
       {/* FAQ */}
-      <section className="py-16 px-4 lg:py-20" style={{ backgroundColor: '#F9FAFB' }}>
+      <section className="py-16 px-4 lg:py-20 bg-neutral-50">
         <div className="max-w-3xl mx-auto">
-          <h2
-            className="font-heading font-bold text-3xl mb-8 text-center"
-            style={{ color: '#0D2860' }}
-          >
+          <h2 className="font-heading font-bold text-3xl mb-8 text-center text-primary-800">
             Frequently Asked Questions
           </h2>
           <div className="space-y-4">
@@ -583,8 +555,7 @@ export default async function ServicePage({
                 <summary className="flex cursor-pointer items-center justify-between gap-3 font-semibold text-text-dark list-none">
                   {faq.q}
                   <span
-                    className="text-xl flex-shrink-0 transition-transform duration-200 group-open:rotate-45"
-                    style={{ color: '#F97316' }}
+                    className="text-xl flex-shrink-0 transition-transform duration-200 group-open:rotate-45 text-accent-600"
                     aria-hidden="true"
                   >
                     +
@@ -612,15 +583,11 @@ export default async function ServicePage({
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <a
               href={`${BUSINESS.smsHref}${encodeURIComponent(service.name)}`}
-              className="inline-flex items-center justify-center gap-2 px-7 py-3.5 rounded-xl font-semibold text-white text-base transition-all duration-200 hover:scale-[1.02]"
-              style={{ backgroundColor: '#F97316' }}
+              className="btn btn-md btn-primary"
             >
-              💬 Text for a Free Estimate
+              Text for a Free Estimate
             </a>
-            <Link
-              href="/contact"
-              className="inline-flex items-center justify-center px-7 py-3.5 rounded-xl font-semibold text-white text-base border-2 border-white/30 hover:border-white/60 transition-colors duration-200"
-            >
+            <Link href="/contact" className="btn btn-md btn-outline-light">
               Get a Quote Online
             </Link>
           </div>
