@@ -1,5 +1,7 @@
 import { REVIEWS } from '@/lib/constants';
 import { StarIcon } from '@/components/icons';
+import ThumbtackReviewWidget from '@/components/sections/ThumbtackReviewWidget';
+import GoogleReviewsWidget from '@/components/sections/GoogleReviewsWidget';
 
 export default function Reviews() {
   return (
@@ -19,6 +21,12 @@ export default function Reviews() {
           >
             What Our Customers Say
           </h2>
+        </div>
+
+        {/* Latest verified reviews — live from Thumbtack & Google */}
+        <div className="mb-12 flex flex-wrap justify-center items-start gap-6">
+          <ThumbtackReviewWidget />
+          <GoogleReviewsWidget />
         </div>
 
         {/* Reviews grid */}
