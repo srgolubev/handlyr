@@ -117,16 +117,19 @@ export type Service = (typeof SERVICES)[number];
 export const SERVICE_AREAS = [
   {
     name: 'Brooklyn',
+    slug: 'brooklyn',
     state: 'NY',
     description: 'Serving all Brooklyn neighborhoods from Bay Ridge to Williamsburg.',
   },
   {
     name: 'Queens',
+    slug: 'queens',
     state: 'NY',
     description: 'From Long Island City and Astoria out to Flushing and Jamaica.',
   },
   {
     name: 'Manhasset',
+    slug: 'manhasset',
     state: 'NY',
     description: 'Serving Manhasset and the surrounding North Shore of Nassau County.',
   },

@@ -501,7 +501,7 @@ export default async function ServicePage({
             {SERVICE_AREAS.map((area) => (
               <Link
                 key={area.name}
-                href={`/service-areas/${area.name.toLowerCase().replace(/\s+/g, '-')}`}
+                href={`/service-areas/${area.slug}`}
                 className="flex items-start gap-3 p-4 bg-white rounded-2xl border border-neutral-200 hover:shadow-md transition-shadow duration-200 group"
               >
                 <span className="text-xl mt-0.5" aria-hidden="true">📍</span>

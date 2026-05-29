@@ -3,7 +3,7 @@ import Footer from '@/components/layout/Footer';
 import StickyMobileCTA from '@/components/layout/StickyMobileCTA';
 import JsonLd from '@/components/JsonLd';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
-import { REVIEWS, SERVICES, RATING, PRICING } from '@/lib/constants';
+import { SERVICES, PRICING } from '@/lib/constants';
 
 // Public profiles where the business can be corroborated (helps both local SEO
 // entity matching and AI answer-engine citation/trust).
@@ -29,11 +29,6 @@ const localBusinessSchema = {
   logo: 'https://handlyr.org/favicon/android-chrome-512x512.png',
   foundingDate: '2009',
   founder: { '@type': 'Person', name: 'Serge', jobTitle: 'Owner & Handyman' },
-  address: {
-    '@type': 'PostalAddress',
-    addressRegion: 'NY',
-    addressCountry: 'US',
-  },
   areaServed: [
     { '@type': 'City', name: 'Brooklyn', containedInPlace: { '@type': 'State', name: 'New York' } },
     { '@type': 'City', name: 'Queens', containedInPlace: { '@type': 'State', name: 'New York' } },
@@ -44,20 +39,10 @@ const localBusinessSchema = {
   openingHoursSpecification: [
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'], opens: '08:00', closes: '20:00' },
   ],
-  // Verified across Thumbtack (25) + Google (3): 27×5★ + 1×2★ = 4.9 avg / 28.
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: RATING.value,
-    reviewCount: String(RATING.count),
-    bestRating: RATING.best,
-    worstRating: RATING.worst,
-  },
-  review: REVIEWS.map((r) => ({
-    '@type': 'Review',
-    author: { '@type': 'Person', name: r.name },
-    reviewRating: { '@type': 'Rating', ratingValue: String(r.stars), bestRating: '5', worstRating: '1' },
-    reviewBody: r.text,
-  })),
+  // NOTE: We deliberately do NOT emit aggregateRating/review on this first-party
+  // business node. Google's review-snippet policy disallows self-serving ratings
+  // controlled by the business. The real 4.9★ / 28 reviews remain visible on-page
+  // and are corroborated via the independent profiles in sameAs (Thumbtack/Google).
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
     name: 'Handyman Services',

@@ -56,7 +56,7 @@ export default function Footer() {
               {SERVICE_AREAS.map((area) => (
                 <li key={area.name}>
                   <Link
-                    href={`/service-areas/${area.name.toLowerCase().replace(/\s+/g, '-')}`}
+                    href={`/service-areas/${area.slug}`}
                     className="text-sm transition-colors duration-150 hover:text-white"
                     style={{ color: 'rgba(255,255,255,0.7)' }}
                   >
