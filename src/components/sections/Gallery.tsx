@@ -1,23 +1,42 @@
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Image from 'next/image';
 import { GALLERY_ITEMS } from '@/lib/constants';
 import { XIcon, ChevronLeftIcon, ChevronRightIcon } from '@/components/icons';
 
 export default function Gallery() {
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
+  const triggerRef = useRef<HTMLButtonElement | null>(null);
+  const closeBtnRef = useRef<HTMLButtonElement>(null);
 
-  const openLightbox = (index: number) => setLightboxIndex(index);
-  const closeLightbox = () => setLightboxIndex(null);
+  const openLightbox = (index: number, el: HTMLButtonElement) => {
+    triggerRef.current = el;
+    setLightboxIndex(index);
+  };
+  const closeLightbox = () => {
+    setLightboxIndex(null);
+    triggerRef.current?.focus(); // restore focus to the thumbnail that opened it
+  };
   const prevImage = () => {
-    if (lightboxIndex === null) return;
-    setLightboxIndex((lightboxIndex - 1 + GALLERY_ITEMS.length) % GALLERY_ITEMS.length);
+    setLightboxIndex((i) => (i === null ? i : (i - 1 + GALLERY_ITEMS.length) % GALLERY_ITEMS.length));
   };
   const nextImage = () => {
-    if (lightboxIndex === null) return;
-    setLightboxIndex((lightboxIndex + 1) % GALLERY_ITEMS.length);
+    setLightboxIndex((i) => (i === null ? i : (i + 1) % GALLERY_ITEMS.length));
   };
+
+  // Keyboard support while the lightbox is open: Escape closes, arrows navigate.
+  useEffect(() => {
+    if (lightboxIndex === null) return;
+    closeBtnRef.current?.focus();
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeLightbox();
+      else if (e.key === 'ArrowLeft') prevImage();
+      else if (e.key === 'ArrowRight') nextImage();
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => document.removeEventListener('keydown', onKeyDown);
+  }, [lightboxIndex]);
 
   const currentItem = lightboxIndex !== null ? GALLERY_ITEMS[lightboxIndex] : null;
 
@@ -53,7 +72,7 @@ export default function Gallery() {
             {GALLERY_ITEMS.map((item, index) => (
               <button
                 key={item.id}
-                onClick={() => openLightbox(index)}
+                onClick={(e) => openLightbox(index, e.currentTarget)}
                 className="group relative aspect-square overflow-hidden rounded-xl cursor-pointer focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
                 aria-label={`View ${item.label} — ${item.location}`}
               >
@@ -93,6 +112,7 @@ export default function Gallery() {
         >
           {/* Close button */}
           <button
+            ref={closeBtnRef}
             onClick={closeLightbox}
             className="absolute top-4 right-4 text-white hover:text-neutral-300 transition-colors duration-150 p-2"
             aria-label="Close lightbox"
@@ -119,7 +139,7 @@ export default function Gallery() {
               alt={`${currentItem.label} in ${currentItem.location}`}
               fill
               sizes="90vw"
-              className="object-cover"
+              className="object-contain"
               priority
             />
             <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">

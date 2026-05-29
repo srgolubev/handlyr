@@ -2,13 +2,15 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { BUSINESS, NAV_LINKS } from '@/lib/constants';
 import { PhoneIcon, MenuIcon, XIcon } from '@/components/icons';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const drawerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 60);
@@ -20,6 +22,39 @@ export default function Header() {
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
+
+  // Mobile drawer: focus management, Escape to close, and Tab focus-trap.
+  useEffect(() => {
+    if (!menuOpen) return;
+    const drawer = drawerRef.current;
+    const focusables = drawer?.querySelectorAll<HTMLElement>(
+      'a[href], button:not([disabled])'
+    );
+    focusables?.[0]?.focus();
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setMenuOpen(false);
+        return;
+      }
+      if (e.key !== 'Tab' || !focusables || focusables.length === 0) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+      // Return focus to the toggle when the drawer closes.
+      toggleRef.current?.focus();
+    };
   }, [menuOpen]);
 
   return (
@@ -87,15 +122,16 @@ export default function Header() {
           </div>
 
           {/* Mobile right side */}
-          <div className="flex lg:hidden items-center gap-2">
+          <div className="flex lg:hidden items-center gap-3">
             <a
               href={BUSINESS.phoneHref}
-              className="flex items-center justify-center w-11 h-11 rounded-full bg-primary-100 text-primary-700 hover:bg-primary-200 transition-colors duration-150"
+              className="flex items-center justify-center w-11 h-11 rounded-full bg-accent-500 text-white hover:opacity-90 transition-opacity duration-150"
               aria-label={`Call us at ${BUSINESS.phone}`}
             >
               <PhoneIcon className="w-5 h-5" />
             </a>
             <button
+              ref={toggleRef}
               onClick={() => setMenuOpen(!menuOpen)}
               className="flex items-center justify-center w-11 h-11 rounded-lg text-text-dark hover:bg-neutral-100 transition-colors duration-150"
               aria-label={menuOpen ? 'Close menu' : 'Open menu'}
@@ -125,7 +161,9 @@ export default function Header() {
 
         {/* Drawer */}
         <nav
-          className={`absolute top-0 right-0 w-full max-w-sm h-[calc(100vh-64px)] bg-white shadow-2xl flex flex-col transition-transform duration-300 ${
+          ref={drawerRef}
+          inert={!menuOpen}
+          className={`absolute top-0 right-0 w-full max-w-sm h-[calc(100svh-64px)] bg-white shadow-2xl flex flex-col transition-transform duration-300 ${
             menuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
           aria-label="Mobile navigation"

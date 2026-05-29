@@ -2,12 +2,14 @@ export const BUSINESS = {
   name: 'Handlyr',
   phone: '(347) 799-8402',
   phoneHref: 'tel:+13477998402',
-  smsHref: 'sms:+13477998402?&body=Hi%20Serge!%20I%20need%20help%20with%20',
+  smsHref: 'sms:+13477998402?body=Hi%20Serge!%20I%20need%20help%20with%20',
   location: 'New York City',
   experience: '15+',
   founded: '2009',
   email: 'order@handlyr.org',
   tagline: 'Professional handyman services across New York City.',
+  responseTime: 'within 20 minutes',
+  guarantee: '30-Day Workmanship Guarantee',
 };
 
 // Single source of truth for verified reputation (Thumbtack + Google).
@@ -44,7 +46,11 @@ export const SHARED_FAQS = [
   },
   {
     q: 'How fast can you come?',
-    a: 'We usually respond within the hour, and same-day appointments are often available. We work 7 days a week, 8:00 AM to 8:00 PM.',
+    a: 'We usually reply within 20 minutes, and same-day appointments are often available. We work 7 days a week, 8:00 AM to 8:00 PM.',
+  },
+  {
+    q: 'Do you guarantee your work?',
+    a: 'Yes — every job is backed by a 30-day workmanship guarantee. If something we did is not right, we come back and make it right at no extra charge.',
   },
   {
     q: 'What areas do you serve?',
@@ -227,7 +233,7 @@ export const GALLERY_ITEMS = [
 ] as const;
 
 export const NAV_LINKS = [
-  { label: 'Services', href: '/#services' },
+  { label: 'Services', href: '/services' },
   { label: 'About', href: '/about' },
   { label: 'Projects', href: '/projects' },
   { label: 'Areas', href: '/service-areas' },

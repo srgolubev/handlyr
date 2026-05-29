@@ -2,46 +2,41 @@
 
 import { BUSINESS, RATING } from '@/lib/constants';
 import JobberForm from './JobberForm';
-import { PhoneIcon, CheckCircleIcon, StarIcon } from '@/components/icons';
+import { CheckCircleIcon, StarIcon } from '@/components/icons';
 
 export default function ContactForm() {
   return (
     <section
       id="contact"
-      className="py-16 px-4 lg:py-24 lg:px-6"
-      style={{ backgroundColor: '#0B1F4A' }}
+      data-surface="dark"
+      className="py-16 px-4 lg:py-24 lg:px-6 scroll-mt-20 bg-primary-900"
     >
       <div className="max-w-6xl mx-auto">
         <div className="grid lg:grid-cols-2 gap-12 items-start">
           {/* Left column: text */}
           <div className="text-white">
-            <p
-              className="text-xs font-semibold uppercase tracking-widest mb-4"
-              style={{ color: '#F97316', letterSpacing: '0.1em' }}
-            >
+            <p className="eyebrow text-accent-500 mb-4">
               Get in Touch
             </p>
             <h2
               className="font-heading font-bold text-3xl lg:text-4xl text-white mb-4"
               style={{ letterSpacing: '-0.01em' }}
             >
-              Get Your Free Estimate Today
+              Get Your Free Quote Today
             </h2>
-            <p
-              className="text-lg leading-relaxed mb-8"
-              style={{ color: 'rgba(255,255,255,0.8)' }}
-            >
-              {"Tell us what you need done. We'll respond with a price — usually within the hour, no obligation."}
+            <p className="text-lg leading-relaxed mb-8 text-white/80">
+              {`Tell us what you need done. We'll respond with a price — usually ${BUSINESS.responseTime}, no obligation.`}
             </p>
 
             <ul className="space-y-4 mb-10">
               {[
-                'Fast response — usually within the hour',
+                `Fast response — usually ${BUSINESS.responseTime}`,
                 'Free quotes by text — just send a photo',
                 'Simple $59/hour pricing, 2-hour minimum',
+                BUSINESS.guarantee,
               ].map((item) => (
-                <li key={item} className="flex items-center gap-3 text-base" style={{ color: 'rgba(255,255,255,0.85)' }}>
-                  <span style={{ color: '#F97316' }}>
+                <li key={item} className="flex items-center gap-3 text-base text-white/90">
+                  <span className="text-accent-500">
                     <CheckCircleIcon className="w-4 h-4 flex-shrink-0" />
                   </span>
                   {item}
@@ -58,14 +53,13 @@ export default function ContactForm() {
                   ))}
                 </div>
                 <p className="text-sm font-medium text-white">Rated {RATING.value}/5 by NYC homeowners</p>
-                <p className="text-xs" style={{ color: 'rgba(255,255,255,0.6)' }}>{RATING.count} verified reviews · Available today</p>
+                <p className="text-xs text-white/70">{RATING.count} verified reviews · Available today</p>
               </div>
             </div>
 
             <a
               href={BUSINESS.smsHref}
-              className="flex items-center justify-center gap-2 w-full py-4 rounded-xl text-lg font-bold text-white transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl hover:opacity-90 active:scale-95"
-              style={{ backgroundColor: '#F97316' }}
+              className="btn btn-lg btn-primary w-full text-lg font-bold"
             >
               Text Now — {BUSINESS.phone}
             </a>
