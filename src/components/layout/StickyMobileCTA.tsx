@@ -1,5 +1,6 @@
 'use client';
 
+import Link from 'next/link';
 import { useState, useEffect } from 'react';
 import { BUSINESS } from '@/lib/constants';
 import { ClipboardIcon } from '@/components/icons';
@@ -21,37 +22,33 @@ export default function StickyMobileCTA() {
 
   return (
     <div
-      className={`fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-white border-t-2 px-4 pt-3 transition-transform duration-300 ease-out ${
+      id="sticky-mobile-cta"
+      className={`fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-white border-t-2 border-accent-500 px-4 pt-3 transition-transform duration-300 ease-out ${
         visible ? 'translate-y-0' : 'translate-y-full'
       }`}
-      style={{
-        paddingBottom: 'max(12px, env(safe-area-inset-bottom))',
-        borderTopColor: '#F97316',
-      }}
+      style={{ paddingBottom: 'max(12px, env(safe-area-inset-bottom))' }}
       aria-hidden={!visible}
     >
       {/* Urgency micro-copy */}
       <p className="text-center text-xs font-medium text-text-muted mb-2">
-        Available today · Free estimates
+        Available today · Free text quotes
       </p>
       <div className="flex gap-3 max-w-sm mx-auto">
         <a
           href={BUSINESS.smsHref}
-          className="flex-1 flex items-center justify-center gap-2 py-3.5 rounded-xl text-sm font-bold text-white transition-all duration-150 hover:opacity-90 active:scale-95 min-h-[52px]"
-          style={{ backgroundColor: '#F97316' }}
+          className="btn btn-primary flex-1 text-sm font-bold min-h-[52px]"
           tabIndex={visible ? 0 : -1}
         >
           Text Now
         </a>
-        <a
-          href="#contact"
-          className="flex-1 flex items-center justify-center gap-2 py-3.5 rounded-xl text-sm font-bold text-white transition-all duration-150 hover:opacity-90 active:scale-95 min-h-[52px]"
-          style={{ backgroundColor: '#0D2860' }}
+        <Link
+          href="/contact"
+          className="btn btn-secondary flex-1 text-sm font-bold min-h-[52px]"
           tabIndex={visible ? 0 : -1}
         >
           <ClipboardIcon className="w-5 h-5" />
           Free Quote
-        </a>
+        </Link>
       </div>
     </div>
   );

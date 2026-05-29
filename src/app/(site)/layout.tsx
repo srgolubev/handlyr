@@ -89,8 +89,9 @@ export default function SiteLayout({
       <JsonLd schema={localBusinessSchema} />
       <JsonLd schema={webSiteSchema} />
       <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ''} />
+      <a href="#main" className="skip-link">Skip to content</a>
       <Header />
-      <main className="pb-20 lg:pb-0">{children}</main>
+      <main id="main" tabIndex={-1} className="pb-28 lg:pb-0">{children}</main>
       <Footer />
       <StickyMobileCTA />
     </>

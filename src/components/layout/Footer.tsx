@@ -5,7 +5,7 @@ import { MapPinIcon, MailIcon } from '@/components/icons';
 
 export default function Footer() {
   return (
-    <footer style={{ backgroundColor: '#0B1F4A' }} className="text-white">
+    <footer data-surface="dark" className="bg-primary-900 text-white">
       <div className="max-w-7xl mx-auto px-4 py-12 lg:py-16">
         <div className="grid grid-cols-1 gap-10 md:grid-cols-2 lg:grid-cols-4">
           {/* Column 1: Brand */}
@@ -102,23 +102,21 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-6 border-t" style={{ borderColor: 'rgba(255,255,255,0.1)' }}>
+        <div className="mt-12 pt-6 border-t border-white/10">
           <div className="flex flex-col items-center gap-3 text-center md:flex-row md:justify-between md:text-left">
-            <p className="text-xs" style={{ color: 'rgba(255,255,255,0.4)' }}>
+            <p className="text-xs text-white/60">
               &copy; {new Date().getFullYear()} Handlyr. All rights reserved.
             </p>
             <div className="flex items-center gap-4">
               <Link
                 href="/privacy"
-                className="text-xs transition-colors duration-150 hover:text-white/70"
-                style={{ color: 'rgba(255,255,255,0.4)' }}
+                className="text-xs text-white/60 transition-colors duration-150 hover:text-white"
               >
                 Privacy Policy
               </Link>
               <Link
                 href="/terms"
-                className="text-xs transition-colors duration-150 hover:text-white/70"
-                style={{ color: 'rgba(255,255,255,0.4)' }}
+                className="text-xs text-white/60 transition-colors duration-150 hover:text-white"
               >
                 Terms of Service
               </Link>

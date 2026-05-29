@@ -2,13 +2,15 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { BUSINESS, NAV_LINKS } from '@/lib/constants';
 import { PhoneIcon, MenuIcon, XIcon } from '@/components/icons';
 
 export default function Header() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const toggleRef = useRef<HTMLButtonElement>(null);
+  const drawerRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 60);
@@ -20,6 +22,54 @@ export default function Header() {
   useEffect(() => {
     document.body.style.overflow = menuOpen ? 'hidden' : '';
     return () => { document.body.style.overflow = ''; };
+  }, [menuOpen]);
+
+  // Mobile drawer: focus management, Escape to close, and Tab focus-trap.
+  useEffect(() => {
+    if (!menuOpen) return;
+    const toggle = toggleRef.current;
+    const drawer = drawerRef.current;
+    drawer?.querySelector<HTMLElement>('a[href], button:not([disabled])')?.focus();
+
+    // Make everything outside the drawer inert while it's open, so AT/focus
+    // can't reach the page, skip link, or sticky CTA behind it. (The header bar
+    // is intentionally left active — it hosts the close toggle.)
+    const background = [
+      document.getElementById('main'),
+      document.querySelector('footer'),
+      document.querySelector<HTMLElement>('.skip-link'),
+      document.getElementById('sticky-mobile-cta'),
+    ].filter((el): el is HTMLElement => el !== null);
+    background.forEach((el) => el.setAttribute('inert', ''));
+
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') {
+        setMenuOpen(false);
+        return;
+      }
+      if (e.key !== 'Tab') return;
+      // Recompute focusables each time so the trap can't go stale.
+      const focusables = drawer?.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled])'
+      );
+      if (!focusables || focusables.length === 0) return;
+      const first = focusables[0];
+      const last = focusables[focusables.length - 1];
+      if (e.shiftKey && document.activeElement === first) {
+        e.preventDefault();
+        last.focus();
+      } else if (!e.shiftKey && document.activeElement === last) {
+        e.preventDefault();
+        first.focus();
+      }
+    };
+    document.addEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+      background.forEach((el) => el.removeAttribute('inert'));
+      // Return focus to the toggle when the drawer closes.
+      toggle?.focus();
+    };
   }, [menuOpen]);
 
   return (
@@ -44,10 +94,7 @@ export default function Header() {
               height={36}
               className="rounded-lg"
             />
-            <span
-              className="font-heading font-extrabold text-xl tracking-tight"
-              style={{ color: '#0D2860' }}
-            >
+            <span className="font-heading font-extrabold text-xl tracking-tight text-primary-800">
               Handlyr
             </span>
           </Link>
@@ -70,32 +117,28 @@ export default function Header() {
           <div className="hidden lg:flex items-center gap-4">
             <a
               href={BUSINESS.phoneHref}
-              className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-150 hover:bg-orange-50 focus-visible:ring-2 focus-visible:ring-orange-300"
-              style={{ color: '#F97316' }}
+              className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold text-accent-700 transition-all duration-150 hover:bg-accent-100"
               aria-label={`Call us at ${BUSINESS.phone}`}
             >
               <PhoneIcon className="w-4 h-4" />
               {BUSINESS.phone}
             </a>
-            <Link
-              href="/contact"
-              className="inline-flex items-center px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.02] active:scale-95 focus-visible:ring-4 focus-visible:ring-orange-300 hover:opacity-90"
-              style={{ backgroundColor: '#F97316' }}
-            >
+            <Link href="/contact" className="btn btn-sm btn-primary">
               Get a Quote
             </Link>
           </div>
 
           {/* Mobile right side */}
-          <div className="flex lg:hidden items-center gap-2">
+          <div className="flex lg:hidden items-center gap-3">
             <a
               href={BUSINESS.phoneHref}
-              className="flex items-center justify-center w-11 h-11 rounded-full bg-primary-100 text-primary-700 hover:bg-primary-200 transition-colors duration-150"
+              className="flex items-center justify-center w-11 h-11 rounded-full bg-accent-500 text-white hover:opacity-90 transition-opacity duration-150"
               aria-label={`Call us at ${BUSINESS.phone}`}
             >
               <PhoneIcon className="w-5 h-5" />
             </a>
             <button
+              ref={toggleRef}
               onClick={() => setMenuOpen(!menuOpen)}
               className="flex items-center justify-center w-11 h-11 rounded-lg text-text-dark hover:bg-neutral-100 transition-colors duration-150"
               aria-label={menuOpen ? 'Close menu' : 'Open menu'}
@@ -125,7 +168,9 @@ export default function Header() {
 
         {/* Drawer */}
         <nav
-          className={`absolute top-0 right-0 w-full max-w-sm h-[calc(100vh-64px)] bg-white shadow-2xl flex flex-col transition-transform duration-300 ${
+          ref={drawerRef}
+          inert={!menuOpen}
+          className={`absolute top-0 right-0 w-full max-w-sm h-[calc(100svh-64px)] bg-white shadow-2xl flex flex-col transition-transform duration-300 ${
             menuOpen ? 'translate-x-0' : 'translate-x-full'
           }`}
           aria-label="Mobile navigation"
@@ -146,8 +191,7 @@ export default function Header() {
           <div className="p-4 border-t border-neutral-200">
             <a
               href={BUSINESS.smsHref}
-              className="flex items-center justify-center gap-2 w-full py-4 rounded-xl text-base font-bold text-white transition-colors duration-150"
-              style={{ backgroundColor: '#F97316' }}
+              className="btn btn-md btn-primary w-full text-base font-bold"
               onClick={() => setMenuOpen(false)}
             >
               <PhoneIcon className="w-5 h-5" />

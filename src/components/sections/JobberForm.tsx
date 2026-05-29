@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef, useState } from 'react';
+import { BUSINESS } from '@/lib/constants';
 
 const JOBBER_ID = 'd414ffea-724d-4732-bb6f-884d8b3b05e6-2259100';
 const JOBBER_CSS = 'https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css';
@@ -70,10 +71,19 @@ function Skeleton() {
 export default function JobberForm() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [loaded, setLoaded] = useState(false);
+  const [failed, setFailed] = useState(false);
 
   useEffect(() => {
     setLoaded(false);
+    setFailed(false);
     const myGeneration = ++activeGeneration;
+
+    // If the 3rd-party embed never loads (blocked, offline, CSP), show a fallback.
+    const failTimer = setTimeout(() => {
+      if (activeGeneration === myGeneration && containerRef.current?.childElementCount === 0) {
+        setFailed(true);
+      }
+    }, 10000);
 
     if (!document.querySelector(`link[href="${JOBBER_CSS}"]`)) {
       const link = document.createElement('link');
@@ -89,6 +99,7 @@ export default function JobberForm() {
       observer = new MutationObserver(() => {
         if (containerRef.current && containerRef.current.childElementCount > 0) {
           setLoaded(true);
+          clearTimeout(failTimer);
           observer?.disconnect();
         }
       });
@@ -110,6 +121,7 @@ export default function JobberForm() {
 
     return () => {
       clearTimeout(timer);
+      clearTimeout(failTimer);
       observer?.disconnect();
       if (activeGeneration !== myGeneration) return;
       document.querySelector(`script[src="${JOBBER_JS}"]`)?.remove();
@@ -118,21 +130,36 @@ export default function JobberForm() {
   }, []);
 
   return (
-    <div className="relative" style={{ minHeight: loaded ? undefined : '540px' }}>
+    <div className="relative" style={{ minHeight: '540px' }}>
       {/* Jobber container */}
       <div id={JOBBER_ID} ref={containerRef} />
 
-      {/* Skeleton: absolute overlay, fades out once form is ready */}
-      <div
-        className="absolute inset-0 bg-white transition-opacity duration-700"
-        style={{
-          opacity: loaded ? 0 : 1,
-          pointerEvents: loaded ? 'none' : 'auto',
-        }}
-        aria-hidden={loaded}
-      >
-        <Skeleton />
-      </div>
+      {/* Fallback if the embed fails to load — keep a path to convert. */}
+      {failed && !loaded && (
+        <div className="absolute inset-0 z-10 bg-white flex flex-col items-center justify-center text-center gap-4 px-4" role="status">
+          <p className="text-text-dark font-semibold">The booking form didn&rsquo;t load.</p>
+          <p className="text-text-muted text-sm">No problem — reach us directly and we&rsquo;ll reply {BUSINESS.responseTime}.</p>
+          <div className="flex flex-col sm:flex-row gap-3 w-full max-w-xs">
+            <a href={BUSINESS.smsHref} className="btn btn-md btn-primary flex-1">Text Us</a>
+            <a href={BUSINESS.phoneHref} className="btn btn-md btn-outline-dark flex-1">Call {BUSINESS.phone}</a>
+          </div>
+        </div>
+      )}
+
+      {/* Skeleton: absolute overlay, fades out once form is ready. Fully removed
+          on failure so the fallback above is the only overlay in flow + a11y tree. */}
+      {!failed && (
+        <div
+          className="absolute inset-0 bg-white transition-opacity duration-700"
+          style={{
+            opacity: loaded ? 0 : 1,
+            pointerEvents: loaded ? 'none' : 'auto',
+          }}
+          aria-hidden={loaded}
+        >
+          <Skeleton />
+        </div>
+      )}
     </div>
   );
 }

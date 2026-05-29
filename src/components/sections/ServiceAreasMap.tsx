@@ -34,17 +34,15 @@ export default function ServiceAreasMap() {
       import('leaflet'),
       fetch('/service-areas.geojson').then((r) => r.json()),
     ]).then(([L, geojsonData]) => {
-      delete (L.Icon.Default.prototype as any)._getIconUrl;
-      L.Icon.Default.mergeOptions({
-        iconRetinaUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png',
-        iconUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png',
-        shadowUrl: 'https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png',
-      });
-
+      // This map renders area polygons only (no pin markers), so we skip the
+      // default marker-icon config — avoids a runtime CDN (unpkg) dependency.
       const map = L.map(containerRef.current!, {
         zoomControl: false,
         scrollWheelZoom: false,
-        dragging: true,
+        // Disable drag on touch so a swipe scrolls the page instead of panning
+        // the map (avoids a mobile scroll-trap). The adjacent text list is the
+        // accessible/primary equivalent.
+        dragging: !L.Browser.mobile,
         doubleClickZoom: true,
         attributionControl: true,
         center: [40.710, -73.870],

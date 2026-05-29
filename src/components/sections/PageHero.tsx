@@ -6,11 +6,12 @@ interface PageHeroProps {
 export default function PageHero({ label, title, description }: PageHeroProps) {
   return (
     <section
+      data-surface="dark"
       className="py-20 px-4 text-center"
       style={{ background: 'linear-gradient(135deg, #0B1F4A 0%, #0D2860 100%)' }}
     >
       <div className="max-w-3xl mx-auto">
-        <p className="text-xs font-semibold uppercase tracking-widest mb-4 text-white/60">
+        <p className="text-xs font-semibold uppercase tracking-[0.1em] mb-4 text-white/70">
           {label}
         </p>
         <h1

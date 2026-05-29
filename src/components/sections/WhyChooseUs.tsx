@@ -31,18 +31,12 @@ export default function WhyChooseUs() {
   return (
     <section
       id="why-us"
-      className="py-16 px-4 lg:py-20 lg:px-6"
-      style={{ backgroundColor: '#F9FAFB' }}
+      className="py-16 px-4 lg:py-20 lg:px-6 bg-neutral-50"
     >
       <div className="max-w-6xl mx-auto">
         {/* Section header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <p
-            className="text-xs font-semibold uppercase tracking-widest mb-3"
-            style={{ color: '#1A4FD0', letterSpacing: '0.1em' }}
-          >
-            Why Handlyr
-          </p>
+          <p className="eyebrow mb-3">Why Handlyr</p>
           <h2
             className="font-heading font-bold text-3xl lg:text-4xl text-text-dark"
             style={{ letterSpacing: '-0.01em' }}
@@ -59,10 +53,7 @@ export default function WhyChooseUs() {
           {valueProps.map((prop) => (
             <div key={prop.id} className="text-center p-6">
               {/* Icon container */}
-              <div
-                className="w-16 h-16 mx-auto rounded-full flex items-center justify-center"
-                style={{ backgroundColor: '#DBEAFE', color: '#1A4FD0' }}
-              >
+              <div className="w-16 h-16 mx-auto rounded-full flex items-center justify-center bg-primary-100 text-primary-600">
                 {prop.icon}
               </div>
 

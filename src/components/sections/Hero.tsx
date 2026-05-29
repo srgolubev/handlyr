@@ -2,31 +2,15 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { BUSINESS, RATING } from '@/lib/constants';
-import {
-  PhoneIcon,
-  CameraIcon,
-  ClipboardIcon,
-  ShieldCheckIcon,
-  ZapIcon,
-  SparklesIcon,
-  DollarSignIcon,
-  StarIcon,
-  ClockIcon,
-} from '@/components/icons';
-
-const trustBadges = [
-  { icon: <ShieldCheckIcon className="w-5 h-5" />, label: '15+ Years Experience' },
-  { icon: <ZapIcon className="w-5 h-5" />, label: 'Same-Day Available' },
-  { icon: <SparklesIcon className="w-5 h-5" />, label: 'Top-Rated on Thumbtack' },
-  { icon: <DollarSignIcon className="w-5 h-5" />, label: 'Free Text Quotes' },
-];
+import { BUSINESS, RATING, PRICING } from '@/lib/constants';
+import { CameraIcon, ClipboardIcon, StarIcon } from '@/components/icons';
 
 export default function Hero() {
   return (
     <section
       id="hero"
-      className="relative min-h-svh flex items-center"
+      data-surface="dark"
+      className="relative flex items-center min-h-[85svh] lg:min-h-svh"
       style={{
         background: 'linear-gradient(135deg, #0B1F4A 0%, #0D2860 50%, #1138A3 100%)',
       }}
@@ -74,37 +58,25 @@ export default function Hero() {
               Furniture assembly, TV mounting, shelving and repairs in NYC — done cleanly and professionally.
             </p>
 
-            {/* CTA buttons */}
+            {/* CTA buttons — one primary (text a photo) + one secondary (form) */}
             <div className="mt-8 flex flex-col sm:flex-row items-stretch gap-3 justify-center lg:justify-start">
               <a
                 href={BUSINESS.smsHref}
-                className="flex items-center justify-center gap-2 px-8 py-4 rounded-xl text-base font-bold text-white w-full sm:w-auto min-h-[56px] transition-all duration-200 hover:-translate-y-0.5 hover:shadow-xl hover:opacity-90 active:scale-95 focus-visible:ring-4 focus-visible:ring-orange-300"
-                style={{ backgroundColor: '#F97316' }}
-              >
-                Text Now
-              </a>
-              <Link
-                href="/contact?type=photo"
-                className="flex items-center justify-center gap-2 px-6 py-4 rounded-xl text-base font-semibold w-full sm:w-auto min-h-[56px] transition-all duration-200 hover:-translate-y-0.5 hover:bg-neutral-100 active:scale-95 focus-visible:ring-4 focus-visible:ring-blue-300"
-                style={{ backgroundColor: '#FFFFFF', color: '#0D2860' }}
+                className="btn btn-lg btn-primary w-full sm:w-auto font-bold"
               >
                 <CameraIcon className="w-5 h-5" />
-                Send Photo for Estimate
-              </Link>
+                Text a Photo for a Quote
+              </a>
               <Link
                 href="/contact"
-                className="flex items-center justify-center gap-2 px-6 py-4 rounded-xl text-base font-semibold text-white w-full sm:w-auto min-h-[56px] transition-all duration-200 hover:-translate-y-0.5 hover:bg-white/10 active:scale-95 border-2 focus-visible:ring-4 focus-visible:ring-white/40"
-                style={{
-                  backgroundColor: 'transparent',
-                  borderColor: 'rgba(255,255,255,0.6)',
-                }}
+                className="btn btn-lg btn-outline-light w-full sm:w-auto"
               >
                 <ClipboardIcon className="w-5 h-5" />
                 Get a Quote
               </Link>
             </div>
-            <p className="mt-2 text-xs font-medium text-center lg:text-left" style={{ color: 'rgba(255,255,255,0.55)' }}>
-              Available Today · Usually answers within minutes
+            <p className="mt-3 text-xs font-medium text-center lg:text-left text-white/70">
+              ${PRICING.hourlyRate}/hr · {PRICING.minimumHours}-hr minimum · Replies {BUSINESS.responseTime} · Available today
             </p>
 
             {/* Social proof stars */}

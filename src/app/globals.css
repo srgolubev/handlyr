@@ -12,6 +12,7 @@
   --color-primary-100: #DBEAFE;
 
   /* Accent orange */
+  --color-accent-700: #B45309; /* AA-safe accent for text on white (≈4.9:1) */
   --color-accent-600: #EA6C0A;
   --color-accent-500: #F97316;
   --color-accent-100: #FFEDD5;
@@ -35,13 +36,6 @@
   /* Stars */
   --color-star-yellow: #FBBF24;
 
-  /* Brand shorthand aliases */
-  --color-brand-blue: #1B3A6B;
-  --color-brand-blue-dark: #122850;
-  --color-brand-blue-light: #2451A0;
-  --color-brand-orange: #F97316;
-  --color-brand-orange-dark: #EA6C0A;
-
   /* Font families */
   --font-heading: var(--font-plus-jakarta), system-ui, -apple-system, sans-serif;
   --font-body: var(--font-inter), system-ui, -apple-system, sans-serif;
@@ -54,6 +48,8 @@
 
 html {
   scroll-behavior: smooth;
+  /* Offset in-page anchor jumps so the fixed 64px header doesn't cover the target. */
+  scroll-padding-top: 80px;
 }
 
 body {
@@ -65,8 +61,87 @@ body {
 }
 
 *:focus-visible {
-  outline: 2px solid #2563EB;
+  outline: 2px solid var(--color-primary-500);
   outline-offset: 2px;
+}
+/* High-contrast focus ring on dark/navy surfaces. */
+[data-surface='dark'] *:focus-visible {
+  outline-color: #ffffff;
+}
+
+/* Respect users who prefer reduced motion (WCAG 2.3.3). */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* Visually-hidden until focused — skip link. */
+.skip-link {
+  position: absolute;
+  left: 0.5rem;
+  top: -3rem;
+  z-index: 200;
+  padding: 0.625rem 1rem;
+  border-radius: 0.5rem;
+  background: var(--color-primary-800);
+  color: #fff;
+  font-weight: 600;
+  transition: top 0.15s ease;
+}
+.skip-link:focus {
+  top: 0.5rem;
+}
+
+@layer components {
+  /* Shared button system — compose: class="btn btn-md btn-primary".
+     One source of truth for size/radius/weight/hover. */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl font-semibold
+      transition-all duration-200 hover:opacity-90 active:scale-95;
+  }
+  .btn-md {
+    @apply px-6 py-3 text-base min-h-[48px];
+  }
+  .btn-lg {
+    @apply px-8 py-4 text-base min-h-[56px];
+  }
+  .btn-sm {
+    @apply px-5 py-2.5 text-sm;
+  }
+  .btn-primary {
+    @apply bg-accent-500 text-white hover:shadow-lg;
+  }
+  .btn-secondary {
+    @apply bg-primary-800 text-white hover:shadow-lg;
+  }
+  .btn-light {
+    @apply bg-white text-primary-800 hover:shadow-lg;
+  }
+  .btn-outline-light {
+    @apply border-2 border-white/60 text-white hover:border-white;
+  }
+  .btn-outline-dark {
+    @apply border-2 border-primary-800 text-primary-800 hover:bg-neutral-50;
+  }
+
+  /* Eyebrow label — AA-safe accent on light surfaces. */
+  .eyebrow {
+    @apply text-xs font-semibold uppercase tracking-[0.1em] text-accent-700;
+  }
+
+  /* Surface card. */
+  .card {
+    @apply bg-white border border-neutral-200 rounded-2xl shadow-sm;
+  }
 }
 
 /* Leaflet service-area tooltip */

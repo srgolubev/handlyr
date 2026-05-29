@@ -29,9 +29,7 @@ export default function Services() {
       <div className="max-w-6xl mx-auto">
         {/* Section header */}
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <p className="text-xs font-semibold uppercase tracking-widest mb-3" style={{ color: '#F97316', letterSpacing: '0.1em' }}>
-            What We Do
-          </p>
+          <p className="eyebrow mb-3">What We Do</p>
           <h2
             className="font-heading font-bold text-3xl lg:text-4xl text-text-dark"
             style={{ letterSpacing: '-0.01em' }}
@@ -52,10 +50,7 @@ export default function Services() {
               className="group relative flex flex-col p-6 bg-white border border-neutral-200 rounded-xl shadow-sm hover:shadow-lg hover:-translate-y-0.5 transition-all duration-300 hover:border-primary-200 focus-visible:ring-2 focus-visible:ring-primary-500"
             >
               {/* Icon */}
-              <div
-                className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0"
-                style={{ backgroundColor: '#DBEAFE', color: '#1A4FD0' }}
-              >
+              <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 bg-primary-100 text-primary-600">
                 {serviceIcons[service.id]}
               </div>
 
@@ -85,8 +80,7 @@ export default function Services() {
           </p>
           <Link
             href="/contact"
-            className="inline-flex items-center px-8 py-3 rounded-xl text-base font-semibold text-white transition-all duration-200 hover:scale-[1.02] hover:shadow-lg hover:opacity-90"
-            style={{ backgroundColor: '#2563EB' }}
+            className="btn btn-md bg-primary-500 text-white hover:shadow-lg px-8"
           >
             Contact Us
           </Link>

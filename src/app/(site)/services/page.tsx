@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { SERVICES } from '@/lib/constants';
+import { SERVICE_ICON } from '@/lib/serviceIcons';
 import ContactForm from '@/components/sections/ContactForm';
 import PageHero from '@/components/sections/PageHero';
 
@@ -37,16 +38,6 @@ export const metadata: Metadata = {
   },
 };
 
-const serviceIcons: Record<string, string> = {
-  'furniture-assembly': '📦',
-  'tv-mounting': '📺',
-  'shelf-installation': '🗂️',
-  'blinds-installation': '🪟',
-  'cabinet-installation': '🗄️',
-  'drywall-repair': '🔧',
-  'general-repairs': '⚙️',
-};
-
 export default function ServicesPage() {
   return (
     <>
@@ -60,13 +51,15 @@ export default function ServicesPage() {
       <section className="bg-white py-16 px-4 lg:py-24">
         <div className="max-w-6xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {SERVICES.map((service) => (
+            {SERVICES.map((service) => {
+              const Icon = SERVICE_ICON[service.id];
+              return (
               <div
                 key={service.id}
-                className="flex flex-col p-6 bg-white border border-neutral-200 rounded-2xl shadow-sm hover:shadow-lg transition-shadow duration-300"
+                className="flex flex-col p-6 card hover:shadow-lg transition-shadow duration-300"
               >
-                <div className="text-4xl mb-4" aria-hidden="true">
-                  {serviceIcons[service.id]}
+                <div className="w-12 h-12 rounded-xl flex items-center justify-center flex-shrink-0 bg-primary-100 text-primary-600 mb-4">
+                  {Icon && <Icon className="w-6 h-6" />}
                 </div>
                 <h2 className="text-xl font-heading font-bold text-text-dark mb-2">
                   <Link
@@ -81,14 +74,14 @@ export default function ServicesPage() {
                 </p>
                 <Link
                   href={`/services/${service.slug}`}
-                  className="mt-4 inline-flex items-center justify-center px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.02]"
-                  style={{ backgroundColor: '#F97316' }}
+                  className="btn btn-sm btn-primary mt-4"
                   aria-label={`Learn more about ${service.name} in NYC`}
                 >
                   Learn More
                 </Link>
               </div>
-            ))}
+              );
+            })}
           </div>
         </div>
       </section>
