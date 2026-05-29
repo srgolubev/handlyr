@@ -58,6 +58,20 @@ export default function Reviews() {
           ))}
         </div>
 
+        {/* Leave a review CTA */}
+        <div className="mt-10 flex justify-center">
+          <a
+            href="https://g.page/r/CZAXmeyU7f5eEAE/review"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-full text-white text-base font-semibold shadow-sm hover:shadow-md active:scale-95 transition-all duration-150"
+            style={{ backgroundColor: '#F97316' }}
+          >
+            <StarIcon className="w-5 h-5" />
+            Leave a Review
+          </a>
+        </div>
+
         {/* Google reviews badge */}
         <p className="mt-8 text-center text-sm text-text-muted">
           Read more reviews on{' '}
