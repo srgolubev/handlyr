@@ -42,7 +42,7 @@ const AREAS: Record<string, AreaData> = {
       'With 15+ years serving Brooklyn residents, we understand the quirks: pre-war plaster walls, concrete ceilings in new construction, narrow hallways and tight staircases. Every job is handled with the care and experience that your home deserves.',
       'We respond fast, show up on time, and leave your space clean. No surprise charges. No damage. Just solid work done right.',
     ],
-    reviewIds: [2, 3, 6],
+    reviewIds: [8, 9, 1],
     schemaLocality: 'Brooklyn',
     schemaRegion: 'NY',
     seoDescription:
@@ -69,7 +69,7 @@ const AREAS: Record<string, AreaData> = {
       'From assembling furniture in an Astoria walk-up to mounting a TV in a Flushing high-rise, we bring 15+ years of experience and the right tools for every wall type. We know the buildings, the parking, and how to get in and out without fuss.',
       'We respond fast, show up on time, and leave your space clean. No surprise charges. No damage. Just solid work done right.',
     ],
-    reviewIds: [3, 6],
+    reviewIds: [4, 7],
     schemaLocality: 'Queens',
     schemaRegion: 'NY',
     seoDescription:
@@ -94,7 +94,7 @@ const AREAS: Record<string, AreaData> = {
       'From mounting TVs and hanging artwork to assembling furniture and tackling that growing punch list, we handle homes of every size with care. Our work speaks for itself: clean installs, accurate mounting, and zero mess left behind.',
       'Quick to respond and easy to schedule — just send a text and we will get back to you with a straightforward estimate.',
     ],
-    reviewIds: [2, 5],
+    reviewIds: [6, 2],
     schemaLocality: 'Manhasset',
     schemaRegion: 'NY',
     seoDescription:
@@ -376,7 +376,7 @@ export default async function ServiceAreaPage({
                     </div>
                     <div>
                       <p className="font-semibold text-text-dark text-sm">{review.name}</p>
-                      <p className="text-xs text-text-muted">{review.location}</p>
+                      <p className="text-xs text-text-muted">{review.service}</p>
                     </div>
                   </figcaption>
                 </figure>

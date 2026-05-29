@@ -40,9 +40,9 @@ const localBusinessSchema = {
     worstRating: '1',
   },
   review: [
-    { '@type': 'Review', author: { '@type': 'Person', name: 'Alice C.' }, reviewRating: { '@type': 'Rating', ratingValue: '5' }, reviewBody: 'Serge killed it! Moved my TV, patched walls flawlessly, fixed my bed & assembled a dresser — all in one visit. On time, clean, no BS.' },
-    { '@type': 'Review', author: { '@type': 'Person', name: 'Julie N.' }, reviewRating: { '@type': 'Rating', ratingValue: '5' }, reviewBody: 'Easy to work with and did a great job hanging various items around our home. Good communication and very reliable!' },
-    { '@type': 'Review', author: { '@type': 'Person', name: 'Rachel K.' }, reviewRating: { '@type': 'Rating', ratingValue: '5' }, reviewBody: 'I had 3 dressers put together and they were done neatly and quickly. Very professional and kind guy.' },
+    { '@type': 'Review', author: { '@type': 'Person', name: 'Savannah C.' }, reviewRating: { '@type': 'Rating', ratingValue: '5' }, reviewBody: 'Helped me with a ton of projects: fixing a cabinet and putting it back together, hanging a projector, putting up a floating shelf, and more. Will hire again!' },
+    { '@type': 'Review', author: { '@type': 'Person', name: 'Suzanne L.' }, reviewRating: { '@type': 'Rating', ratingValue: '5' }, reviewBody: 'Serge is the best guy. I can\'t begin to tell you how easy he made my awful move-in. I will know him for life — lovely chap.' },
+    { '@type': 'Review', author: { '@type': 'Person', name: 'Debra Z.' }, reviewRating: { '@type': 'Rating', ratingValue: '5' }, reviewBody: 'Serge is wonderful. He really cares about what he does and is so easy to work with. The quality of his work is excellent, and he even came up with new ideas that solved problems I was having.' },
   ],
   hasOfferCatalog: {
     '@type': 'OfferCatalog',

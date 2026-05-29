@@ -51,7 +51,7 @@ export default function Reviews() {
                 </div>
                 <div>
                   <p className="text-sm font-semibold text-text-dark">{review.name}</p>
-                  <p className="text-xs text-text-muted">{review.location}</p>
+                  <p className="text-xs text-text-muted">{review.service}</p>
                 </div>
               </footer>
             </article>

@@ -36,7 +36,7 @@ const SERVICES_DETAIL: Record<string, ServiceData> = {
       'Packaging debris removed and bagged',
       'Furniture positioned where you want it',
     ],
-    reviewIds: [3, 2],
+    reviewIds: [4, 6],
     seoDescription:
       'Professional furniture assembly in NYC. IKEA, Wayfair, West Elm & all brands. Serving Brooklyn, Queens, Manhasset. Fast, correct, no hassle.',
     keywords: [
@@ -66,7 +66,7 @@ const SERVICES_DETAIL: Record<string, ServiceData> = {
       'Cable management included with every mount',
       'TV tested and positioned at your preferred height',
     ],
-    reviewIds: [1, 2],
+    reviewIds: [1, 8],
     seoDescription:
       'Professional TV mounting in NYC. All wall types: drywall, concrete, brick. Hidden cable management included. Serving Brooklyn, Queens, Manhasset.',
     keywords: [
@@ -96,7 +96,7 @@ const SERVICES_DETAIL: Record<string, ServiceData> = {
       'Load-tested before sign-off',
       'Dust and debris cleaned up',
     ],
-    reviewIds: [2, 6],
+    reviewIds: [1, 9],
     seoDescription:
       'Professional shelf installation in NYC. Floating shelves, bracket shelves, IKEA systems. All wall types. Serving Brooklyn, Queens, Manhasset.',
     keywords: [
@@ -126,7 +126,7 @@ const SERVICES_DETAIL: Record<string, ServiceData> = {
       'Operation tested — smooth raise, lower, and tilt',
       'Packaging removed from your space',
     ],
-    reviewIds: [1, 4],
+    reviewIds: [2, 3],
     seoDescription:
       'Professional blinds and shade installation in NYC. Roller shades, venetian blinds, curtain rods — all window types. Serving Brooklyn, Queens, Manhasset.',
     keywords: [
@@ -156,7 +156,7 @@ const SERVICES_DETAIL: Record<string, ServiceData> = {
       'Hardware installed and tightened fully',
       'Site left clean after installation',
     ],
-    reviewIds: [3, 6],
+    reviewIds: [7, 1],
     seoDescription:
       'Professional cabinet installation in NYC. Kitchen, bathroom, medicine cabinets & storage. All wall types. Serving Brooklyn, Queens, Manhasset.',
     keywords: [
@@ -186,7 +186,7 @@ const SERVICES_DETAIL: Record<string, ServiceData> = {
       'Texture matched to surrounding wall',
       'Ready for primer and paint when we leave',
     ],
-    reviewIds: [1, 5],
+    reviewIds: [9, 8],
     seoDescription:
       'Professional drywall repair in NYC. Holes, cracks, water damage — smooth finish, ready to paint. Serving Brooklyn, Queens, Manhasset.',
     keywords: [
@@ -216,7 +216,7 @@ const SERVICES_DETAIL: Record<string, ServiceData> = {
       'Clean workspace maintained throughout',
       'Honest advice if something needs a specialist instead',
     ],
-    reviewIds: [1, 4, 6],
+    reviewIds: [1, 9, 7],
     seoDescription:
       'General handyman repairs in NYC. Doors, faucets, hinges, floors, fixtures and more — all in one visit. Serving Brooklyn, Queens, Manhasset.',
     keywords: [
@@ -413,7 +413,7 @@ export default async function ServicePage({
             Available Across the NYC Metro Area
           </h2>
           <p className="text-text-muted mb-8">
-            We provide {service.name.toLowerCase()} in all five service areas. Same quality, same pricing.
+            We provide {service.name.toLowerCase()} across all our service areas. Same quality, same pricing.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {SERVICE_AREAS.map((area) => (
@@ -469,7 +469,7 @@ export default async function ServicePage({
                     </div>
                     <div>
                       <p className="font-semibold text-text-dark text-sm">{review.name}</p>
-                      <p className="text-xs text-text-muted">{review.location}</p>
+                      <p className="text-xs text-text-muted">{review.service}</p>
                     </div>
                   </figcaption>
                 </figure>
