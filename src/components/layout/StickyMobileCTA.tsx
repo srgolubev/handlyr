@@ -22,6 +22,7 @@ export default function StickyMobileCTA() {
 
   return (
     <div
+      id="sticky-mobile-cta"
       className={`fixed bottom-0 left-0 right-0 z-40 lg:hidden bg-white border-t-2 border-accent-500 px-4 pt-3 transition-transform duration-300 ease-out ${
         visible ? 'translate-y-0' : 'translate-y-full'
       }`}

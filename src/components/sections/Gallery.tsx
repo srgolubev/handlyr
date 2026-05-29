@@ -1,6 +1,7 @@
 'use client';
 
 import { useState, useEffect, useRef } from 'react';
+import { createPortal } from 'react-dom';
 import Image from 'next/image';
 import { GALLERY_ITEMS } from '@/lib/constants';
 import { XIcon, ChevronLeftIcon, ChevronRightIcon } from '@/components/icons';
@@ -26,10 +27,18 @@ export default function Gallery() {
     setLightboxIndex((i) => (i === null ? i : (i + 1) % GALLERY_ITEMS.length));
   };
 
-  // Keyboard support while the lightbox is open: Escape closes, arrows navigate.
+  // Keyboard support while the lightbox is open: Escape closes, arrows navigate,
+  // Tab is trapped; the rest of the page is made inert.
   useEffect(() => {
     if (lightboxIndex === null) return;
     closeBtnRef.current?.focus();
+
+    // Inert every body child except the portalled dialog itself.
+    const dialog = dialogRef.current;
+    const inerted = Array.from(document.body.children).filter(
+      (el): el is HTMLElement => el instanceof HTMLElement && el !== dialog
+    );
+    inerted.forEach((el) => el.setAttribute('inert', ''));
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.key === 'Escape') {
         closeLightbox();
@@ -53,7 +62,10 @@ export default function Gallery() {
       }
     };
     document.addEventListener('keydown', onKeyDown);
-    return () => document.removeEventListener('keydown', onKeyDown);
+    return () => {
+      document.removeEventListener('keydown', onKeyDown);
+      inerted.forEach((el) => el.removeAttribute('inert'));
+    };
   }, [lightboxIndex]);
 
   const currentItem = lightboxIndex !== null ? GALLERY_ITEMS[lightboxIndex] : null;
@@ -113,8 +125,8 @@ export default function Gallery() {
         </div>
       </section>
 
-      {/* Lightbox modal */}
-      {lightboxIndex !== null && currentItem && (
+      {/* Lightbox modal — portalled to <body> so the rest of the page can be inerted */}
+      {lightboxIndex !== null && currentItem && createPortal(
         <div
           ref={dialogRef}
           className="fixed inset-0 z-[100] flex items-center justify-center"
@@ -180,7 +192,8 @@ export default function Gallery() {
             onClick={closeLightbox}
             aria-hidden="true"
           />
-        </div>
+        </div>,
+        document.body
       )}
     </>
   );

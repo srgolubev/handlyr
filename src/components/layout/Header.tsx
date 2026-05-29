@@ -29,15 +29,16 @@ export default function Header() {
     if (!menuOpen) return;
     const toggle = toggleRef.current;
     const drawer = drawerRef.current;
-    const focusables = drawer?.querySelectorAll<HTMLElement>(
-      'a[href], button:not([disabled])'
-    );
-    focusables?.[0]?.focus();
+    drawer?.querySelector<HTMLElement>('a[href], button:not([disabled])')?.focus();
 
-    // Make the rest of the page inert so AT/focus can't reach behind the drawer.
+    // Make everything outside the drawer inert while it's open, so AT/focus
+    // can't reach the page, skip link, or sticky CTA behind it. (The header bar
+    // is intentionally left active — it hosts the close toggle.)
     const background = [
       document.getElementById('main'),
       document.querySelector('footer'),
+      document.querySelector<HTMLElement>('.skip-link'),
+      document.getElementById('sticky-mobile-cta'),
     ].filter((el): el is HTMLElement => el !== null);
     background.forEach((el) => el.setAttribute('inert', ''));
 
@@ -46,7 +47,12 @@ export default function Header() {
         setMenuOpen(false);
         return;
       }
-      if (e.key !== 'Tab' || !focusables || focusables.length === 0) return;
+      if (e.key !== 'Tab') return;
+      // Recompute focusables each time so the trap can't go stale.
+      const focusables = drawer?.querySelectorAll<HTMLElement>(
+        'a[href], button:not([disabled])'
+      );
+      if (!focusables || focusables.length === 0) return;
       const first = focusables[0];
       const last = focusables[focusables.length - 1];
       if (e.shiftKey && document.activeElement === first) {
