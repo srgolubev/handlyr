@@ -1,6 +1,6 @@
 'use client';
 
-import { BUSINESS } from '@/lib/constants';
+import { BUSINESS, RATING } from '@/lib/constants';
 import JobberForm from './JobberForm';
 import { PhoneIcon, CheckCircleIcon, StarIcon } from '@/components/icons';
 
@@ -37,8 +37,8 @@ export default function ContactForm() {
             <ul className="space-y-4 mb-10">
               {[
                 'Fast response — usually within the hour',
-                'Free estimates on all jobs',
-                'No obligation — just ask',
+                'Free quotes by text — just send a photo',
+                'Simple $59/hour pricing, 2-hour minimum',
               ].map((item) => (
                 <li key={item} className="flex items-center gap-3 text-base" style={{ color: 'rgba(255,255,255,0.85)' }}>
                   <span style={{ color: '#F97316' }}>
@@ -57,8 +57,8 @@ export default function ContactForm() {
                     <StarIcon key={i} className="w-4 h-4 text-yellow-400" />
                   ))}
                 </div>
-                <p className="text-sm font-medium text-white">Trusted by NYC homeowners</p>
-                <p className="text-xs" style={{ color: 'rgba(255,255,255,0.6)' }}>28 verified reviews · Available today</p>
+                <p className="text-sm font-medium text-white">Rated {RATING.value}/5 by NYC homeowners</p>
+                <p className="text-xs" style={{ color: 'rgba(255,255,255,0.6)' }}>{RATING.count} verified reviews · Available today</p>
               </div>
             </div>
 

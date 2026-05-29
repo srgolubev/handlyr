@@ -3,7 +3,7 @@ import Footer from '@/components/layout/Footer';
 import StickyMobileCTA from '@/components/layout/StickyMobileCTA';
 import JsonLd from '@/components/JsonLd';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
-import { REVIEWS, SERVICES } from '@/lib/constants';
+import { REVIEWS, SERVICES, RATING, PRICING } from '@/lib/constants';
 
 // Public profiles where the business can be corroborated (helps both local SEO
 // entity matching and AI answer-engine citation/trust).
@@ -44,8 +44,14 @@ const localBusinessSchema = {
   openingHoursSpecification: [
     { '@type': 'OpeningHoursSpecification', dayOfWeek: ['Monday','Tuesday','Wednesday','Thursday','Friday','Saturday','Sunday'], opens: '08:00', closes: '20:00' },
   ],
-  // aggregateRating intentionally omitted until verified counts/average from
-  // Thumbtack + Google are confirmed (previously hardcoded fake 5.0 / 100).
+  // Verified across Thumbtack (25) + Google (3): 27×5★ + 1×2★ = 4.9 avg / 28.
+  aggregateRating: {
+    '@type': 'AggregateRating',
+    ratingValue: RATING.value,
+    reviewCount: String(RATING.count),
+    bestRating: RATING.best,
+    worstRating: RATING.worst,
+  },
   review: REVIEWS.map((r) => ({
     '@type': 'Review',
     author: { '@type': 'Person', name: r.name },
@@ -57,6 +63,15 @@ const localBusinessSchema = {
     name: 'Handyman Services',
     itemListElement: SERVICES.map((s) => ({
       '@type': 'Offer',
+      priceCurrency: PRICING.currency,
+      priceSpecification: {
+        '@type': 'UnitPriceSpecification',
+        price: String(PRICING.hourlyRate),
+        priceCurrency: PRICING.currency,
+        unitCode: 'HUR',
+        referenceQuantity: { '@type': 'QuantitativeValue', value: '1', unitCode: 'HUR' },
+        minPrice: String(PRICING.hourlyRate * PRICING.minimumHours),
+      },
       itemOffered: {
         '@type': 'Service',
         name: s.name,

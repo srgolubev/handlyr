@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import PageHero from '@/components/sections/PageHero';
-import { BUSINESS, SERVICES, REVIEWS } from '@/lib/constants';
+import { BUSINESS, SERVICES, REVIEWS, PRICING, SHARED_FAQS } from '@/lib/constants';
 
 // ─── Area data ───────────────────────────────────────────────────────────────
 
@@ -216,6 +216,25 @@ export default async function ServiceAreaPage({
     ],
   };
 
+  // Localized coverage FAQ + shared pricing/scheduling FAQs.
+  const faqs = [
+    {
+      q: `Do you serve all of ${area.name}?`,
+      a: `Yes — we cover ${area.name} and its neighborhoods, including ${area.neighborhoods.slice(0, 4).join(', ')} and more.`,
+    },
+    ...SHARED_FAQS.filter((f) => f.q !== 'What areas do you serve?'),
+  ];
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  };
+
   return (
     <>
       {/* JSON-LD */}
@@ -226,6 +245,10 @@ export default async function ServiceAreaPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       {/* Hero */}
@@ -265,7 +288,7 @@ export default async function ServiceAreaPage({
             Services Available in {area.name}
           </h2>
           <p className="text-center text-text-muted mb-10">
-            All services include a free quote and professional, clean work.
+            Every job includes a free text quote and professional, clean work — ${PRICING.hourlyRate}/hour, {PRICING.minimumHours}-hour minimum.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {SERVICES.map((service) => (
@@ -408,6 +431,38 @@ export default async function ServiceAreaPage({
           </div>
         </section>
       )}
+
+      {/* FAQ */}
+      <section className="bg-white py-16 px-4 lg:py-20">
+        <div className="max-w-3xl mx-auto">
+          <h2
+            className="font-heading font-bold text-3xl mb-8 text-center"
+            style={{ color: '#0D2860' }}
+          >
+            Handyman in {area.name} — FAQs
+          </h2>
+          <div className="space-y-4">
+            {faqs.map((faq) => (
+              <details
+                key={faq.q}
+                className="group bg-white rounded-2xl border border-neutral-200 p-5"
+              >
+                <summary className="flex cursor-pointer items-center justify-between gap-3 font-semibold text-text-dark list-none">
+                  {faq.q}
+                  <span
+                    className="text-xl flex-shrink-0 transition-transform duration-200 group-open:rotate-45"
+                    style={{ color: '#F97316' }}
+                    aria-hidden="true"
+                  >
+                    +
+                  </span>
+                </summary>
+                <p className="mt-3 text-text-muted leading-relaxed text-sm">{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Final CTA */}
       <section

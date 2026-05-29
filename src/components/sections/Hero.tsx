@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { BUSINESS } from '@/lib/constants';
+import { BUSINESS, RATING } from '@/lib/constants';
 import {
   PhoneIcon,
   CameraIcon,
@@ -113,7 +113,7 @@ export default function Hero() {
                 {[...Array(5)].map((_, i) => <StarIcon key={i} className="w-4 h-4 text-yellow-400" />)}
               </div>
               <span className="text-sm font-medium" style={{ color: 'rgba(255,255,255,0.85)' }}>
-                28 verified customer reviews
+                Rated {RATING.value}/5 — {RATING.count} verified reviews
               </span>
             </div>
 
