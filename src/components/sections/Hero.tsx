@@ -19,7 +19,7 @@ const trustBadges = [
   { icon: <ShieldCheckIcon className="w-5 h-5" />, label: '15+ Years Experience' },
   { icon: <ZapIcon className="w-5 h-5" />, label: 'Same-Day Available' },
   { icon: <SparklesIcon className="w-5 h-5" />, label: 'Top-Rated on Thumbtack' },
-  { icon: <DollarSignIcon className="w-5 h-5" />, label: 'Free Estimates' },
+  { icon: <DollarSignIcon className="w-5 h-5" />, label: 'Free Text Quotes' },
 ];
 
 export default function Hero() {

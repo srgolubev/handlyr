@@ -55,7 +55,9 @@ const localBusinessSchema = {
         priceCurrency: PRICING.currency,
         unitCode: 'HUR',
         referenceQuantity: { '@type': 'QuantitativeValue', value: '1', unitCode: 'HUR' },
-        minPrice: String(PRICING.hourlyRate * PRICING.minimumHours),
+        // 2-hour minimum expressed as the eligible billable quantity, not as a
+        // price-range minPrice (which schema readers treat as range metadata).
+        eligibleQuantity: { '@type': 'QuantitativeValue', minValue: String(PRICING.minimumHours), unitCode: 'HUR' },
       },
       itemOffered: {
         '@type': 'Service',
