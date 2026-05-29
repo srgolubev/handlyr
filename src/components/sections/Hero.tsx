@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import Image from 'next/image';
-import { BUSINESS } from '@/lib/constants';
+import { BUSINESS, RATING } from '@/lib/constants';
 import {
   PhoneIcon,
   CameraIcon,
@@ -18,8 +18,8 @@ import {
 const trustBadges = [
   { icon: <ShieldCheckIcon className="w-5 h-5" />, label: '15+ Years Experience' },
   { icon: <ZapIcon className="w-5 h-5" />, label: 'Same-Day Available' },
-  { icon: <SparklesIcon className="w-5 h-5" />, label: '500+ Jobs Done' },
-  { icon: <DollarSignIcon className="w-5 h-5" />, label: 'Free Estimates' },
+  { icon: <SparklesIcon className="w-5 h-5" />, label: 'Top-Rated on Thumbtack' },
+  { icon: <DollarSignIcon className="w-5 h-5" />, label: 'Free Text Quotes' },
 ];
 
 export default function Hero() {
@@ -113,7 +113,7 @@ export default function Hero() {
                 {[...Array(5)].map((_, i) => <StarIcon key={i} className="w-4 h-4 text-yellow-400" />)}
               </div>
               <span className="text-sm font-medium" style={{ color: 'rgba(255,255,255,0.85)' }}>
-                100+ happy customers
+                Rated {RATING.value}/5 — {RATING.count} verified reviews
               </span>
             </div>
 

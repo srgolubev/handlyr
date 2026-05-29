@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import Image from 'next/image';
-import { BUSINESS } from '@/lib/constants';
+import { BUSINESS, RATING } from '@/lib/constants';
 import PageHero from '@/components/sections/PageHero';
 
 export const metadata: Metadata = {
@@ -102,9 +102,9 @@ export default function AboutPage() {
             <div className="grid grid-cols-2 gap-4 mt-4">
               {[
                 { number: '15+', label: 'Years of Experience' },
-                { number: '500+', label: 'Jobs Completed' },
-                { number: '5★', label: 'Average Rating' },
-                { number: '5', label: 'Areas Served' },
+                { number: `${RATING.value}★`, label: 'Average Rating' },
+                { number: `${RATING.count}`, label: 'Verified Reviews' },
+                { number: '3', label: 'Areas Served' },
               ].map((stat) => (
                 <div
                   key={stat.label}

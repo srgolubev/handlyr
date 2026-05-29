@@ -10,6 +10,49 @@ export const BUSINESS = {
   tagline: 'Professional handyman services across New York City.',
 };
 
+// Single source of truth for verified reputation (Thumbtack + Google).
+// 28 reviews: 27 × 5 stars + 1 × 2 stars = 137 / 28 = 4.9 average.
+export const RATING = {
+  value: '4.9',
+  count: 28,
+  best: '5',
+  worst: '1',
+} as const;
+
+// Uniform pricing model (not per-service).
+export const PRICING = {
+  hourlyRate: 59,
+  minimumHours: 2,
+  estimateFee: 59,
+  currency: 'USD',
+  // Plain-language summaries reused across UI, FAQ, schema and llms.txt.
+  rateSummary:
+    '$59/hour with a 2-hour minimum. If the job takes less time, we use the rest to take care of other small tasks around your home.',
+  estimateSummary:
+    'Get a free quote by text — just send a photo. An on-site visit to assess the work is $59, and it is credited toward the cost of the job if you decide to go ahead.',
+} as const;
+
+// Shared FAQ (pricing, scheduling, coverage) appended to every service page.
+export const SHARED_FAQS = [
+  {
+    q: 'How much does it cost?',
+    a: 'Our rate is $59/hour with a 2-hour minimum (so a minimum of $118). If the job finishes early, we use the remaining time for other small tasks around your home.',
+  },
+  {
+    q: 'Do you charge for estimates?',
+    a: 'You can text a photo for a free quote. If you need an on-site visit to assess the work, it is $59 — and that $59 is credited toward the cost of the job if you decide to proceed.',
+  },
+  {
+    q: 'How fast can you come?',
+    a: 'We usually respond within the hour, and same-day appointments are often available. We work 7 days a week, 8:00 AM to 8:00 PM.',
+  },
+  {
+    q: 'What areas do you serve?',
+    a: 'We serve Brooklyn, Queens, and Manhasset, NY, and the surrounding neighborhoods.',
+  },
+] as const;
+
+
 export const SERVICES = [
   {
     id: 'furniture-assembly',
@@ -74,16 +117,19 @@ export type Service = (typeof SERVICES)[number];
 export const SERVICE_AREAS = [
   {
     name: 'Brooklyn',
+    slug: 'brooklyn',
     state: 'NY',
     description: 'Serving all Brooklyn neighborhoods from Bay Ridge to Williamsburg.',
   },
   {
     name: 'Queens',
+    slug: 'queens',
     state: 'NY',
     description: 'From Long Island City and Astoria out to Flushing and Jamaica.',
   },
   {
     name: 'Manhasset',
+    slug: 'manhasset',
     state: 'NY',
     description: 'Serving Manhasset and the surrounding North Shore of Nassau County.',
   },

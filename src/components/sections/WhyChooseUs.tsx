@@ -23,7 +23,7 @@ const valueProps = [
     id: 'pricing',
     icon: <DollarSignIcon className="w-8 h-8" />,
     title: 'Fair, Transparent Pricing',
-    description: 'No hidden fees, no surprises. You know what it costs before work begins.',
+    description: '$59/hour with a 2-hour minimum — no hidden fees, no surprises. You know what it costs before work begins.',
   },
 ];
 

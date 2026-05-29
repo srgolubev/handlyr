@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import PageHero from '@/components/sections/PageHero';
-import { BUSINESS, SERVICES, REVIEWS } from '@/lib/constants';
+import { BUSINESS, SERVICES, REVIEWS, PRICING, SHARED_FAQS } from '@/lib/constants';
 
 // ─── Area data ───────────────────────────────────────────────────────────────
 
@@ -67,7 +67,7 @@ const AREAS: Record<string, AreaData> = {
     whyCopy: [
       'Queens is the most diverse borough in the city, packed with new high-rises in Long Island City, classic co-ops in Forest Hills, and single-family homes out toward Bayside. Whatever your space looks like, we have worked on one like it.',
       'From assembling furniture in an Astoria walk-up to mounting a TV in a Flushing high-rise, we bring 15+ years of experience and the right tools for every wall type. We know the buildings, the parking, and how to get in and out without fuss.',
-      'We respond fast, show up on time, and leave your space clean. No surprise charges. No damage. Just solid work done right.',
+      'Booking is simple: text a photo of the job and we reply with a clear, upfront estimate — usually within the hour. We arrive on schedule, protect your floors and furniture, and clean up before we leave. No surprises, just dependable work.',
     ],
     reviewIds: [4, 7],
     schemaLocality: 'Queens',
@@ -189,26 +189,50 @@ export default async function ServiceAreaPage({
 
   const areaReviews = REVIEWS.filter((r) => area.reviewIds.includes(r.id));
 
-  // LocalBusiness JSON-LD
+  // Service-in-area JSON-LD, tied to the single canonical business entity (@id).
   const schema = {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
-    name: BUSINESS.name,
-    telephone: BUSINESS.phone,
-    email: BUSINESS.email,
-    url: 'https://handlyr.org',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: area.schemaLocality,
-      addressRegion: area.schemaRegion,
-      addressCountry: 'US',
-    },
-    areaServed: [
-      { '@type': 'City', name: area.name },
-    ],
+    '@type': 'Service',
+    name: `Handyman Services in ${area.fullName}`,
     description: area.seoDescription,
-    priceRange: '$$',
-    openingHours: 'Mo-Su 08:00-20:00',
+    serviceType: 'Handyman',
+    provider: { '@id': 'https://handlyr.org/#business' },
+    areaServed: {
+      '@type': 'City',
+      name: area.name,
+      containedInPlace: { '@type': 'State', name: 'New York' },
+    },
+    url: `https://handlyr.org/service-areas/${area.slug}`,
+  };
+
+  // Breadcrumb structured data (mirrors the visible breadcrumb nav below).
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handlyr.org' },
+      { '@type': 'ListItem', position: 2, name: 'Service Areas', item: 'https://handlyr.org/service-areas' },
+      { '@type': 'ListItem', position: 3, name: area.fullName, item: `https://handlyr.org/service-areas/${area.slug}` },
+    ],
+  };
+
+  // Localized coverage FAQ + shared pricing/scheduling FAQs.
+  const faqs = [
+    {
+      q: `Do you serve all of ${area.name}?`,
+      a: `Yes — we cover ${area.name} and its neighborhoods, including ${area.neighborhoods.slice(0, 4).join(', ')} and more.`,
+    },
+    ...SHARED_FAQS.filter((f) => f.q !== 'What areas do you serve?'),
+  ];
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
   };
 
   return (
@@ -217,6 +241,14 @@ export default async function ServiceAreaPage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       {/* Hero */}
@@ -256,7 +288,7 @@ export default async function ServiceAreaPage({
             Services Available in {area.name}
           </h2>
           <p className="text-center text-text-muted mb-10">
-            All services include a free quote and professional, clean work.
+            Every job includes a free text quote and professional, clean work — ${PRICING.hourlyRate}/hour, {PRICING.minimumHours}-hour minimum.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {SERVICES.map((service) => (
@@ -268,18 +300,32 @@ export default async function ServiceAreaPage({
                   {SERVICE_ICONS[service.id]}
                 </div>
                 <h3 className="text-lg font-heading font-bold text-text-dark mb-1">
-                  {service.name}
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="hover:text-primary-600 transition-colors"
+                  >
+                    {service.name} in {area.name}
+                  </Link>
                 </h3>
                 <p className="text-text-muted text-sm leading-relaxed flex-1">
                   {service.description}
                 </p>
-                <a
-                  href={`${BUSINESS.smsHref}${encodeURIComponent(service.name)}%20in%20${encodeURIComponent(area.name)}`}
-                  className="mt-4 inline-flex items-center justify-center px-4 py-2 rounded-xl text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.02]"
-                  style={{ backgroundColor: '#F97316' }}
-                >
-                  Get a Quote
-                </a>
+                <div className="mt-4 flex flex-wrap items-center gap-3">
+                  <a
+                    href={`${BUSINESS.smsHref}${encodeURIComponent(service.name)}%20in%20${encodeURIComponent(area.name)}`}
+                    className="inline-flex items-center justify-center px-4 py-2 rounded-xl text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.02]"
+                    style={{ backgroundColor: '#F97316' }}
+                  >
+                    Get a Quote
+                  </a>
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="inline-flex items-center text-sm font-semibold text-primary-600 hover:text-primary-700 transition-colors"
+                    aria-label={`Learn more about ${service.name} in ${area.name}`}
+                  >
+                    Details →
+                  </Link>
+                </div>
               </div>
             ))}
           </div>
@@ -385,6 +431,38 @@ export default async function ServiceAreaPage({
           </div>
         </section>
       )}
+
+      {/* FAQ */}
+      <section className="bg-white py-16 px-4 lg:py-20">
+        <div className="max-w-3xl mx-auto">
+          <h2
+            className="font-heading font-bold text-3xl mb-8 text-center"
+            style={{ color: '#0D2860' }}
+          >
+            Handyman in {area.name} — FAQs
+          </h2>
+          <div className="space-y-4">
+            {faqs.map((faq) => (
+              <details
+                key={faq.q}
+                className="group bg-white rounded-2xl border border-neutral-200 p-5"
+              >
+                <summary className="flex cursor-pointer items-center justify-between gap-3 font-semibold text-text-dark list-none">
+                  {faq.q}
+                  <span
+                    className="text-xl flex-shrink-0 transition-transform duration-200 group-open:rotate-45"
+                    style={{ color: '#F97316' }}
+                    aria-hidden="true"
+                  >
+                    +
+                  </span>
+                </summary>
+                <p className="mt-3 text-text-muted leading-relaxed text-sm">{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Final CTA */}
       <section

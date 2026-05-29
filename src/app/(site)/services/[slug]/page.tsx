@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import PageHero from '@/components/sections/PageHero';
-import { BUSINESS, SERVICE_AREAS, REVIEWS } from '@/lib/constants';
+import { BUSINESS, SERVICE_AREAS, REVIEWS, PRICING, SHARED_FAQS } from '@/lib/constants';
 
 // ─── Service data ─────────────────────────────────────────────────────────────
 
@@ -13,6 +13,7 @@ interface ServiceData {
   tagline: string;
   body: string[];
   whatToExpect: string[];
+  faqs: { q: string; a: string }[];
   reviewIds: number[];
   seoDescription: string;
   keywords: string[];
@@ -35,6 +36,11 @@ const SERVICES_DETAIL: Record<string, ServiceData> = {
       'All connections checked for stability',
       'Packaging debris removed and bagged',
       'Furniture positioned where you want it',
+    ],
+    faqs: [
+      { q: 'Which furniture brands do you assemble?', a: 'All of them — IKEA, Wayfair, West Elm, Amazon, CB2 and every other flat-pack brand.' },
+      { q: 'Can you assemble a whole apartment in one visit?', a: 'Yes. Send us the list and we will assemble everything in a single visit.' },
+      { q: 'Do you remove the packaging afterward?', a: 'Yes — we bag and remove all packaging and debris before we leave.' },
     ],
     reviewIds: [4, 6],
     seoDescription:
@@ -66,6 +72,11 @@ const SERVICES_DETAIL: Record<string, ServiceData> = {
       'Cable management included with every mount',
       'TV tested and positioned at your preferred height',
     ],
+    faqs: [
+      { q: 'Can you mount a TV on a concrete or brick wall?', a: 'Yes. We mount on every wall type — drywall, concrete, brick, tile and pre-war plaster — using the correct anchors for each.' },
+      { q: 'Do you hide the cables?', a: 'Cable management is included with every mount — in-wall, behind molding, or via a clean surface raceway.' },
+      { q: 'What size TVs do you mount?', a: 'Anything from a 40-inch bedroom TV to an 85-inch living-room centerpiece, plus soundbars and full home-theater setups.' },
+    ],
     reviewIds: [1, 8],
     seoDescription:
       'Professional TV mounting in NYC. All wall types: drywall, concrete, brick. Hidden cable management included. Serving Brooklyn, Queens, Manhasset.',
@@ -95,6 +106,11 @@ const SERVICES_DETAIL: Record<string, ServiceData> = {
       'Bubble level verified on every shelf',
       'Load-tested before sign-off',
       'Dust and debris cleaned up',
+    ],
+    faqs: [
+      { q: 'Can you install floating shelves on a concrete wall?', a: 'Yes — we use masonry anchors rated for the load. In drywall we anchor into studs or use heavy-duty toggles.' },
+      { q: 'Do you install IKEA shelf systems?', a: 'Yes — KALLAX, Billy and other modular systems, installed level and secure.' },
+      { q: 'How much weight can the shelves hold?', a: 'We select anchors for your specific load and load-test every shelf before sign-off.' },
     ],
     reviewIds: [1, 9],
     seoDescription:
@@ -126,6 +142,11 @@ const SERVICES_DETAIL: Record<string, ServiceData> = {
       'Operation tested — smooth raise, lower, and tilt',
       'Packaging removed from your space',
     ],
+    faqs: [
+      { q: 'Do you install both inside-mount and outside-mount blinds?', a: 'Yes — both, in every material and window type.' },
+      { q: 'Is the installation renter-friendly?', a: 'Yes. We install with minimal damage and, where needed, use hardware that can be removed cleanly.' },
+      { q: 'Can you install curtain rods and tracks too?', a: 'Yes — curtain rods, tracks, roller, cellular, venetian and roman shades.' },
+    ],
     reviewIds: [2, 3],
     seoDescription:
       'Professional blinds and shade installation in NYC. Roller shades, venetian blinds, curtain rods — all window types. Serving Brooklyn, Queens, Manhasset.',
@@ -155,6 +176,11 @@ const SERVICES_DETAIL: Record<string, ServiceData> = {
       'Doors and drawers adjusted for smooth operation',
       'Hardware installed and tightened fully',
       'Site left clean after installation',
+    ],
+    faqs: [
+      { q: 'Do you install kitchen and bathroom cabinets?', a: 'Yes — kitchen cabinets, bathroom vanities, medicine cabinets and storage/closet systems.' },
+      { q: 'Can you fix doors and drawers on existing cabinets?', a: 'Yes — we adjust hinges, drawer slides and door alignment.' },
+      { q: 'Will the cabinets be securely anchored?', a: 'Yes. We anchor into the wall structure (studs or masonry), shim level and plumb, and tighten all hardware.' },
     ],
     reviewIds: [7, 1],
     seoDescription:
@@ -186,6 +212,11 @@ const SERVICES_DETAIL: Record<string, ServiceData> = {
       'Texture matched to surrounding wall',
       'Ready for primer and paint when we leave',
     ],
+    faqs: [
+      { q: 'Can you repair large holes and water damage?', a: 'Yes — from pinholes to full-section replacement, including water-damaged board.' },
+      { q: 'Will the repair match my wall texture?', a: 'We match smooth, orange-peel or knockdown texture and leave it paint-ready — nearly invisible, even in direct light.' },
+      { q: 'Do you patch walls before a move-out inspection?', a: 'Yes — one of our most common jobs. We can walk the whole apartment and patch every hole.' },
+    ],
     reviewIds: [9, 8],
     seoDescription:
       'Professional drywall repair in NYC. Holes, cracks, water damage — smooth finish, ready to paint. Serving Brooklyn, Queens, Manhasset.',
@@ -215,6 +246,11 @@ const SERVICES_DETAIL: Record<string, ServiceData> = {
       'Each item tested and confirmed working',
       'Clean workspace maintained throughout',
       'Honest advice if something needs a specialist instead',
+    ],
+    faqs: [
+      { q: 'Can I give you a list of small jobs?', a: 'Absolutely — most customers do. One visit, multiple items knocked out.' },
+      { q: 'Is any job too small?', a: 'No job is too small and no list is too long. The 2-hour minimum means we can tackle several small tasks in one visit.' },
+      { q: 'What kinds of repairs do you handle?', a: 'Doors and hinges, minor plumbing and fixtures, light fixtures, outlet covers, picture and mirror hanging, and a long list of other fixes.' },
     ],
     reviewIds: [1, 9, 7],
     seoDescription:
@@ -295,28 +331,43 @@ export default async function ServicePage({
 
   const serviceReviews = REVIEWS.filter((r) => service.reviewIds.includes(r.id));
 
-  // LocalBusiness + Service JSON-LD
+  // Service-specific FAQs first, then shared pricing/scheduling/coverage FAQs.
+  const faqs = [...service.faqs, ...SHARED_FAQS];
+
+  const faqSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqs.map((f) => ({
+      '@type': 'Question',
+      name: f.q,
+      acceptedAnswer: { '@type': 'Answer', text: f.a },
+    })),
+  };
+
+  // Service JSON-LD, provided by the single canonical business entity (@id).
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: service.name,
     description: service.seoDescription,
-    provider: {
-      '@type': 'LocalBusiness',
-      name: BUSINESS.name,
-      telephone: BUSINESS.phone,
-      email: BUSINESS.email,
-      url: 'https://handlyr.org',
-      areaServed: SERVICE_AREAS.map((a) => ({
-        '@type': 'City',
-        name: `${a.name}, ${a.state}`,
-      })),
-    },
+    serviceType: service.name,
+    provider: { '@id': 'https://handlyr.org/#business' },
     areaServed: SERVICE_AREAS.map((a) => ({
       '@type': 'City',
       name: `${a.name}, ${a.state}`,
     })),
     url: `https://handlyr.org/services/${service.slug}`,
+  };
+
+  // Breadcrumb structured data (mirrors the visible breadcrumb nav below).
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handlyr.org' },
+      { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://handlyr.org/services' },
+      { '@type': 'ListItem', position: 3, name: service.name, item: `https://handlyr.org/services/${service.slug}` },
+    ],
   };
 
   return (
@@ -325,6 +376,14 @@ export default async function ServicePage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       {/* Hero */}
@@ -400,6 +459,29 @@ export default async function ServicePage({
               ))}
             </ul>
           </div>
+
+          {/* Pricing */}
+          <div
+            className="mt-6 p-6 rounded-2xl border"
+            style={{ backgroundColor: '#FFF7ED', borderColor: '#FED7AA' }}
+          >
+            <h3
+              className="font-heading font-bold text-xl mb-3"
+              style={{ color: '#0D2860' }}
+            >
+              Simple, Upfront Pricing
+            </h3>
+            <p className="text-text-muted text-base leading-relaxed">
+              <strong style={{ color: '#0D2860' }}>
+                ${PRICING.hourlyRate}/hour
+              </strong>{' '}
+              with a {PRICING.minimumHours}-hour minimum (${PRICING.hourlyRate * PRICING.minimumHours} minimum).{' '}
+              {PRICING.rateSummary.split('. ').slice(1).join('. ')}
+            </p>
+            <p className="text-text-muted text-sm leading-relaxed mt-2">
+              {PRICING.estimateSummary}
+            </p>
+          </div>
         </div>
       </section>
 
@@ -419,7 +501,7 @@ export default async function ServicePage({
             {SERVICE_AREAS.map((area) => (
               <Link
                 key={area.name}
-                href={`/service-areas/${area.name.toLowerCase().replace(/\s+/g, '-')}`}
+                href={`/service-areas/${area.slug}`}
                 className="flex items-start gap-3 p-4 bg-white rounded-2xl border border-neutral-200 hover:shadow-md transition-shadow duration-200 group"
               >
                 <span className="text-xl mt-0.5" aria-hidden="true">📍</span>
@@ -478,6 +560,38 @@ export default async function ServicePage({
           </div>
         </section>
       )}
+
+      {/* FAQ */}
+      <section className="py-16 px-4 lg:py-20" style={{ backgroundColor: '#F9FAFB' }}>
+        <div className="max-w-3xl mx-auto">
+          <h2
+            className="font-heading font-bold text-3xl mb-8 text-center"
+            style={{ color: '#0D2860' }}
+          >
+            Frequently Asked Questions
+          </h2>
+          <div className="space-y-4">
+            {faqs.map((faq) => (
+              <details
+                key={faq.q}
+                className="group bg-white rounded-2xl border border-neutral-200 p-5"
+              >
+                <summary className="flex cursor-pointer items-center justify-between gap-3 font-semibold text-text-dark list-none">
+                  {faq.q}
+                  <span
+                    className="text-xl flex-shrink-0 transition-transform duration-200 group-open:rotate-45"
+                    style={{ color: '#F97316' }}
+                    aria-hidden="true"
+                  >
+                    +
+                  </span>
+                </summary>
+                <p className="mt-3 text-text-muted leading-relaxed text-sm">{faq.a}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
 
       {/* Final CTA */}
       <section
