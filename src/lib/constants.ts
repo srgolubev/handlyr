@@ -223,13 +223,107 @@ export const TRUST_BADGES = [
   { label: 'Fair Pricing', icon: 'dollar-sign' },
 ] as const;
 
+// Real, completed Handlyr jobs. The first six double as the homepage
+// "Recent Projects" preview; the full list shows on the /projects page.
 export const GALLERY_ITEMS = [
-  { id: 1, label: 'TV Mounting', location: 'Queens', image: '/gallery-tv-mounting.jpg' },
-  { id: 2, label: 'Furniture Assembly', location: 'Brooklyn', image: '/gallery-furniture-assembly.jpg' },
-  { id: 3, label: 'Floating Shelves', location: 'Manhasset', image: '/gallery-floating-shelves.jpg' },
-  { id: 4, label: 'Drywall Repair', location: 'Queens', image: '/gallery-drywall-repair.jpg' },
-  { id: 5, label: 'Cabinet Install', location: 'Brooklyn', image: '/gallery-cabinet-install.jpg' },
-  { id: 6, label: 'Blinds Installation', location: 'Manhasset', image: '/gallery-blinds-installation.jpg' },
+  {
+    id: 1,
+    label: 'TV & Media Wall',
+    service: 'TV Mounting',
+    image: '/projects/media-wall-tv-mounting.webp',
+    alt: 'Wall-mounted flat-screen TV with a soundbar on a slatted accent wall above an electric fireplace',
+  },
+  {
+    id: 2,
+    label: 'Floating Shelves',
+    service: 'Shelf Installation',
+    image: '/projects/floating-shelves.webp',
+    alt: 'Six dark wood floating shelves installed across a home office wall',
+  },
+  {
+    id: 3,
+    label: 'Sectional Sofa Assembly',
+    service: 'Furniture Assembly',
+    image: '/projects/sectional-sofa-assembly.webp',
+    alt: 'Newly assembled white sectional sofa in a living room',
+  },
+  {
+    id: 4,
+    label: 'Bathroom Shelving',
+    service: 'Shelf Installation',
+    image: '/projects/bathroom-shelving.webp',
+    alt: 'Black floating shelves and a towel bar installed on a tiled bathroom wall above a toilet',
+  },
+  {
+    id: 5,
+    label: 'Curtain Installation',
+    service: 'Curtain & Blind Hanging',
+    image: '/projects/curtain-installation.webp',
+    alt: 'Sheer curtains hung on a ceiling-mounted track over a bedroom window',
+  },
+  {
+    id: 6,
+    label: 'Dresser Assembly',
+    service: 'Furniture Assembly',
+    image: '/projects/dresser-assembly.webp',
+    alt: 'Assembled white six-drawer dresser placed against a bedroom wall',
+  },
+  {
+    id: 7,
+    label: 'TV Mounting',
+    service: 'TV Mounting',
+    image: '/projects/tv-mounting.webp',
+    alt: 'Flat-screen TV mounted on the wall above a media cabinet with cables concealed',
+  },
+  {
+    id: 8,
+    label: 'Platform Bed Assembly',
+    service: 'Furniture Assembly',
+    image: '/projects/bed-frame-assembly.webp',
+    alt: 'Assembled white upholstered platform bed frame in a bedroom',
+  },
+  {
+    id: 9,
+    label: 'Curved Floating Shelves',
+    service: 'Shelf Installation',
+    image: '/projects/curved-floating-shelves.webp',
+    alt: 'Curved wave-shaped floating shelves mounted on the wall above a sofa',
+  },
+  {
+    id: 10,
+    label: 'Microwave Installation',
+    service: 'Appliance Mounting',
+    image: '/projects/microwave-installation.webp',
+    alt: 'Over-the-range microwave installed beneath kitchen cabinets above a stove',
+  },
+  {
+    id: 11,
+    label: 'Outdoor Shed Assembly',
+    service: 'Furniture Assembly',
+    image: '/projects/outdoor-shed-assembly.webp',
+    alt: 'Assembled grey outdoor storage shed on a composite rooftop deck',
+  },
+  {
+    id: 12,
+    label: 'Glass Shower Door',
+    service: 'Bathroom Fixtures',
+    image: '/projects/glass-shower-door.webp',
+    alt: 'Black-framed glass shower door installed in a tiled walk-in shower',
+  },
+  {
+    id: 13,
+    label: 'Glass Bath Shelves',
+    service: 'Shelf Installation',
+    image: '/projects/glass-bath-shelves.webp',
+    alt: 'Gold-bracket glass bathroom shelves mounted beside a vanity mirror',
+  },
+  {
+    id: 14,
+    label: 'Cabinet Hardware',
+    service: 'Cabinet & Hardware',
+    image: '/projects/cabinet-hardware-install.webp',
+    alt: 'Drilling pilot holes with a cordless drill to install cabinet door hardware',
+  },
 ] as const;
 
 export const NAV_LINKS = [

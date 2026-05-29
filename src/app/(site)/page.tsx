@@ -49,7 +49,7 @@ export default function HomePage() {
       <Services />
       <WhyChooseUs />
       <Reviews />
-      <Gallery />
+      <Gallery limit={6} showViewAll />
       <ServiceAreas />
       <ContactForm />
     </>

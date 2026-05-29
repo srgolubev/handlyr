@@ -3,10 +3,19 @@
 import { useState, useEffect, useRef } from 'react';
 import { createPortal } from 'react-dom';
 import Image from 'next/image';
+import Link from 'next/link';
 import { GALLERY_ITEMS } from '@/lib/constants';
 import { XIcon, ChevronLeftIcon, ChevronRightIcon } from '@/components/icons';
 
-export default function Gallery() {
+type GalleryProps = {
+  /** Limit how many items render (e.g. 6 for the homepage preview). Omit to show all. */
+  limit?: number;
+  /** Show a "View all projects" link below the grid (used on the homepage preview). */
+  showViewAll?: boolean;
+};
+
+export default function Gallery({ limit, showViewAll = false }: GalleryProps) {
+  const items = limit ? GALLERY_ITEMS.slice(0, limit) : GALLERY_ITEMS;
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const triggerRef = useRef<HTMLButtonElement | null>(null);
   const closeBtnRef = useRef<HTMLButtonElement>(null);
@@ -21,10 +30,10 @@ export default function Gallery() {
     triggerRef.current?.focus(); // restore focus to the thumbnail that opened it
   };
   const prevImage = () => {
-    setLightboxIndex((i) => (i === null ? i : (i - 1 + GALLERY_ITEMS.length) % GALLERY_ITEMS.length));
+    setLightboxIndex((i) => (i === null ? i : (i - 1 + items.length) % items.length));
   };
   const nextImage = () => {
-    setLightboxIndex((i) => (i === null ? i : (i + 1) % GALLERY_ITEMS.length));
+    setLightboxIndex((i) => (i === null ? i : (i + 1) % items.length));
   };
 
   // Keyboard support while the lightbox is open: Escape closes, arrows navigate,
@@ -68,7 +77,7 @@ export default function Gallery() {
     };
   }, [lightboxIndex]);
 
-  const currentItem = lightboxIndex !== null ? GALLERY_ITEMS[lightboxIndex] : null;
+  const currentItem = lightboxIndex !== null ? items[lightboxIndex] : null;
 
   return (
     <>
@@ -93,16 +102,16 @@ export default function Gallery() {
 
           {/* Gallery grid */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4">
-            {GALLERY_ITEMS.map((item, index) => (
+            {items.map((item, index) => (
               <button
                 key={item.id}
                 onClick={(e) => openLightbox(index, e.currentTarget)}
                 className="group relative aspect-square overflow-hidden rounded-xl cursor-pointer focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
-                aria-label={`View ${item.label} — ${item.location}`}
+                aria-label={`View project: ${item.label}`}
               >
                 <Image
                   src={item.image}
-                  alt={`${item.label} in ${item.location}`}
+                  alt={item.alt}
                   fill
                   sizes="(max-width: 768px) 50vw, 33vw"
                   className="object-cover transition-transform duration-300 group-hover:scale-105"
@@ -114,14 +123,25 @@ export default function Gallery() {
                 {/* Label — slides up on hover */}
                 <div className="absolute bottom-0 left-0 right-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
                   <div className="p-3 bg-gradient-to-t from-primary-900/90 to-transparent">
-                    <p className="text-white text-sm font-semibold">
-                      {item.label} — {item.location}
-                    </p>
+                    <p className="text-white text-sm font-semibold">{item.label}</p>
+                    <p className="text-white/80 text-xs">{item.service}</p>
                   </div>
                 </div>
               </button>
             ))}
           </div>
+
+          {showViewAll && (
+            <div className="text-center mt-10">
+              <Link
+                href="/projects"
+                className="inline-flex items-center gap-2 font-semibold text-primary-700 hover:text-primary-800 focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2 rounded-md transition-colors"
+              >
+                View all projects
+                <ChevronRightIcon className="w-4 h-4" />
+              </Link>
+            </div>
+          )}
         </div>
       </section>
 
@@ -161,14 +181,15 @@ export default function Gallery() {
           >
             <Image
               src={currentItem.image}
-              alt={`${currentItem.label} in ${currentItem.location}`}
+              alt={currentItem.alt}
               fill
               sizes="90vw"
               className="object-contain"
               priority
             />
             <div className="absolute bottom-0 left-0 right-0 p-4 bg-gradient-to-t from-black/70 to-transparent">
-              <p className="text-white text-base font-semibold">{currentItem.label} — {currentItem.location}</p>
+              <p className="text-white text-base font-semibold">{currentItem.label}</p>
+              <p className="text-white/80 text-sm">{currentItem.service}</p>
             </div>
           </div>
 
@@ -183,7 +204,7 @@ export default function Gallery() {
 
           {/* Counter */}
           <div className="absolute bottom-6 left-1/2 -translate-x-1/2 text-white text-sm">
-            {lightboxIndex + 1} / {GALLERY_ITEMS.length}
+            {lightboxIndex + 1} / {items.length}
           </div>
 
           {/* Click outside to close */}
