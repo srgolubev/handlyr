@@ -1,7 +1,6 @@
-import type { Metadata } from 'next';
+import type { Metadata, Viewport } from 'next';
 import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
-import { BUSINESS } from '@/lib/constants';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -51,10 +50,6 @@ export const metadata: Metadata = {
     description:
       'Professional handyman services in NYC. Furniture assembly, TV mounting, drywall repair & more. 15+ years experience.',
   },
-  alternates: {
-    canonical: 'https://handlyr.org',
-  },
-  themeColor: '#ffffff',
   icons: {
     icon: [
       { url: '/favicon/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
@@ -68,42 +63,25 @@ export const metadata: Metadata = {
   },
 };
 
+export const viewport: Viewport = {
+  themeColor: '#ffffff',
+  width: 'device-width',
+  initialScale: 1,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'HomeAndConstructionBusiness',
-    name: BUSINESS.name,
-    image: 'https://handlyr.org/og-image.jpg',
-    '@id': 'https://handlyr.org',
-    url: 'https://handlyr.org',
-    telephone: BUSINESS.phone,
-    areaServed: {
-      '@type': 'City',
-      name: 'New York City'
-    },
-    description: BUSINESS.tagline,
-    priceRange: '$$',
-    aggregateRating: {
-      '@type': 'AggregateRating',
-      ratingValue: '5',
-      reviewCount: '100'
-    }
-  };
-
+  // NOTE: The canonical business JSON-LD lives in (site)/layout.tsx as a single
+  // source of truth (@id https://handlyr.org/#business). We intentionally do NOT
+  // emit a second, conflicting business node here.
   return (
     <html lang="en" className={`${inter.variable} ${plusJakartaSans.variable}`}>
       <head>
-        <meta name="theme-color" content="#ffffff" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
       </head>
       <body className="font-body antialiased">{children}</body>
     </html>

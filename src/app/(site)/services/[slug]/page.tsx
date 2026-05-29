@@ -295,28 +295,30 @@ export default async function ServicePage({
 
   const serviceReviews = REVIEWS.filter((r) => service.reviewIds.includes(r.id));
 
-  // LocalBusiness + Service JSON-LD
+  // Service JSON-LD, provided by the single canonical business entity (@id).
   const schema = {
     '@context': 'https://schema.org',
     '@type': 'Service',
     name: service.name,
     description: service.seoDescription,
-    provider: {
-      '@type': 'LocalBusiness',
-      name: BUSINESS.name,
-      telephone: BUSINESS.phone,
-      email: BUSINESS.email,
-      url: 'https://handlyr.org',
-      areaServed: SERVICE_AREAS.map((a) => ({
-        '@type': 'City',
-        name: `${a.name}, ${a.state}`,
-      })),
-    },
+    serviceType: service.name,
+    provider: { '@id': 'https://handlyr.org/#business' },
     areaServed: SERVICE_AREAS.map((a) => ({
       '@type': 'City',
       name: `${a.name}, ${a.state}`,
     })),
     url: `https://handlyr.org/services/${service.slug}`,
+  };
+
+  // Breadcrumb structured data (mirrors the visible breadcrumb nav below).
+  const breadcrumbSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'BreadcrumbList',
+    itemListElement: [
+      { '@type': 'ListItem', position: 1, name: 'Home', item: 'https://handlyr.org' },
+      { '@type': 'ListItem', position: 2, name: 'Services', item: 'https://handlyr.org/services' },
+      { '@type': 'ListItem', position: 3, name: service.name, item: `https://handlyr.org/services/${service.slug}` },
+    ],
   };
 
   return (
@@ -325,6 +327,10 @@ export default async function ServicePage({
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
       />
 
       {/* Hero */}

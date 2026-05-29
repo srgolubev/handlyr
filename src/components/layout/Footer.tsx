@@ -36,7 +36,7 @@ export default function Footer() {
               {SERVICES.map((service) => (
                 <li key={service.id}>
                   <Link
-                    href={`/#services`}
+                    href={`/services/${service.slug}`}
                     className="text-sm transition-colors duration-150 hover:text-white"
                     style={{ color: 'rgba(255,255,255,0.7)' }}
                   >
@@ -56,7 +56,7 @@ export default function Footer() {
               {SERVICE_AREAS.map((area) => (
                 <li key={area.name}>
                   <Link
-                    href="/service-areas"
+                    href={`/service-areas/${area.name.toLowerCase().replace(/\s+/g, '-')}`}
                     className="text-sm transition-colors duration-150 hover:text-white"
                     style={{ color: 'rgba(255,255,255,0.7)' }}
                   >
@@ -75,7 +75,7 @@ export default function Footer() {
             <ul className="space-y-3">
               <li>
                 <a
-                  href={BUSINESS.smsHref}
+                  href={BUSINESS.phoneHref}
                   className="flex items-center gap-2 text-sm font-medium text-white transition-colors duration-150 hover:text-accent-500"
                 >
                   {BUSINESS.phone}
@@ -84,7 +84,7 @@ export default function Footer() {
               <li>
                 <span className="flex items-center gap-2 text-sm" style={{ color: 'rgba(255,255,255,0.7)' }}>
                   <MapPinIcon className="w-4 h-4 flex-shrink-0" />
-                  New York City, NY
+                  Serving Brooklyn, Queens &amp; Manhasset, NY
                 </span>
               </li>
               <li>

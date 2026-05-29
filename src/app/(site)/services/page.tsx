@@ -69,17 +69,23 @@ export default function ServicesPage() {
                   {serviceIcons[service.id]}
                 </div>
                 <h2 className="text-xl font-heading font-bold text-text-dark mb-2">
-                  {service.name}
+                  <Link
+                    href={`/services/${service.slug}`}
+                    className="hover:text-primary-600 transition-colors"
+                  >
+                    {service.name}
+                  </Link>
                 </h2>
                 <p className="text-text-muted leading-relaxed flex-1">
                   {service.description}
                 </p>
                 <Link
-                  href={`/contact?service=${service.slug}`}
+                  href={`/services/${service.slug}`}
                   className="mt-4 inline-flex items-center justify-center px-5 py-2.5 rounded-xl text-sm font-semibold text-white transition-all duration-200 hover:scale-[1.02]"
                   style={{ backgroundColor: '#F97316' }}
+                  aria-label={`Learn more about ${service.name} in NYC`}
                 >
-                  Book This Service
+                  Learn More
                 </Link>
               </div>
             ))}

@@ -102,9 +102,9 @@ export default function AboutPage() {
             <div className="grid grid-cols-2 gap-4 mt-4">
               {[
                 { number: '15+', label: 'Years of Experience' },
-                { number: '500+', label: 'Jobs Completed' },
-                { number: '5★', label: 'Average Rating' },
-                { number: '5', label: 'Areas Served' },
+                { number: '28', label: 'Verified Reviews' },
+                { number: '2009', label: 'Serving Since' },
+                { number: '3', label: 'Areas Served' },
               ].map((stat) => (
                 <div
                   key={stat.label}

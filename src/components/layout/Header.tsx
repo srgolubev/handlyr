@@ -69,9 +69,10 @@ export default function Header() {
           {/* Desktop right side */}
           <div className="hidden lg:flex items-center gap-4">
             <a
-              href={BUSINESS.smsHref}
+              href={BUSINESS.phoneHref}
               className="flex items-center gap-2 px-4 py-2 rounded-xl text-sm font-bold transition-all duration-150 hover:bg-orange-50 focus-visible:ring-2 focus-visible:ring-orange-300"
               style={{ color: '#F97316' }}
+              aria-label={`Call us at ${BUSINESS.phone}`}
             >
               <PhoneIcon className="w-4 h-4" />
               {BUSINESS.phone}
@@ -88,7 +89,7 @@ export default function Header() {
           {/* Mobile right side */}
           <div className="flex lg:hidden items-center gap-2">
             <a
-              href={BUSINESS.smsHref}
+              href={BUSINESS.phoneHref}
               className="flex items-center justify-center w-11 h-11 rounded-full bg-primary-100 text-primary-700 hover:bg-primary-200 transition-colors duration-150"
               aria-label={`Call us at ${BUSINESS.phone}`}
             >
