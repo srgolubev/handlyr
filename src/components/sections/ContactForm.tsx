@@ -32,7 +32,7 @@ export default function ContactForm() {
               {[
                 `Fast response — usually ${BUSINESS.responseTime}`,
                 'Free quotes by text — just send a photo',
-                'Simple $59/hour pricing, 2-hour minimum',
+                'Simple $69/hour pricing, 2-hour minimum',
                 BUSINESS.guarantee,
               ].map((item) => (
                 <li key={item} className="flex items-center gap-3 text-base text-white/90">

@@ -23,26 +23,26 @@ export const RATING = {
 
 // Uniform pricing model (not per-service).
 export const PRICING = {
-  hourlyRate: 59,
+  hourlyRate: 69,
   minimumHours: 2,
-  estimateFee: 59,
+  estimateFee: 69,
   currency: 'USD',
   // Plain-language summaries reused across UI, FAQ, schema and llms.txt.
   rateSummary:
-    '$59/hour with a 2-hour minimum. If the job takes less time, we use the rest to take care of other small tasks around your home.',
+    '$69/hour with a 2-hour minimum. If the job takes less time, we use the rest to take care of other small tasks around your home.',
   estimateSummary:
-    'Get a free quote by text — just send a photo. An on-site visit to assess the work is $59, and it is credited toward the cost of the job if you decide to go ahead.',
+    'Get a free quote by text — just send a photo. An on-site visit to assess the work is $69, and it is credited toward the cost of the job if you decide to go ahead.',
 } as const;
 
 // Shared FAQ (pricing, scheduling, coverage) appended to every service page.
 export const SHARED_FAQS = [
   {
     q: 'How much does it cost?',
-    a: 'Our rate is $59/hour with a 2-hour minimum (so a minimum of $118). If the job finishes early, we use the remaining time for other small tasks around your home.',
+    a: 'Our rate is $69/hour with a 2-hour minimum (so a minimum of $138). If the job finishes early, we use the remaining time for other small tasks around your home.',
   },
   {
     q: 'Do you charge for estimates?',
-    a: 'You can text a photo for a free quote. If you need an on-site visit to assess the work, it is $59 — and that $59 is credited toward the cost of the job if you decide to proceed.',
+    a: 'You can text a photo for a free quote. If you need an on-site visit to assess the work, it is $69 — and that $69 is credited toward the cost of the job if you decide to proceed.',
   },
   {
     q: 'How fast can you come?',
