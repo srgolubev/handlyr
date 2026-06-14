@@ -5,6 +5,11 @@ on:
     branches:
       - main
 
+# Serialize deploys so two runs never wipe/build node_modules at the same time.
+concurrency:
+  group: deploy-vps
+  cancel-in-progress: false
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -19,7 +24,11 @@ jobs:
           script: |
             cd /var/www/handlyr
             git pull origin main
-            npm ci
+            # npm install (incremental) instead of npm ci: on this 2GB box a full
+            # node_modules wipe + reinstall was getting OOM-killed, leaving a
+            # broken tree with no `next` binary. install respects the lockfile
+            # without removing node_modules or leaving a window where `next` is gone.
+            npm install --no-audit --no-fund
             rm -rf .next/cache/images
             npm run build
             pm2 restart handlyr || pm2 start npm --name handlyr -- start -- -p 3001
