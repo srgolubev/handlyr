@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import GoogleAds from '@/components/GoogleAds';
+import LeadClickTracker from '@/components/LeadClickTracker';
 
 const inter = Inter({
   subsets: ['latin'],
@@ -86,7 +87,10 @@ export default function RootLayout({
         {/* Google Ads global site tag — loads on every route */}
         <GoogleAds />
       </head>
-      <body className="font-body antialiased">{children}</body>
+      <body className="font-body antialiased">
+        {children}
+        <LeadClickTracker />
+      </body>
     </html>
   );
 }
