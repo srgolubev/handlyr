@@ -28,9 +28,9 @@ export type LeadType = 'form' | 'sms' | 'phone';
 // `AW-18191035963/XXXXXXXX`). null = skip the Ads conversion (dataLayer event
 // and console log still fire, so the click is fully testable).
 export const CONVERSION_LABELS: Record<LeadType, string | null> = {
-  form: 'D5HOCOGDvLwcELvclOJD',
-  sms: null, // TODO: paste the "SMS Lead" conversion label
-  phone: null, // TODO: paste the "Phone Lead" conversion label
+  form: 'D5HOCOGDvLwcELvclOJD', // "Lead form submission"
+  sms: '7Yo2CMO77L4cELvclOJD', // "SMS Lead"
+  phone: 'no08CKSq174cELvclOJD', // "Phone Lead"
 };
 
 // dataLayer event names → these are the exact GTM Custom Event trigger names.
