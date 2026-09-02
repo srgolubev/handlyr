@@ -46,20 +46,22 @@ export default function ThumbtackReviewWidget() {
           />
         </div>
         <div className="tt-right">
-          <div className="tt-name">Savannah C.</div>
+          <div className="tt-name">Roger H.</div>
           <div className="tt-stars">
             <img src="https://cdn.thumbtackstatic.com/fe-assets-web/media/pages/profile/standard-widgets/review-widget/orange_star.svg" alt="star" />
             <img src="https://cdn.thumbtackstatic.com/fe-assets-web/media/pages/profile/standard-widgets/review-widget/orange_star.svg" alt="star" />
             <img src="https://cdn.thumbtackstatic.com/fe-assets-web/media/pages/profile/standard-widgets/review-widget/orange_star.svg" alt="star" />
             <img src="https://cdn.thumbtackstatic.com/fe-assets-web/media/pages/profile/standard-widgets/review-widget/orange_star.svg" alt="star" />
             <img src="https://cdn.thumbtackstatic.com/fe-assets-web/media/pages/profile/standard-widgets/review-widget/orange_star.svg" alt="star" />
-            <span>25 reviews</span>
-            <span>0d ago</span>
+            <span>45 reviews</span>
+            <span>Sep 1, 2026</span>
           </div>
           <p>
-            Helped me with a ton of projects: fixing a cabinet and putting it back
-            together, hanging a projector, putting up a floating shelf, and more. Will
-            hire again!
+            Serge patched two holes left in the concrete foundation of my house from a
+            prior AC installation. He showed up on time, was professional and quickly
+            did the work. Cleaned up after himself and told me to let him know how the
+            cement dried. Otherwise he&apos;d return to resolve any issues. I definitely
+            would recommend him and plan to use him in the future.
           </p>
           <a target="_blank" rel="noopener noreferrer" href={TT_PROFILE_URL}>
             See all reviews
