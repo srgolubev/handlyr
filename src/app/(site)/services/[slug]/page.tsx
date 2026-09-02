@@ -149,7 +149,7 @@ const SERVICES_DETAIL: Record<string, ServiceData> = {
       { q: 'Is the installation renter-friendly?', a: 'Yes. We install with minimal damage and, where needed, use hardware that can be removed cleanly.' },
       { q: 'Can you install curtain rods and tracks too?', a: 'Yes — curtain rods, tracks, roller, cellular, venetian and roman shades.' },
     ],
-    reviewIds: [2, 3],
+    reviewIds: [15],
     seoDescription:
       'Professional blinds and shade installation in NYC. Roller shades, venetian blinds, curtain rods — all window types. Serving Brooklyn, Queens, Manhasset.',
     keywords: [

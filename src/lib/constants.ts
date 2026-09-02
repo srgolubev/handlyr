@@ -13,10 +13,11 @@ export const BUSINESS = {
 };
 
 // Single source of truth for verified reputation (Thumbtack + Google).
-// 28 reviews: 27 × 5 stars + 1 × 2 stars = 137 / 28 = 4.9 average.
+// Thumbtack surfaces 45 unique reviews, including 11 imported from Google.
+// 45 reviews: 44 × 5 stars + 1 × 2 stars = 222 / 45 = 4.9 average.
 export const RATING = {
   value: '4.9',
-  count: 28,
+  count: 45,
   best: '5',
   worst: '1',
 } as const;
@@ -143,6 +144,70 @@ export const SERVICE_AREAS = [
 
 export const REVIEWS = [
   {
+    id: 10,
+    stars: 5,
+    text: 'Serge patched two holes left in the concrete foundation of my house from a prior AC installation. He showed up on time, was professional and quickly did the work. Cleaned up after himself and told me to let him know how the cement dried. Otherwise he\'d return to resolve any issues. I definitely would recommend him and plan to use him in the future.',
+    name: 'Roger H.',
+    service: 'Handyman',
+    initials: 'RH',
+  },
+  {
+    id: 11,
+    stars: 5,
+    text: 'Serge is the absolute best! He was so attentive while showing professionalism and efficiency. Serge will now be my go to person when it comes to fixing/ maintaining things around the house!',
+    name: 'Stephanie S.',
+    service: 'TV Mounting',
+    initials: 'SS',
+  },
+  {
+    id: 12,
+    stars: 5,
+    text: 'Highly recommend! We had 2 double cabinets needing install — Serge picked up the parts needed (included in final cost), came and took his time to properly install these. He provided quality work, was professional, and kind!',
+    name: 'Anna h.',
+    service: 'Cabinet Installation',
+    initials: 'AH',
+  },
+  {
+    id: 13,
+    stars: 5,
+    text: 'Serge did an excellent job. Took his time and did quality work. I\'ll have another project soon.',
+    name: 'Stan B.',
+    service: 'Handyman',
+    initials: 'SB',
+  },
+  {
+    id: 14,
+    stars: 5,
+    text: 'He came and did a good job drilling holes, installing lights etc.',
+    name: 'Pat R.',
+    service: 'Handyman',
+    initials: 'PR',
+  },
+  {
+    id: 15,
+    stars: 5,
+    text: 'Great. Efficient. Kind. Great experience! He came promptly, put my Curtains up and did a clean, professional job. Friendly, efficient, and reasonably priced. I would definitely recommend him and use his services again.',
+    name: 'Mia C.',
+    service: 'Window Treatment',
+    initials: 'MC',
+  },
+  {
+    id: 16,
+    stars: 5,
+    text: 'He quickly understood what I needed done and did it in a very professional and efficient manner. I would hire him again.',
+    name: 'Celeste M.',
+    service: 'Handyman',
+    initials: 'CM',
+  },
+  {
+    id: 17,
+    stars: 5,
+    text: 'Serge was extremely knowledgeable, friendly, and professional. He does every job as he would do in his own home and offers great advice. We wanted a six panel antique mirror put up and he completed the task with ease. He also kept everything very clean. We trust him completely and will be contacting him for any further work around the house.',
+    name: 'Naomi Z.',
+    service: 'Handyman',
+    initials: 'NZ',
+  },
+  {
     id: 1,
     stars: 5,
     text: 'Helped me with a ton of projects: fixing a cabinet and putting it back together, hanging a projector, putting up a floating shelf, and more. Will hire again!',
@@ -151,36 +216,12 @@ export const REVIEWS = [
     initials: 'SC',
   },
   {
-    id: 2,
-    stars: 5,
-    text: 'Although my request was minimal, the work was done with care and professionalism. I would definitely hire again.',
-    name: 'Fiona D.',
-    service: 'Window Treatment',
-    initials: 'FD',
-  },
-  {
-    id: 3,
-    stars: 5,
-    text: 'The job that was performed was good quality and exceeded expectations.',
-    name: 'Kevin R.',
-    service: 'Window Treatment',
-    initials: 'KR',
-  },
-  {
     id: 4,
     stars: 5,
     text: 'Very professional and got the job finished in a timely fashion. Took a business card so this can be my go-to handyman service.',
     name: 'Jamilla S.',
     service: 'Furniture Assembly',
     initials: 'JS',
-  },
-  {
-    id: 5,
-    stars: 5,
-    text: 'He was absolutely the best.',
-    name: 'Latoyia C.',
-    service: 'Furniture Assembly',
-    initials: 'LC',
   },
   {
     id: 6,
@@ -213,6 +254,54 @@ export const REVIEWS = [
     name: 'Debra Z.',
     service: 'Handyman',
     initials: 'DZ',
+  },
+  {
+    id: 18,
+    stars: 5,
+    text: 'Serge was very responsive and provided high-quality work. He mounted six pieces onto a brick wall including a large mirror and one shelf on drywall. He was able to make adjustments when things weren\'t as straightforward as we thought, and we appreciated that he always asked for our opinions when necessary and provided multiple options. I\'d definitely hire again.',
+    name: 'Spencer L.',
+    service: 'Handyman',
+    initials: 'SL',
+  },
+  {
+    id: 19,
+    stars: 5,
+    text: 'Easy to work with and did a great job hanging various items around our home, including a TV and cat shelves that weren\'t the easiest! Good communication and very reliable!',
+    name: 'Julie N.',
+    service: 'Handyman',
+    initials: 'JN',
+  },
+  {
+    id: 20,
+    stars: 5,
+    text: 'I had 3 dressers put together and they were done neatly and quickly. Very professional and kind guy.',
+    name: 'Rachel K.',
+    service: 'Furniture Assembly',
+    initials: 'RK',
+  },
+  {
+    id: 21,
+    stars: 5,
+    text: 'Serge killed it! Moved my TV, patched walls flawlessly, fixed my bed & assembled a dresser — all in one visit. On time, clean, no BS.',
+    name: 'Alice C.',
+    service: 'Handyman',
+    initials: 'AC',
+  },
+  {
+    id: 22,
+    stars: 5,
+    text: 'I highly recommend this specialist. Assembled a table and a bedside table for the TV very quickly and efficiently. I will contact you again. Sergey, thank you!',
+    name: 'Kira K.',
+    service: 'Furniture Assembly',
+    initials: 'KK',
+  },
+  {
+    id: 23,
+    stars: 5,
+    text: 'Thank you, Serge! For the neat and clean assembly of two tables and a chest of drawers from IKEA. Everything was done quickly and efficiently. I will definitely use your services again.',
+    name: 'Helen M.',
+    service: 'Furniture Assembly',
+    initials: 'HM',
   },
 ] as const;
 

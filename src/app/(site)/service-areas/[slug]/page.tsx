@@ -96,7 +96,7 @@ const AREAS: Record<string, AreaData> = {
       'From mounting TVs and hanging artwork to assembling furniture and tackling that growing punch list, we handle homes of every size with care. Our work speaks for itself: clean installs, accurate mounting, and zero mess left behind.',
       'Quick to respond and easy to schedule — just send a text and we will get back to you with a straightforward estimate.',
     ],
-    reviewIds: [6, 2],
+    reviewIds: [6, 15],
     schemaLocality: 'Manhasset',
     schemaRegion: 'NY',
     seoDescription:
