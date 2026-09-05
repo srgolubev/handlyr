@@ -6,7 +6,7 @@ import PageHero from '@/components/sections/PageHero';
 export const metadata: Metadata = {
   title: 'Recent Projects — NYC Handyman Work | Handlyr',
   description:
-    'See recent handyman projects by Handlyr across NYC and NJ — TV mounting, furniture assembly, floating shelves, drywall repair, cabinet installs & more.',
+    'See recent handyman projects by Handlyr across Brooklyn, Queens, and Manhasset — TV mounting, furniture assembly, floating shelves, drywall repair, cabinet installs & more.',
   keywords: [
     'handyman projects NYC',
     'TV mounting examples',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Recent Handyman Projects | Handlyr NYC',
     description:
-      'Browse completed handyman jobs across NYC and NJ: TV mounting, furniture assembly, floating shelves, drywall repair, and more.',
+      'Browse completed handyman jobs across Brooklyn, Queens, and Manhasset: TV mounting, furniture assembly, floating shelves, drywall repair, and more.',
     type: 'website',
     url: 'https://handlyr.org/projects',
   },
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Recent Handyman Projects | Handlyr NYC',
     description:
-      'Browse completed handyman jobs across NYC and NJ: TV mounting, furniture assembly, floating shelves, drywall repair, and more.',
+      'Browse completed handyman jobs across Brooklyn, Queens, and Manhasset: TV mounting, furniture assembly, floating shelves, drywall repair, and more.',
   },
   alternates: {
     canonical: 'https://handlyr.org/projects',
@@ -43,7 +43,7 @@ export default function ProjectsPage() {
         description={"A look at jobs we've completed across Brooklyn, Queens, and Manhasset."}
       />
 
-      <Gallery />
+      <Gallery showDescriptions />
       <ContactForm />
     </>
   );

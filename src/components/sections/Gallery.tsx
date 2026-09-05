@@ -10,11 +10,13 @@ import { XIcon, ChevronLeftIcon, ChevronRightIcon } from '@/components/icons';
 type GalleryProps = {
   /** Limit how many items render (e.g. 6 for the homepage preview). Omit to show all. */
   limit?: number;
+  /** Display existing project descriptions as visible captions. */
+  showDescriptions?: boolean;
   /** Show a "View all projects" link below the grid (used on the homepage preview). */
   showViewAll?: boolean;
 };
 
-export default function Gallery({ limit, showViewAll = false }: GalleryProps) {
+export default function Gallery({ limit, showViewAll = false, showDescriptions = false }: GalleryProps) {
   const items = limit ? GALLERY_ITEMS.slice(0, limit) : GALLERY_ITEMS;
   const [lightboxIndex, setLightboxIndex] = useState<number | null>(null);
   const triggerRef = useRef<HTMLButtonElement | null>(null);
@@ -103,31 +105,38 @@ export default function Gallery({ limit, showViewAll = false }: GalleryProps) {
           {/* Gallery grid */}
           <div className="grid grid-cols-2 md:grid-cols-3 gap-2 md:gap-4">
             {items.map((item, index) => (
-              <button
-                key={item.id}
-                onClick={(e) => openLightbox(index, e.currentTarget)}
-                className="group relative aspect-square overflow-hidden rounded-xl cursor-pointer focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
-                aria-label={`View project: ${item.label}`}
-              >
-                <Image
-                  src={item.image}
-                  alt={item.alt}
-                  fill
-                  sizes="(max-width: 768px) 50vw, 33vw"
-                  className="object-cover transition-transform duration-300 group-hover:scale-105"
-                />
+              <figure key={item.id} className="min-w-0">
+                <button
+                  onClick={(e) => openLightbox(index, e.currentTarget)}
+                  className="group relative block w-full aspect-square overflow-hidden rounded-xl cursor-pointer focus-visible:ring-2 focus-visible:ring-primary-500 focus-visible:ring-offset-2"
+                  aria-label={`View project: ${item.label}`}
+                >
+                  <Image
+                    src={item.image}
+                    alt={item.alt}
+                    fill
+                    sizes="(max-width: 768px) 50vw, 33vw"
+                    className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  />
 
-                {/* Hover overlay */}
-                <div className="absolute inset-0 bg-primary-900/0 group-hover:bg-primary-900/60 transition-colors duration-300" />
+                  {/* Hover overlay */}
+                  <div className="absolute inset-0 bg-primary-900/0 group-hover:bg-primary-900/60 transition-colors duration-300" />
 
-                {/* Label — slides up on hover */}
-                <div className="absolute bottom-0 left-0 right-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
-                  <div className="p-3 bg-gradient-to-t from-primary-900/90 to-transparent">
-                    <p className="text-white text-sm font-semibold">{item.label}</p>
-                    <p className="text-white/80 text-xs">{item.service}</p>
+                  {/* Label — slides up on hover */}
+                  <div className="absolute bottom-0 left-0 right-0 translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                    <div className="p-3 bg-gradient-to-t from-primary-900/90 to-transparent">
+                      <p className="text-white text-sm font-semibold">{item.label}</p>
+                      <p className="text-white/80 text-xs">{item.service}</p>
+                    </div>
                   </div>
-                </div>
-              </button>
+                </button>
+                {showDescriptions && (
+                  <figcaption className="px-1 pt-3 pb-5">
+                    <h3 className="font-heading font-semibold text-text-dark">{item.label}</h3>
+                    <p className="mt-1 text-sm text-text-muted leading-relaxed">{item.alt}.</p>
+                  </figcaption>
+                )}
+              </figure>
             ))}
           </div>
 
