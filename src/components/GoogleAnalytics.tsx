@@ -3,7 +3,8 @@ interface GoogleAnalyticsProps {
 }
 
 /**
- * Renders the standard GA4 script tags.
+ * Configures GA4 once in the root layout. GoogleAds, rendered immediately
+ * before this component, initializes gtag and loads the shared library.
  * Pass gaId={process.env.NEXT_PUBLIC_GA_ID || ''} from layout.tsx.
  * When gaId is empty the component renders nothing, keeping local dev clean.
  */
@@ -13,16 +14,9 @@ export default function GoogleAnalytics({ gaId }: GoogleAnalyticsProps) {
   return (
     <>
       <script
-        async
-        src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
-      />
-      <script
         dangerouslySetInnerHTML={{
           __html: `
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', '${gaId}', { page_path: window.location.pathname });
+gtag('config', '${gaId}');
           `.trim(),
         }}
       />

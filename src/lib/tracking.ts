@@ -18,6 +18,31 @@ declare global {
 
 export const ADS_ID = 'AW-18191035963';
 
+// Contact intent only: these events never represent a completed job/request.
+export function trackContactIntent(type: 'sms' | 'phone' | 'jobber'): void {
+  const gaId = process.env.NEXT_PUBLIC_GA_ID;
+  if (typeof window === 'undefined' || !gaId || typeof window.gtag !== 'function') return;
+  const pagePath = window.location.pathname;
+  window.gtag('event', type === 'jobber' ? 'jobber_form_open' : `${type}_lead_click`, {
+    send_to: gaId,
+    page_path: pagePath,
+    contact_method: type,
+    landing_variant: pagePath === '/move-in-nyc' ? 'manhattan_move_in'
+      : pagePath === '/quickorder' ? 'quickorder' : 'main_site',
+    transport_type: 'beacon',
+  });
+}
+
+export function isJobberRequestLink(href: string): boolean {
+  try {
+    const url = new URL(href);
+    return url.protocol === 'https:' && url.hostname === 'clienthub.getjobber.com'
+      && /\/public\/(requests\/[^/]+\/new|work_request\/embedded_work_request_form)\/?$/.test(url.pathname);
+  } catch {
+    return false;
+  }
+}
+
 export type LeadType = 'form' | 'sms' | 'phone';
 
 // Google Ads conversion labels per lead type. The final send_to is
@@ -49,6 +74,8 @@ const LOG_MARKER: Record<LeadType, string> = {
 
 export function trackLead(type: LeadType): void {
   if (typeof window === 'undefined') return;
+
+  if (type === 'sms' || type === 'phone') trackContactIntent(type);
 
   // 1. Diagnostics
   console.log(LOG_MARKER[type]);

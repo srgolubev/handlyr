@@ -2,7 +2,6 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import StickyMobileCTA from '@/components/layout/StickyMobileCTA';
 import JsonLd from '@/components/JsonLd';
-import GoogleAnalytics from '@/components/GoogleAnalytics';
 import { SERVICES, PRICING } from '@/lib/constants';
 
 // Public profiles where the business can be corroborated (helps both local SEO
@@ -88,7 +87,6 @@ export default function SiteLayout({
     <>
       <JsonLd schema={localBusinessSchema} />
       <JsonLd schema={webSiteSchema} />
-      <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ''} />
       <a href="#main" className="skip-link">Skip to content</a>
       <Header />
       <main id="main" tabIndex={-1} className="pb-28 lg:pb-0">{children}</main>

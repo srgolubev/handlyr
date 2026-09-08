@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from 'next';
 import { Inter, Plus_Jakarta_Sans } from 'next/font/google';
 import './globals.css';
 import GoogleAds from '@/components/GoogleAds';
+import GoogleAnalytics from '@/components/GoogleAnalytics';
 import LeadClickTracker from '@/components/LeadClickTracker';
 
 const inter = Inter({
@@ -86,6 +87,7 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
         {/* Google Ads global site tag — loads on every route */}
         <GoogleAds />
+        <GoogleAnalytics gaId={process.env.NEXT_PUBLIC_GA_ID || ''} />
       </head>
       <body className="font-body antialiased">
         {children}
