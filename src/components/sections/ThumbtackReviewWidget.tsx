@@ -1,6 +1,9 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { RATING, REVIEWS } from '@/lib/constants';
+
+const latestThumbtackReview = REVIEWS.find((review) => review.id === 25)!;
 
 const TT_SERVICE_PK = '573077145150963741';
 const TT_SCRIPT_SRC = `https://www.thumbtack.com/profile/widgets/scripts/?service_pk=${TT_SERVICE_PK}&widget_id=review&type=one`;
@@ -46,23 +49,17 @@ export default function ThumbtackReviewWidget() {
           />
         </div>
         <div className="tt-right">
-          <div className="tt-name">Roger H.</div>
+          <div className="tt-name">{latestThumbtackReview.name}</div>
           <div className="tt-stars">
             <img src="https://cdn.thumbtackstatic.com/fe-assets-web/media/pages/profile/standard-widgets/review-widget/orange_star.svg" alt="star" />
             <img src="https://cdn.thumbtackstatic.com/fe-assets-web/media/pages/profile/standard-widgets/review-widget/orange_star.svg" alt="star" />
             <img src="https://cdn.thumbtackstatic.com/fe-assets-web/media/pages/profile/standard-widgets/review-widget/orange_star.svg" alt="star" />
             <img src="https://cdn.thumbtackstatic.com/fe-assets-web/media/pages/profile/standard-widgets/review-widget/orange_star.svg" alt="star" />
             <img src="https://cdn.thumbtackstatic.com/fe-assets-web/media/pages/profile/standard-widgets/review-widget/orange_star.svg" alt="star" />
-            <span>45 reviews</span>
-            <span>Sep 1, 2026</span>
+            <span>{RATING.count} reviews</span>
+            <span>Sep 2, 2026</span>
           </div>
-          <p>
-            Serge patched two holes left in the concrete foundation of my house from a
-            prior AC installation. He showed up on time, was professional and quickly
-            did the work. Cleaned up after himself and told me to let him know how the
-            cement dried. Otherwise he&apos;d return to resolve any issues. I definitely
-            would recommend him and plan to use him in the future.
-          </p>
+          <p>{latestThumbtackReview.text}</p>
           <a target="_blank" rel="noopener noreferrer" href={TT_PROFILE_URL}>
             See all reviews
           </a>

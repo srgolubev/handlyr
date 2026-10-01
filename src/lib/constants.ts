@@ -13,11 +13,11 @@ export const BUSINESS = {
 };
 
 // Single source of truth for verified reputation (Thumbtack + Google).
-// Thumbtack surfaces 45 unique reviews, including 11 imported from Google.
-// 45 reviews: 44 × 5 stars + 1 × 2 stars = 222 / 45 = 4.9 average.
+// Thumbtack displays 48 reviews, including imported Google reviews (checked 2026-09-16).
+// Use the displayed total; do not add Google reviews a second time.
 export const RATING = {
   value: '4.9',
-  count: 45,
+  count: 48,
   best: '5',
   worst: '1',
 } as const;
@@ -144,12 +144,60 @@ export const SERVICE_AREAS = [
 
 export const REVIEWS = [
   {
+    "id": 24,
+    "stars": 5,
+    "text": "Serge was awesome and did such a great job. He showed up early and was super efficient as well as affordable. He was also really cool about our cats trying to \"help\" him out. He completed our Murphy bed ahead of schedule.I will for sure be using Serge again",
+    "name": "Carmine",
+    "service": "Furniture Assembly",
+    "initials": "C"
+  },
+  {
+    "id": 25,
+    "stars": 5,
+    "text": "Two thumbs up! He did the job beautifully - in time and on budget! Would recommend and hire again",
+    "name": "Jonathan Z.",
+    "service": "Furniture Assembly",
+    "initials": "JZ"
+  },
+  {
     id: 10,
     stars: 5,
     text: 'Serge patched two holes left in the concrete foundation of my house from a prior AC installation. He showed up on time, was professional and quickly did the work. Cleaned up after himself and told me to let him know how the cement dried. Otherwise he\'d return to resolve any issues. I definitely would recommend him and plan to use him in the future.',
     name: 'Roger H.',
     service: 'Handyman',
     initials: 'RH',
+  },
+  {
+    "id": 26,
+    "stars": 5,
+    "text": "I highly recommend working with Serge. He installed ceiling hooks and furniture anchors to help me childproof my apartment and hung some framed photos. He worked quickly, was efficient, kind and communicative and even rescheduled when the original anchors were too shallow for the double layer of drywall, telling me he wouldnt charge me until he had sourced and installed the correct hooks. I will absolutely work with him again.",
+    "name": "Charlotte Hornsby",
+    "service": "Handyman",
+    "initials": "CH"
+  },
+  {
+    "id": 27,
+    "stars": 5,
+    "text": "It’s nice to deal with somebody who actually cares about the quality of his work would recommend him to anybody",
+    "name": "John p.",
+    "service": "Cabinet Installation",
+    "initials": "JP"
+  },
+  {
+    "id": 28,
+    "stars": 5,
+    "text": "Highly recommend! Reliable, professional!",
+    "name": "Sim S.",
+    "service": "Furniture Assembly",
+    "initials": "SS"
+  },
+  {
+    "id": 29,
+    "stars": 5,
+    "text": "Good job, good price, I recommend it",
+    "name": "Arlettys Mendiondo",
+    "service": "Handyman",
+    "initials": "AM"
   },
   {
     id: 11,

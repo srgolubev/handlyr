@@ -44,7 +44,7 @@ const SERVICES_DETAIL: Record<string, ServiceData> = {
       { q: 'Can you assemble a whole apartment in one visit?', a: 'Yes. Send us the list and we will assemble everything in a single visit.' },
       { q: 'Do you remove the packaging afterward?', a: 'Yes — we bag and remove all packaging and debris before we leave.' },
     ],
-    reviewIds: [4, 6],
+    reviewIds: [24, 25, 28, 4, 6],
     seoDescription:
       'Professional furniture assembly in NYC. IKEA, Wayfair, West Elm & all brands. Serving Brooklyn, Queens, Manhasset. Fast, correct, no hassle.',
     keywords: [
@@ -184,7 +184,7 @@ const SERVICES_DETAIL: Record<string, ServiceData> = {
       { q: 'Can you fix doors and drawers on existing cabinets?', a: 'Yes — we adjust hinges, drawer slides and door alignment.' },
       { q: 'Will the cabinets be securely anchored?', a: 'Yes. We anchor into the wall structure (studs or masonry), shim level and plumb, and tighten all hardware.' },
     ],
-    reviewIds: [7, 1],
+    reviewIds: [27, 7, 1],
     seoDescription:
       'Professional cabinet installation in NYC. Kitchen, bathroom, medicine cabinets & storage. All wall types. Serving Brooklyn, Queens, Manhasset.',
     keywords: [
@@ -254,7 +254,7 @@ const SERVICES_DETAIL: Record<string, ServiceData> = {
       { q: 'Is any job too small?', a: 'No job is too small and no list is too long. The 2-hour minimum means we can tackle several small tasks in one visit.' },
       { q: 'What kinds of repairs do you handle?', a: 'Doors and hinges, minor plumbing and fixtures, light fixtures, outlet covers, picture and mirror hanging, and a long list of other fixes.' },
     ],
-    reviewIds: [1, 9, 7],
+    reviewIds: [26, 29, 1, 9, 7],
     seoDescription:
       'General handyman repairs in NYC. Doors, faucets, hinges, floors, fixtures and more — all in one visit. Serving Brooklyn, Queens, Manhasset.',
     keywords: [

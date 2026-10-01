@@ -40,7 +40,7 @@ const localBusinessSchema = {
   ],
   // NOTE: We deliberately do NOT emit aggregateRating/review on this first-party
   // business node. Google's review-snippet policy disallows self-serving ratings
-  // controlled by the business. The real 4.9★ / 45 reviews remain visible on-page
+  // controlled by the business. The real 4.9★ / 48 reviews remain visible on-page
   // and are corroborated via the independent profiles in sameAs (Thumbtack/Google).
   hasOfferCatalog: {
     '@type': 'OfferCatalog',
