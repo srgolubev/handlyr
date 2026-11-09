@@ -31,7 +31,6 @@ const localBusinessSchema = {
   areaServed: [
     { '@type': 'City', name: 'Brooklyn', containedInPlace: { '@type': 'State', name: 'New York' } },
     { '@type': 'City', name: 'Queens', containedInPlace: { '@type': 'State', name: 'New York' } },
-    { '@type': 'City', name: 'Manhasset', containedInPlace: { '@type': 'State', name: 'New York' } },
   ],
   priceRange: '$$',
   sameAs: SAME_AS,

@@ -84,7 +84,7 @@ export default function Footer() {
               <li>
                 <span className="flex items-center gap-2 text-sm" style={{ color: 'rgba(255,255,255,0.7)' }}>
                   <MapPinIcon className="w-4 h-4 flex-shrink-0" />
-                  Serving Brooklyn, Queens &amp; Manhasset, NY
+                  Serving Brooklyn &amp; Queens, NY
                 </span>
               </li>
               <li>

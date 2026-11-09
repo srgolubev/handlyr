@@ -46,7 +46,7 @@ const SERVICES_DETAIL: Record<string, ServiceData> = {
     ],
     reviewIds: [24, 25, 28, 4, 6],
     seoDescription:
-      'Professional furniture assembly in NYC. IKEA, Wayfair, West Elm & all brands. Serving Brooklyn, Queens, Manhasset. Fast, correct, no hassle.',
+      'Professional furniture assembly in NYC. IKEA, Wayfair, West Elm & all brands. Serving Brooklyn and Queens. Fast, correct, no hassle.',
     keywords: [
       'furniture assembly NYC',
       'IKEA assembly NYC',
@@ -81,7 +81,7 @@ const SERVICES_DETAIL: Record<string, ServiceData> = {
     ],
     reviewIds: [1, 8],
     seoDescription:
-      'Professional TV mounting in NYC. All wall types: drywall, concrete, brick. Hidden cable management included. Serving Brooklyn, Queens, Manhasset.',
+      'Professional TV mounting in NYC. All wall types: drywall, concrete, brick. Hidden cable management included. Serving Brooklyn and Queens.',
     keywords: [
       'TV mounting NYC',
       'TV mounting Brooklyn',
@@ -116,7 +116,7 @@ const SERVICES_DETAIL: Record<string, ServiceData> = {
     ],
     reviewIds: [1, 9],
     seoDescription:
-      'Professional shelf installation in NYC. Floating shelves, bracket shelves, IKEA systems. All wall types. Serving Brooklyn, Queens, Manhasset.',
+      'Professional shelf installation in NYC. Floating shelves, bracket shelves, IKEA systems. All wall types. Serving Brooklyn and Queens.',
     keywords: [
       'shelf installation NYC',
       'floating shelf installation Brooklyn',
@@ -151,7 +151,7 @@ const SERVICES_DETAIL: Record<string, ServiceData> = {
     ],
     reviewIds: [15],
     seoDescription:
-      'Professional blinds and shade installation in NYC. Roller shades, venetian blinds, curtain rods — all window types. Serving Brooklyn, Queens, Manhasset.',
+      'Professional blinds and shade installation in NYC. Roller shades, venetian blinds, curtain rods — all window types. Serving Brooklyn and Queens.',
     keywords: [
       'blinds installation NYC',
       'window shade installation Brooklyn',
@@ -186,7 +186,7 @@ const SERVICES_DETAIL: Record<string, ServiceData> = {
     ],
     reviewIds: [27, 7, 1],
     seoDescription:
-      'Professional cabinet installation in NYC. Kitchen, bathroom, medicine cabinets & storage. All wall types. Serving Brooklyn, Queens, Manhasset.',
+      'Professional cabinet installation in NYC. Kitchen, bathroom, medicine cabinets & storage. All wall types. Serving Brooklyn and Queens.',
     keywords: [
       'cabinet installation NYC',
       'kitchen cabinet installation Brooklyn',
@@ -221,7 +221,7 @@ const SERVICES_DETAIL: Record<string, ServiceData> = {
     ],
     reviewIds: [9, 8],
     seoDescription:
-      'Professional drywall repair in NYC. Holes, cracks, water damage — smooth finish, ready to paint. Serving Brooklyn, Queens, Manhasset.',
+      'Professional drywall repair in NYC. Holes, cracks, water damage — smooth finish, ready to paint. Serving Brooklyn and Queens.',
     keywords: [
       'drywall repair NYC',
       'drywall patch Brooklyn',
@@ -256,7 +256,7 @@ const SERVICES_DETAIL: Record<string, ServiceData> = {
     ],
     reviewIds: [26, 29, 1, 9, 7],
     seoDescription:
-      'General handyman repairs in NYC. Doors, faucets, hinges, floors, fixtures and more — all in one visit. Serving Brooklyn, Queens, Manhasset.',
+      'General handyman repairs in NYC. Doors, faucets, hinges, floors, fixtures and more — all in one visit. Serving Brooklyn and Queens.',
     keywords: [
       'general handyman NYC',
       'handyman repairs Brooklyn',
@@ -286,7 +286,7 @@ export async function generateMetadata({
   const service = SERVICES_DETAIL[slug];
   if (!service) return {};
 
-  const title = `${service.name} NYC | Brooklyn, Queens & Manhasset | Handlyr`;
+  const title = `${service.name} NYC | Brooklyn & Queens | Handlyr`;
   const canonical = `https://handlyr.org/services/${service.slug}`;
 
   return {

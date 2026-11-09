@@ -55,7 +55,7 @@ export const SHARED_FAQS = [
   },
   {
     q: 'What areas do you serve?',
-    a: 'We serve Brooklyn, Queens, and Manhasset, NY, and the surrounding neighborhoods.',
+    a: 'We serve Brooklyn and Queens, NY, and the surrounding neighborhoods.',
   },
 ] as const;
 
@@ -133,12 +133,6 @@ export const SERVICE_AREAS = [
     slug: 'queens',
     state: 'NY',
     description: 'From Long Island City and Astoria out to Flushing and Jamaica.',
-  },
-  {
-    name: 'Manhasset',
-    slug: 'manhasset',
-    state: 'NY',
-    description: 'Serving Manhasset and the surrounding North Shore of Nassau County.',
   },
 ] as const;
 

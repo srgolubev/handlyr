@@ -77,31 +77,6 @@ const AREAS: Record<string, AreaData> = {
     seoDescription:
       'Professional handyman in Queens, NY. Furniture assembly, TV mounting, shelf installation, drywall repair & more. Serving Long Island City, Astoria, Forest Hills, Flushing, Bayside and all Queens neighborhoods. Fast response, fair pricing.',
   },
-  manhasset: {
-    slug: 'manhasset',
-    name: 'Manhasset',
-    fullName: 'Manhasset, NY',
-    state: 'NY',
-    neighborhoods: [
-      'Manhasset',
-      'Plandome',
-      'Munsey Park',
-      'Flower Hill',
-      'Strathmore',
-      'Manhasset Hills',
-    ],
-    whyTitle: 'Why Handlyr in Manhasset',
-    whyCopy: [
-      'Manhasset and the North Shore of Nassau County are home to beautiful single-family houses, established estates, and busy family households that need a handyman they can trust. We bring the same NYC-grade craftsmanship out to Long Island.',
-      'From mounting TVs and hanging artwork to assembling furniture and tackling that growing punch list, we handle homes of every size with care. Our work speaks for itself: clean installs, accurate mounting, and zero mess left behind.',
-      'Quick to respond and easy to schedule — just send a text and we will get back to you with a straightforward estimate.',
-    ],
-    reviewIds: [6, 15],
-    schemaLocality: 'Manhasset',
-    schemaRegion: 'NY',
-    seoDescription:
-      'Professional handyman in Manhasset, NY. Furniture assembly, TV mounting, shelf installation, drywall repair & more. Serving Manhasset, Plandome, Munsey Park and the North Shore of Nassau County. Reliable, fast, clean work.',
-  },
 };
 
 // ─── Static params ────────────────────────────────────────────────────────────

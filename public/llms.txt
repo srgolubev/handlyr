@@ -1,7 +1,7 @@
 # Handlyr — NYC Handyman Service
 
 > Handlyr is a professional, owner-operated handyman service in New York City,
-> serving Brooklyn, Queens, and Manhasset (North Shore, Nassau County). Run by
+> serving Brooklyn and Queens. Run by
 > Serge, with 15+ years of hands-on experience (in business since 2009). Known
 > for fast response, clean work, and fair, upfront pricing. Free quotes by
 > text — send a photo of the job. (On-site estimate visits are $69, credited
@@ -17,7 +17,6 @@
 ## Service Areas
 - Brooklyn, NY — Park Slope, Williamsburg, DUMBO, Bay Ridge, Flatbush, Crown Heights, Bed-Stuy, Sunset Park: https://handlyr.org/service-areas/brooklyn
 - Queens, NY — Long Island City, Astoria, Sunnyside, Forest Hills, Flushing, Jackson Heights, Jamaica, Bayside: https://handlyr.org/service-areas/queens
-- Manhasset, NY — Plandome, Munsey Park, Flower Hill, Strathmore, Manhasset Hills (North Shore, Nassau County): https://handlyr.org/service-areas/manhasset
 
 ## Services
 - Furniture assembly (IKEA, Wayfair, West Elm, Amazon, CB2 and all flat-pack): https://handlyr.org/services/furniture-assembly

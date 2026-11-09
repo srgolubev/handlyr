@@ -26,7 +26,7 @@ export default function QuickOrderPage() {
         </header>
 
         <section className="pt-8" aria-labelledby="quote-heading">
-          <p className="text-xs font-semibold uppercase tracking-wider text-primary-700">Brooklyn · Queens · Manhasset</p>
+          <p className="text-xs font-semibold uppercase tracking-wider text-primary-700">Brooklyn · Queens</p>
           <h1 id="quote-heading" className="mt-3 font-heading text-3xl font-extrabold leading-tight tracking-tight text-primary-800 sm:text-4xl">
             Small home projects.<br />One reliable handyman.
           </h1>

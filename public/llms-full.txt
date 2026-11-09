@@ -1,7 +1,7 @@
 # Handlyr — NYC Handyman Service (Full Reference)
 
 > Handlyr is a professional, owner-operated handyman service in New York City,
-> serving Brooklyn, Queens, and Manhasset. Owner-operated by Serge with 15+ years
+> serving Brooklyn and Queens. Owner-operated by Serge with 15+ years
 > of hands-on experience (in business since 2009). Free quotes by text, simple
 > $69/hour pricing (2-hour minimum), fast response, clean work.
 
@@ -25,11 +25,6 @@ ceilings in new construction, narrow hallways, and tight staircases.
 Neighborhoods: Long Island City, Astoria, Sunnyside, Forest Hills, Flushing,
 Jackson Heights, Jamaica, Bayside. New high-rises, classic co-ops, and
 single-family homes — familiar with building access, parking, and wall types.
-
-### Manhasset, NY — https://handlyr.org/service-areas/manhasset
-Neighborhoods: Manhasset, Plandome, Munsey Park, Flower Hill, Strathmore,
-Manhasset Hills (North Shore of Nassau County). NYC-grade craftsmanship for
-single-family homes and estates.
 
 ## Services (detail)
 
@@ -104,7 +99,7 @@ Selected customer feedback:
 - Owner: Serge (Owner & Handyman)
 - Founded: 2009 (15+ years experience)
 - Service model: Service-area business; we travel to the customer (no storefront).
-- Coverage: Brooklyn, Queens, Manhasset (NY).
+- Coverage: Brooklyn and Queens (NY).
 
 ## Completed Projects
 - Photos and descriptions of completed work: https://handlyr.org/projects

@@ -7,7 +7,7 @@ import PageHero from '@/components/sections/PageHero';
 export const metadata: Metadata = {
   title: 'About Us — Trusted NYC Handyman | 15+ Years Experience',
   description:
-    'Handlyr brings 15+ years of professional handyman experience to NYC. Trusted by hundreds of homeowners and renters in Brooklyn, Queens & Manhasset.',
+    'Handlyr brings 15+ years of professional handyman experience to NYC. Trusted by hundreds of homeowners and renters in Brooklyn & Queens.',
   keywords: [
     'about Handlyr',
     'trusted handyman NYC',
@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'About Handlyr | Trusted NYC Handyman',
     description:
-      '15+ years of professional handyman experience, now serving NYC. Trusted by hundreds of homeowners across Brooklyn, Queens, and Manhasset.',
+      '15+ years of professional handyman experience, now serving NYC. Trusted by hundreds of homeowners across Brooklyn and Queens.',
     type: 'website',
     url: 'https://handlyr.org/about',
   },
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'About Handlyr | Trusted NYC Handyman',
     description:
-      '15+ years of professional handyman experience, now serving NYC. Trusted by hundreds of homeowners across Brooklyn, Queens, and Manhasset.',
+      '15+ years of professional handyman experience, now serving NYC. Trusted by hundreds of homeowners across Brooklyn and Queens.',
   },
   alternates: {
     canonical: 'https://handlyr.org/about',
@@ -60,7 +60,7 @@ export default function AboutPage() {
                 </p>
                 <p>
                   With {BUSINESS.experience} years of hands-on experience, we now serve homes and
-                  apartments across Brooklyn, Queens, and Manhasset —
+                  apartments across Brooklyn and Queens —
                   building a reputation on clean work and honest service.
                 </p>
                 <p>
@@ -100,7 +100,7 @@ export default function AboutPage() {
                 { number: '15+', label: 'Years of Experience' },
                 { number: `${RATING.value}★`, label: 'Average Rating' },
                 { number: `${RATING.count}`, label: 'Verified Reviews' },
-                { number: '3', label: 'Areas Served' },
+                { number: '2', label: 'Areas Served' },
               ].map((stat) => (
                 <div
                   key={stat.label}

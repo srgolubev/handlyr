@@ -27,8 +27,7 @@ export function trackContactIntent(type: 'sms' | 'phone' | 'jobber'): void {
     send_to: gaId,
     page_path: pagePath,
     contact_method: type,
-    landing_variant: pagePath === '/move-in-nyc' ? 'manhattan_move_in'
-      : pagePath === '/quickorder' ? 'quickorder' : 'main_site',
+    landing_variant: pagePath === '/quickorder' ? 'quickorder' : 'main_site',
     transport_type: 'beacon',
   });
 }
