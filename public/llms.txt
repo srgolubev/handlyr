@@ -39,6 +39,17 @@ Each service has a page per borough: https://handlyr.org/services/{service}/{bro
 - Quotes by text (send a photo): free, no obligation.
 - Pricing is the same across all services and service areas. No hidden fees.
 
+## Cost Guides
+Typical job times and prices at $69/hour (2-hour minimum):
+- Handyman cost in NYC (overview): https://handlyr.org/cost-guides/handyman-cost-nyc
+- TV mounting cost: https://handlyr.org/cost-guides/tv-mounting-cost-nyc
+- Furniture assembly cost: https://handlyr.org/cost-guides/furniture-assembly-cost-nyc
+- Shelf installation cost: https://handlyr.org/cost-guides/shelf-installation-cost-nyc
+- Blinds installation cost: https://handlyr.org/cost-guides/blinds-installation-cost-nyc
+- Cabinet installation cost: https://handlyr.org/cost-guides/cabinet-installation-cost-nyc
+- Drywall repair cost: https://handlyr.org/cost-guides/drywall-repair-cost-nyc
+- Small home repairs cost: https://handlyr.org/cost-guides/general-repairs-cost-nyc
+
 ## Workmanship Guarantee
 - Every job is backed by a 30-day workmanship guarantee. If something we did
   is not right, we come back and make it right at no extra charge.

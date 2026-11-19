@@ -64,6 +64,15 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              <li className="pt-2">
+                <Link
+                  href="/cost-guides"
+                  className="text-sm transition-colors duration-150 hover:text-white"
+                  style={{ color: 'rgba(255,255,255,0.7)' }}
+                >
+                  Cost Guides
+                </Link>
+              </li>
             </ul>
           </div>
 

@@ -16,6 +16,7 @@ import {
 import { SERVICES_DETAIL } from '@/lib/serviceDetails';
 import { AREAS } from '@/lib/areaDetails';
 import { SERVICE_AREA_COPY, SERVICE_GALLERY } from '@/lib/serviceAreaCopy';
+import { COST_GUIDE_BY_SERVICE } from '@/lib/costGuides';
 import { SERVICE_ICON } from '@/lib/serviceIcons';
 import { PhoneIcon, MapPinIcon } from '@/components/icons';
 
@@ -238,6 +239,16 @@ export default async function ServiceAreaComboPage({ params }: { params: Params 
               <p className="mt-4 text-xs text-text-muted leading-relaxed">
                 Same rate across Brooklyn and Queens. If the job finishes early, we use the remaining time for other small tasks.
               </p>
+              {COST_GUIDE_BY_SERVICE[service.slug] && (
+                <p className="mt-3 text-sm">
+                  <Link
+                    href={`/cost-guides/${COST_GUIDE_BY_SERVICE[service.slug].slug}`}
+                    className="font-semibold text-primary-600 hover:text-primary-700"
+                  >
+                    Typical {service.name.toLowerCase()} prices →
+                  </Link>
+                </p>
+              )}
             </div>
           </div>
         </div>

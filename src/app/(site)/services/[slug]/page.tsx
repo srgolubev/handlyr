@@ -5,6 +5,7 @@ import PageHero from '@/components/sections/PageHero';
 import { BUSINESS, SERVICE_AREAS, REVIEWS, PRICING, SHARED_FAQS } from '@/lib/constants';
 import { SERVICE_ICON } from '@/lib/serviceIcons';
 import { SERVICES_DETAIL } from '@/lib/serviceDetails';
+import { COST_GUIDE_BY_SERVICE } from '@/lib/costGuides';
 import { PhoneIcon, MapPinIcon } from '@/components/icons';
 
 // ─── Static params ────────────────────────────────────────────────────────────
@@ -210,6 +211,16 @@ export default async function ServicePage({
             <p className="text-text-muted text-sm leading-relaxed mt-2">
               {PRICING.estimateSummary}
             </p>
+            {COST_GUIDE_BY_SERVICE[service.slug] && (
+              <p className="mt-3 text-sm">
+                <Link
+                  href={`/cost-guides/${COST_GUIDE_BY_SERVICE[service.slug].slug}`}
+                  className="font-semibold text-primary-600 hover:text-primary-700"
+                >
+                  See typical {service.name.toLowerCase()} prices →
+                </Link>
+              </p>
+            )}
           </div>
         </div>
       </section>

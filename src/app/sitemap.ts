@@ -1,4 +1,5 @@
 import type { MetadataRoute } from 'next';
+import { COST_GUIDES } from '@/lib/costGuides';
 
 const BASE_URL = 'https://handlyr.org';
 
@@ -26,6 +27,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: `${BASE_URL}/service-areas`, lastModified, changeFrequency: 'monthly', priority: 0.8 },
     { url: `${BASE_URL}/about`,         lastModified, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/projects`,      lastModified, changeFrequency: 'monthly', priority: 0.7 },
+    { url: `${BASE_URL}/cost-guides`,   lastModified, changeFrequency: 'monthly', priority: 0.7 },
     { url: `${BASE_URL}/contact`,       lastModified, changeFrequency: 'yearly',  priority: 0.6 },
     { url: `${BASE_URL}/privacy`,       lastModified, changeFrequency: 'yearly',  priority: 0.3 },
     { url: `${BASE_URL}/terms`,         lastModified, changeFrequency: 'yearly',  priority: 0.3 },
@@ -54,5 +56,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     }))
   );
 
-  return [...staticPages, ...servicePages, ...areaPages, ...serviceAreaPages];
+  const costGuidePages: MetadataRoute.Sitemap = COST_GUIDES.map((g) => ({
+    url: `${BASE_URL}/cost-guides/${g.slug}`,
+    lastModified,
+    changeFrequency: 'monthly',
+    priority: 0.7,
+  }));
+
+  return [...staticPages, ...servicePages, ...areaPages, ...serviceAreaPages, ...costGuidePages];
 }
