@@ -20,7 +20,7 @@ const localBusinessSchema = {
   '@id': 'https://handlyr.org/#business',
   name: 'Handlyr',
   description:
-    'Professional handyman services in New York City — furniture assembly, TV mounting, shelving, drywall repair and more.',
+    'Professional handyman services in Brooklyn and Queens, New York — furniture assembly, TV mounting, shelving, drywall repair and more.',
   url: 'https://handlyr.org',
   telephone: '+13477998402',
   email: 'order@handlyr.org',

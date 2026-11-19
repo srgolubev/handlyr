@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   if (!guide) return {};
   const canonical = `${BASE_URL}/cost-guides/${guide.slug}`;
   return {
-    title: { absolute: `${guide.title} (2026 Prices) | Handlyr` },
+    title: { absolute: `${guide.title} (NYC, 2026 Prices) | Handlyr` },
     description: guide.metaDescription,
     openGraph: { title: guide.title, description: guide.metaDescription, type: 'article', url: canonical },
     twitter: { card: 'summary_large_image', title: guide.title, description: guide.metaDescription },

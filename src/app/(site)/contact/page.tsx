@@ -3,9 +3,9 @@ import ContactForm from '@/components/sections/ContactForm';
 import PageHero from '@/components/sections/PageHero';
 
 export const metadata: Metadata = {
-  title: 'Contact — Get a Free Handyman Estimate in NYC',
+  title: 'Contact — Free Handyman Estimate in Brooklyn & Queens',
   description:
-    'Request a free estimate from Handlyr, NYC\'s trusted handyman. Describe your job, attach a photo, and get a response within the hour. Serving Brooklyn and Queens, and more.',
+    'Request a free estimate from Handlyr, a trusted handyman in Brooklyn and Queens, NYC. Describe your job, attach a photo, and get a reply within 20 minutes.',
   keywords: [
     'contact handyman NYC',
     'free handyman estimate NYC',
@@ -16,17 +16,17 @@ export const metadata: Metadata = {
     'TV mounting quote NYC',
   ],
   openGraph: {
-    title: 'Contact Handlyr | Free Handyman Estimate NYC',
+    title: 'Contact Handlyr | Free Handyman Estimate in Brooklyn & Queens',
     description:
-      'Get a free estimate from Handlyr. Tell us what you need done — we respond within the hour. Serving Brooklyn & Queens.',
+      'Get a free estimate from Handlyr. Tell us what you need done — we usually reply within 20 minutes. Serving Brooklyn & Queens.',
     type: 'website',
     url: 'https://handlyr.org/contact',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Contact Handlyr | Free Handyman Estimate NYC',
+    title: 'Contact Handlyr | Free Handyman Estimate in Brooklyn & Queens',
     description:
-      'Get a free estimate from Handlyr. Tell us what you need done — we respond within the hour.',
+      'Get a free estimate from Handlyr. Tell us what you need done — we usually reply within 20 minutes.',
   },
   alternates: {
     canonical: 'https://handlyr.org/contact',

@@ -25,7 +25,7 @@ export async function generateMetadata({
   const service = SERVICES_DETAIL[slug];
   if (!service) return {};
 
-  const title = `${service.name} NYC | Brooklyn & Queens | Handlyr`;
+  const title = `${service.name} in Brooklyn & Queens, NYC`;
   const canonical = `https://handlyr.org/services/${service.slug}`;
 
   return {
@@ -33,14 +33,14 @@ export async function generateMetadata({
     description: service.seoDescription,
     keywords: service.keywords,
     openGraph: {
-      title: `${service.name} in NYC | Handlyr`,
+      title: `${service.name} in Brooklyn & Queens | Handlyr`,
       description: service.seoDescription,
       type: 'website',
       url: canonical,
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${service.name} in NYC | Handlyr`,
+      title: `${service.name} in Brooklyn & Queens | Handlyr`,
       description: service.seoDescription,
     },
     alternates: {
@@ -165,7 +165,7 @@ export default async function ServicePage({
               );
             })()}
             <h2 className="font-heading font-bold text-3xl text-primary-800">
-              {service.name} in NYC
+              {service.name} in Brooklyn & Queens
             </h2>
           </div>
           <div className="space-y-5">
@@ -324,7 +324,7 @@ export default async function ServicePage({
       >
         <div className="max-w-2xl mx-auto">
           <h2 className="font-heading font-bold text-3xl text-white mb-3">
-            Need {service.name} in NYC?
+            Need {service.name} in Brooklyn or Queens?
           </h2>
           <p className="text-white/80 mb-8 text-base">
             Text or call for a fast, no-pressure estimate. We respond quickly.

@@ -1,7 +1,7 @@
-# Handlyr — NYC Handyman Service (Full Reference)
+# Handlyr — Handyman Service in Brooklyn & Queens, NYC (Full Reference)
 
-> Handlyr is a professional, owner-operated handyman service in New York City,
-> serving Brooklyn and Queens. Owner-operated by Serge with 15+ years
+> Handlyr is a professional, owner-operated handyman service in Brooklyn and Queens,
+> New York City (no other boroughs). Owner-operated by Serge with 15+ years
 > of hands-on experience (in business since 2009). Free quotes by text, simple
 > $69/hour pricing (2-hour minimum), fast response, clean work.
 

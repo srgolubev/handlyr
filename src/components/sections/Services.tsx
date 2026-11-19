@@ -37,7 +37,7 @@ export default function Services() {
             Professional Handyman Services
           </h2>
           <p className="mt-3 text-lg text-text-muted">
-            From furniture assembly to drywall repair in NYC and surrounding boroughs — quality work done right.
+            From furniture assembly to drywall repair across Brooklyn and Queens — quality work done right.
           </p>
         </div>
 

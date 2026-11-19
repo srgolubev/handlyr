@@ -6,9 +6,9 @@ import ContactForm from '@/components/sections/ContactForm';
 import PageHero from '@/components/sections/PageHero';
 
 export const metadata: Metadata = {
-  title: 'Services — Handyman NYC | Furniture Assembly, TV Mounting, Drywall & More',
+  title: 'Services — Handyman in Brooklyn & Queens, NYC | Furniture Assembly, TV Mounting & More',
   description:
-    'Full list of NYC handyman services: furniture assembly, TV mounting, shelf installation, blinds installation, cabinet installation, drywall repair & general repairs. Book online.',
+    'Full list of handyman services in Brooklyn and Queens, NYC: furniture assembly, TV mounting, shelf installation, blinds installation, cabinet installation, drywall repair & general repairs. Book online.',
   keywords: [
     'handyman services NYC',
     'furniture assembly NYC',
@@ -21,17 +21,17 @@ export const metadata: Metadata = {
     'handyman near me',
   ],
   openGraph: {
-    title: 'Handyman Services NYC | Handlyr',
+    title: 'Handyman Services in Brooklyn & Queens | Handlyr',
     description:
-      'Furniture assembly, TV mounting, shelf installation, blinds, cabinets, drywall repair & general repairs across NYC. Book a free estimate.',
+      'Furniture assembly, TV mounting, shelf installation, blinds, cabinets, drywall repair & general repairs across Brooklyn and Queens. Book a free estimate.',
     type: 'website',
     url: 'https://handlyr.org/services',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Handyman Services NYC | Handlyr',
+    title: 'Handyman Services in Brooklyn & Queens | Handlyr',
     description:
-      'Furniture assembly, TV mounting, shelf installation, blinds, cabinets, drywall repair & general repairs across NYC.',
+      'Furniture assembly, TV mounting, shelf installation, blinds, cabinets, drywall repair & general repairs across Brooklyn and Queens.',
   },
   alternates: {
     canonical: 'https://handlyr.org/services',
@@ -44,7 +44,7 @@ export default function ServicesPage() {
       <PageHero
         label="What We Do"
         title="Our Services"
-        description="Quality handyman work across New York City. From quick fixes to larger installations."
+        description="Quality handyman work across Brooklyn and Queens. From quick fixes to larger installations."
       />
 
       {/* Services detail */}
@@ -75,7 +75,7 @@ export default function ServicesPage() {
                 <Link
                   href={`/services/${service.slug}`}
                   className="btn btn-sm btn-primary mt-4"
-                  aria-label={`Learn more about ${service.name} in NYC`}
+                  aria-label={`Learn more about ${service.name} in Brooklyn & Queens`}
                 >
                   Learn More
                 </Link>

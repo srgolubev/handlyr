@@ -52,7 +52,7 @@ export default function ContactForm() {
                     <StarIcon key={i} className="w-4 h-4 text-yellow-400" />
                   ))}
                 </div>
-                <p className="text-sm font-medium text-white">Rated {RATING.value}/5 by NYC homeowners</p>
+                <p className="text-sm font-medium text-white">Rated {RATING.value}/5 from {RATING.count} reviews</p>
                 <p className="text-xs text-white/70">{RATING.count} verified reviews · Available today</p>
               </div>
             </div>

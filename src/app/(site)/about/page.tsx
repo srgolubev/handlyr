@@ -5,9 +5,9 @@ import { BUSINESS, RATING } from '@/lib/constants';
 import PageHero from '@/components/sections/PageHero';
 
 export const metadata: Metadata = {
-  title: 'About Us — Trusted NYC Handyman | 15+ Years Experience',
+  title: 'About Us — Brooklyn & Queens Handyman | 15+ Years Experience',
   description:
-    'Handlyr brings 15+ years of professional handyman experience to NYC. Trusted by hundreds of homeowners and renters in Brooklyn & Queens.',
+    `Handlyr brings 15+ years of professional handyman experience to Brooklyn & Queens, NYC. Rated ${RATING.value}★ from ${RATING.count} reviews.`,
   keywords: [
     'about Handlyr',
     'trusted handyman NYC',
@@ -17,17 +17,17 @@ export const metadata: Metadata = {
     'handyman near me',
   ],
   openGraph: {
-    title: 'About Handlyr | Trusted NYC Handyman',
+    title: 'About Handlyr | Brooklyn & Queens Handyman',
     description:
-      '15+ years of professional handyman experience, now serving NYC. Trusted by hundreds of homeowners across Brooklyn and Queens.',
+      `15+ years of professional handyman experience, serving Brooklyn and Queens. Rated ${RATING.value}★ from ${RATING.count} reviews.`,
     type: 'website',
     url: 'https://handlyr.org/about',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'About Handlyr | Trusted NYC Handyman',
+    title: 'About Handlyr | Brooklyn & Queens Handyman',
     description:
-      '15+ years of professional handyman experience, now serving NYC. Trusted by hundreds of homeowners across Brooklyn and Queens.',
+      `15+ years of professional handyman experience, serving Brooklyn and Queens. Rated ${RATING.value}★ from ${RATING.count} reviews.`,
   },
   alternates: {
     canonical: 'https://handlyr.org/about',
@@ -40,7 +40,7 @@ export default function AboutPage() {
       <PageHero
         label="Who We Are"
         title="About Handlyr"
-        description={`${BUSINESS.experience} years of experience. Now serving New York City.`}
+        description={`${BUSINESS.experience} years of experience. Now serving Brooklyn and Queens.`}
       />
 
       {/* About content */}
@@ -87,7 +87,7 @@ export default function AboutPage() {
             <div className="relative w-full rounded-3xl overflow-hidden" style={{ height: '420px' }}>
               <Image
                 src="/about-portrait.jpg"
-                alt="Serge — professional handyman, Handlyr NYC"
+                alt="Serge, owner of Handlyr — handyman in Brooklyn and Queens"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"

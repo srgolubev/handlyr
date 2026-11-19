@@ -19,11 +19,11 @@ const plusJakartaSans = Plus_Jakarta_Sans({
 
 export const metadata: Metadata = {
   title: {
-    default: 'Handlyr | Reliable Handyman NYC',
+    default: 'Handlyr | Handyman in Brooklyn & Queens, NYC',
     template: '%s | Handlyr',
   },
   description:
-    'Professional handyman services in NYC: furniture assembly, TV mounting, shelf installation, drywall repair, and more. Serving Brooklyn and Queens.',
+    'Handyman services in Brooklyn and Queens, NYC: furniture assembly, TV mounting, shelf installation, drywall repair and more.',
   keywords: [
     'handyman NYC',
     'handyman Brooklyn',
@@ -38,19 +38,19 @@ export const metadata: Metadata = {
   ],
   metadataBase: new URL('https://handlyr.org'),
   openGraph: {
-    title: 'Handlyr | Reliable Handyman NYC',
+    title: 'Handlyr | Handyman in Brooklyn & Queens, NYC',
     description:
-      'Professional handyman services in NYC. Furniture assembly, TV mounting, drywall repair & more. 15+ years experience. Same-day response.',
+      'Professional handyman services in Brooklyn & Queens, NYC. Furniture assembly, TV mounting, drywall repair & more. 15+ years experience. Same-day response.',
     type: 'website',
     url: 'https://handlyr.org',
     siteName: 'Handlyr',
-    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Handlyr — NYC Handyman' }],
+    images: [{ url: '/og-image.jpg', width: 1200, height: 630, alt: 'Handlyr — Handyman in Brooklyn & Queens' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Handlyr | Reliable Handyman NYC',
+    title: 'Handlyr | Handyman in Brooklyn & Queens, NYC',
     description:
-      'Professional handyman services in NYC. Furniture assembly, TV mounting, drywall repair & more. 15+ years experience.',
+      'Professional handyman services in Brooklyn & Queens, NYC. Furniture assembly, TV mounting, drywall repair & more. 15+ years experience.',
   },
   icons: {
     icon: [

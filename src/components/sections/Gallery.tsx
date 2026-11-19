@@ -98,7 +98,7 @@ export default function Gallery({ limit, showViewAll = false, showDescriptions =
               Recent Projects
             </h2>
             <p className="mt-3 text-lg text-text-muted">
-              {"A look at some jobs we've completed across NYC."}
+              {"A look at some jobs we've completed recently."}
             </p>
           </div>
 

@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import PageHero from '@/components/sections/PageHero';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — Handlyr',
-  description: 'Privacy policy for Handlyr handyman services in New York City.',
+  title: 'Privacy Policy',
+  description: 'Privacy policy for Handlyr handyman services in Brooklyn and Queens, NY.',
   alternates: {
     canonical: 'https://handlyr.org/privacy',
   },

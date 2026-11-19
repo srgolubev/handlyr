@@ -35,7 +35,7 @@ export default function ServiceAreas() {
               Service Areas
             </h2>
             <p className="text-lg text-text-muted mb-8">
-              We serve homeowners, renters, and landlords across the NYC metro area.
+              We serve homeowners, renters, and landlords across Brooklyn and Queens.
             </p>
 
             {/* Area cards */}

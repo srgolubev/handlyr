@@ -61,7 +61,7 @@ export const AREAS: Record<string, AreaData> = {
     whyCopy: [
       'Queens is the most diverse borough in the city, packed with new high-rises in Long Island City, classic co-ops in Forest Hills, and single-family homes out toward Bayside. Whatever your space looks like, we have worked on one like it.',
       'From assembling furniture in an Astoria walk-up to mounting a TV in a Flushing high-rise, we bring 15+ years of experience and the right tools for every wall type. We know the buildings, the parking, and how to get in and out without fuss.',
-      'Booking is simple: text a photo of the job and we reply with a clear, upfront estimate — usually within the hour. We arrive on schedule, protect your floors and furniture, and clean up before we leave. No surprises, just dependable work.',
+      'Booking is simple: text a photo of the job and we reply with a clear, upfront estimate — usually within 20 minutes. We arrive on schedule, protect your floors and furniture, and clean up before we leave. No surprises, just dependable work.',
     ],
     reviewIds: [4, 7],
     schemaLocality: 'Queens',

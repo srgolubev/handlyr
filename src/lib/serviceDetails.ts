@@ -20,7 +20,7 @@ export const SERVICES_DETAIL: Record<string, ServiceData> = {
     icon: '📦',
     tagline: 'IKEA, Wayfair, and all flat-pack furniture assembled quickly and correctly.',
     body: [
-      'Flat-pack furniture looks simple in the box — but the reality is hours of sorting hardware, decoding confusing instructions, and hoping you did not miss a step. We have assembled thousands of pieces across NYC: IKEA, Wayfair, West Elm, Amazon, CB2, and every other brand you can think of.',
+      'Flat-pack furniture looks simple in the box — but the reality is hours of sorting hardware, decoding confusing instructions, and hoping you did not miss a step. We assemble IKEA, Wayfair, West Elm, Amazon, CB2, and every other brand you can think of.',
       'Our approach is methodical and thorough. We lay out all parts, verify the count before starting, follow the manufacturer sequence, and double-check every connection before calling it done. The result is furniture that is solid, level, and built to last — not something that wobbles after a week.',
       'We handle single items or full rooms. Moving into a new apartment in Brooklyn or Queens and need everything assembled in one go? Just send us the list and we will take care of it all in a single visit.',
     ],
@@ -38,7 +38,7 @@ export const SERVICES_DETAIL: Record<string, ServiceData> = {
     ],
     reviewIds: [24, 25, 28, 4, 6],
     seoDescription:
-      'Professional furniture assembly in NYC. IKEA, Wayfair, West Elm & all brands. Serving Brooklyn and Queens. Fast, correct, no hassle.',
+      'Professional furniture assembly in Brooklyn & Queens, NYC. IKEA, Wayfair, West Elm & all brands. Fast, correct, no hassle.',
     keywords: [
       'furniture assembly NYC',
       'IKEA assembly NYC',
@@ -73,7 +73,7 @@ export const SERVICES_DETAIL: Record<string, ServiceData> = {
     ],
     reviewIds: [1, 8],
     seoDescription:
-      'Professional TV mounting in NYC. All wall types: drywall, concrete, brick. Hidden cable management included. Serving Brooklyn and Queens.',
+      'Professional TV mounting in Brooklyn & Queens, NYC. All wall types: drywall, concrete, brick. Hidden cable management included.',
     keywords: [
       'TV mounting NYC',
       'TV mounting Brooklyn',
@@ -108,7 +108,7 @@ export const SERVICES_DETAIL: Record<string, ServiceData> = {
     ],
     reviewIds: [1, 9],
     seoDescription:
-      'Professional shelf installation in NYC. Floating shelves, bracket shelves, IKEA systems. All wall types. Serving Brooklyn and Queens.',
+      'Professional shelf installation in Brooklyn & Queens, NYC. Floating shelves, bracket shelves, IKEA systems. All wall types.',
     keywords: [
       'shelf installation NYC',
       'floating shelf installation Brooklyn',
@@ -143,7 +143,7 @@ export const SERVICES_DETAIL: Record<string, ServiceData> = {
     ],
     reviewIds: [15],
     seoDescription:
-      'Professional blinds and shade installation in NYC. Roller shades, venetian blinds, curtain rods — all window types. Serving Brooklyn and Queens.',
+      'Professional blinds and shade installation in Brooklyn & Queens, NYC. Roller shades, venetian blinds, curtain rods — all window types.',
     keywords: [
       'blinds installation NYC',
       'window shade installation Brooklyn',
@@ -178,7 +178,7 @@ export const SERVICES_DETAIL: Record<string, ServiceData> = {
     ],
     reviewIds: [27, 7, 1],
     seoDescription:
-      'Professional cabinet installation in NYC. Kitchen, bathroom, medicine cabinets & storage. All wall types. Serving Brooklyn and Queens.',
+      'Professional cabinet installation in Brooklyn & Queens, NYC. Kitchen, bathroom, medicine cabinets & storage. All wall types.',
     keywords: [
       'cabinet installation NYC',
       'kitchen cabinet installation Brooklyn',
@@ -213,7 +213,7 @@ export const SERVICES_DETAIL: Record<string, ServiceData> = {
     ],
     reviewIds: [9, 8],
     seoDescription:
-      'Professional drywall repair in NYC. Holes, cracks, water damage — smooth finish, ready to paint. Serving Brooklyn and Queens.',
+      'Professional drywall repair in Brooklyn & Queens, NYC. Holes, cracks, water damage — smooth finish, ready to paint.',
     keywords: [
       'drywall repair NYC',
       'drywall patch Brooklyn',
@@ -248,7 +248,7 @@ export const SERVICES_DETAIL: Record<string, ServiceData> = {
     ],
     reviewIds: [26, 29, 1, 9, 7],
     seoDescription:
-      'General handyman repairs in NYC. Doors, faucets, hinges, floors, fixtures and more — all in one visit. Serving Brooklyn and Queens.',
+      'General handyman repairs in Brooklyn & Queens, NYC. Doors, faucets, hinges, floors, fixtures and more — all in one visit.',
     keywords: [
       'general handyman NYC',
       'handyman repairs Brooklyn',

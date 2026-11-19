@@ -1,7 +1,7 @@
-# Handlyr — NYC Handyman Service
+# Handlyr — Handyman Service in Brooklyn & Queens, NYC
 
-> Handlyr is a professional, owner-operated handyman service in New York City,
-> serving Brooklyn and Queens. Run by
+> Handlyr is a professional, owner-operated handyman service in Brooklyn and Queens,
+> New York City (no other boroughs). Run by
 > Serge, with 15+ years of hands-on experience (in business since 2009). Known
 > for fast response, clean work, and fair, upfront pricing. Free quotes by
 > text — send a photo of the job. (On-site estimate visits are $69, credited
@@ -41,7 +41,7 @@ Each service has a page per borough: https://handlyr.org/services/{service}/{bro
 
 ## Cost Guides
 Typical job times and prices at $69/hour (2-hour minimum):
-- Handyman cost in NYC (overview): https://handlyr.org/cost-guides/handyman-cost-nyc
+- Handyman cost in Brooklyn & Queens (overview): https://handlyr.org/cost-guides/handyman-cost-nyc
 - TV mounting cost: https://handlyr.org/cost-guides/tv-mounting-cost-nyc
 - Furniture assembly cost: https://handlyr.org/cost-guides/furniture-assembly-cost-nyc
 - Shelf installation cost: https://handlyr.org/cost-guides/shelf-installation-cost-nyc

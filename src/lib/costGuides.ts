@@ -53,7 +53,7 @@ export const COST_GUIDES: CostGuide[] = [
   {
     slug: 'handyman-cost-nyc',
     serviceSlug: null,
-    title: 'How Much Does a Handyman Cost in NYC?',
+    title: 'How Much Does a Handyman Cost in Brooklyn & Queens?',
     metaDescription: `Handyman cost in Brooklyn and Queens: $${RATE}/hour with a ${PRICING.minimumHours}-hour minimum ($${MIN}). Typical job times and prices, what changes the cost, and how to get more done per visit.`,
     shortAnswer: `Handlyr charges $${RATE} per hour with a ${PRICING.minimumHours}-hour minimum, so the smallest visit is $${MIN}. Most single jobs — mounting a TV, assembling a dresser, hanging shelves — fit inside the minimum, and any time left over goes to other small tasks on your list. Quotes by text are free: send a photo and we reply with an estimate.`,
     jobs: [
@@ -84,7 +84,7 @@ export const COST_GUIDES: CostGuide[] = [
   {
     slug: 'tv-mounting-cost-nyc',
     serviceSlug: 'tv-mounting',
-    title: 'How Much Does TV Mounting Cost in NYC?',
+    title: 'How Much Does TV Mounting Cost in Brooklyn & Queens?',
     metaDescription: `TV mounting cost in Brooklyn and Queens: most installs fit the $${MIN} two-hour minimum. Prices by wall type, TV size and cable concealment.`,
     shortAnswer: `Most TV mounts in Brooklyn and Queens cost $${MIN} with Handlyr — a standard TV on drywall or brick fits within the ${PRICING.minimumHours}-hour minimum at $${RATE}/hour, and cable management is included. Larger setups with a soundbar, in-wall wiring or two TVs usually run $${MIN}–$${RATE * 3}.`,
     jobs: [
@@ -113,7 +113,7 @@ export const COST_GUIDES: CostGuide[] = [
   {
     slug: 'furniture-assembly-cost-nyc',
     serviceSlug: 'furniture-assembly',
-    title: 'How Much Does Furniture Assembly Cost in NYC?',
+    title: 'How Much Does Furniture Assembly Cost in Brooklyn & Queens?',
     metaDescription: `IKEA and flat-pack furniture assembly cost in Brooklyn and Queens: $${RATE}/hour, $${MIN} minimum. Typical times for beds, dressers, wardrobes and full rooms.`,
     shortAnswer: `Furniture assembly with Handlyr costs $${RATE} per hour with a $${MIN} minimum. One or two typical pieces — a bed frame, a dresser, a desk — usually fit within the ${PRICING.minimumHours}-hour minimum; large wardrobes like IKEA PAX or a whole apartment take longer.`,
     jobs: [
@@ -141,7 +141,7 @@ export const COST_GUIDES: CostGuide[] = [
   {
     slug: 'shelf-installation-cost-nyc',
     serviceSlug: 'shelf-installation',
-    title: 'How Much Does Shelf Installation Cost in NYC?',
+    title: 'How Much Does Shelf Installation Cost in Brooklyn & Queens?',
     metaDescription: `Shelf installation cost in Brooklyn and Queens: floating shelves, bracket shelves and closet systems from $${MIN}. Prices by wall type and number of shelves.`,
     shortAnswer: `Installing shelves with Handlyr typically costs $${MIN}: three to four floating or bracket shelves fit within the ${PRICING.minimumHours}-hour minimum at $${RATE}/hour. Closet systems, garage storage and large wall units take longer and usually run $${MIN}–$${RATE * 4}.`,
     jobs: [
@@ -167,7 +167,7 @@ export const COST_GUIDES: CostGuide[] = [
   {
     slug: 'blinds-installation-cost-nyc',
     serviceSlug: 'blinds-installation',
-    title: 'How Much Does Blinds Installation Cost in NYC?',
+    title: 'How Much Does Blinds Installation Cost in Brooklyn & Queens?',
     metaDescription: `Blinds, shades and curtain rod installation cost in Brooklyn and Queens: $${RATE}/hour, $${MIN} minimum. Typical times per window.`,
     shortAnswer: `Installing blinds or shades with Handlyr costs $${RATE} per hour with a $${MIN} minimum. Roughly three to five standard windows of blinds or curtain rods fit within the ${PRICING.minimumHours}-hour minimum; a whole apartment or ceiling tracks take longer.`,
     jobs: [
@@ -192,7 +192,7 @@ export const COST_GUIDES: CostGuide[] = [
   {
     slug: 'cabinet-installation-cost-nyc',
     serviceSlug: 'cabinet-installation',
-    title: 'How Much Does Cabinet Installation Cost in NYC?',
+    title: 'How Much Does Cabinet Installation Cost in Brooklyn & Queens?',
     metaDescription: `Cabinet installation cost in Brooklyn and Queens: medicine cabinets, vanities and kitchen cabinets at $${RATE}/hour, $${MIN} minimum.`,
     shortAnswer: `Cabinet installation with Handlyr is billed at $${RATE} per hour with a $${MIN} minimum. A medicine cabinet or a single wall cabinet fits within the minimum; kitchen runs take longer because every cabinet has to be anchored, leveled and adjusted.`,
     jobs: [
@@ -219,7 +219,7 @@ export const COST_GUIDES: CostGuide[] = [
   {
     slug: 'drywall-repair-cost-nyc',
     serviceSlug: 'drywall-repair',
-    title: 'How Much Does Drywall Repair Cost in NYC?',
+    title: 'How Much Does Drywall Repair Cost in Brooklyn & Queens?',
     metaDescription: `Drywall and wall repair cost in Brooklyn and Queens: patch holes and cracks from $${MIN}. Typical times for small holes, water damage and move-out patching.`,
     shortAnswer: `Drywall repair with Handlyr costs $${RATE} per hour with a $${MIN} minimum. Several small holes or one medium patch fit within the ${PRICING.minimumHours}-hour minimum. Larger patches, water damage and full move-out patching take longer.`,
     jobs: [
@@ -245,7 +245,7 @@ export const COST_GUIDES: CostGuide[] = [
   {
     slug: 'general-repairs-cost-nyc',
     serviceSlug: 'general-repairs',
-    title: 'How Much Do Small Home Repairs Cost in NYC?',
+    title: 'How Much Do Small Home Repairs Cost in Brooklyn & Queens?',
     metaDescription: `Small home repair cost in Brooklyn and Queens: doors, fixtures, faucets and to-do lists at $${RATE}/hour, $${MIN} minimum.`,
     shortAnswer: `Small repairs with Handlyr cost $${RATE} per hour with a $${MIN} minimum. Most individual fixes — a sticking door, a loose towel bar, a light fixture swap — take under an hour, so a ${PRICING.minimumHours}-hour visit usually covers a whole list.`,
     jobs: [

@@ -2,8 +2,8 @@ import type { Metadata } from 'next';
 import PageHero from '@/components/sections/PageHero';
 
 export const metadata: Metadata = {
-  title: 'Terms of Service — Handlyr',
-  description: 'Terms of service for Handlyr handyman services in New York City.',
+  title: 'Terms of Service',
+  description: 'Terms of service for Handlyr handyman services in Brooklyn and Queens, NY.',
   alternates: {
     canonical: 'https://handlyr.org/terms',
   },
@@ -20,12 +20,11 @@ export default function TermsPage() {
 
       <section className="bg-white py-16 px-4 lg:py-24">
         <div className="max-w-3xl mx-auto prose prose-lg text-text-muted">
-          <p className="text-sm text-text-muted mb-8">Last updated: March 18, 2026</p>
+          <p className="text-sm text-text-muted mb-8">Last updated: November 19, 2026</p>
 
           <h2 className="font-heading font-bold text-2xl text-text-dark mt-8 mb-4">1. Services</h2>
           <p>
-            Handlyr provides professional handyman services in New York City and surrounding areas including
-            Brooklyn and Queens. All services are subject to availability
+            Handlyr provides professional handyman services in Brooklyn and Queens, New York. All services are subject to availability
             and a confirmed appointment.
           </p>
 

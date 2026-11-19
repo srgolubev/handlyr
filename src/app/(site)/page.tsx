@@ -8,9 +8,9 @@ import ServiceAreas from '@/components/sections/ServiceAreas';
 import ContactForm from '@/components/sections/ContactForm';
 
 export const metadata: Metadata = {
-  title: 'Handlyr | Reliable Handyman NYC — Furniture Assembly, TV Mounting & More',
+  title: { absolute: 'Handlyr | Handyman in Brooklyn & Queens, NYC — Furniture Assembly, TV Mounting & More' },
   description:
-    'Top-rated handyman in NYC. Furniture assembly, TV mounting, shelf installation, drywall repair, blinds & more. Serving Brooklyn & Queens. Free estimates.',
+    'Top-rated handyman in Brooklyn & Queens, NYC. Furniture assembly, TV mounting, shelf installation, drywall repair, blinds & more. Free estimates.',
   keywords: [
     'handyman NYC',
     'handyman Brooklyn',
@@ -24,17 +24,17 @@ export const metadata: Metadata = {
     'handyman Queens',
   ],
   openGraph: {
-    title: 'Handlyr | Reliable Handyman NYC',
+    title: 'Handlyr | Handyman in Brooklyn & Queens, NYC',
     description:
-      'Top-rated NYC handyman. Furniture assembly, TV mounting, shelf installation, drywall repair & more. Free estimates, same-day response.',
+      'Top-rated Brooklyn & Queens handyman. Furniture assembly, TV mounting, shelf installation, drywall repair & more. Free estimates, same-day response.',
     type: 'website',
     url: 'https://handlyr.org',
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Handlyr | Reliable Handyman NYC',
+    title: 'Handlyr | Handyman in Brooklyn & Queens, NYC',
     description:
-      'Top-rated NYC handyman. Furniture assembly, TV mounting, shelf installation, drywall repair & more. Free estimates.',
+      'Top-rated Brooklyn & Queens handyman. Furniture assembly, TV mounting, shelf installation, drywall repair & more. Free estimates.',
   },
   alternates: {
     canonical: 'https://handlyr.org',

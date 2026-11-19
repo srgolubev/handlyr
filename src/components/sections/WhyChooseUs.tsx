@@ -5,7 +5,7 @@ const valueProps = [
     id: 'experience',
     icon: <ShieldCheckIcon className="w-8 h-8" />,
     title: '15+ Years Experience',
-    description: 'Over a decade and a half of hands-on work — now serving homes and apartments across NYC.',
+    description: 'Over a decade and a half of hands-on work — now serving homes and apartments across Brooklyn and Queens.',
   },
   {
     id: 'response',

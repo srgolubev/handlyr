@@ -4,7 +4,7 @@ import ContactForm from '@/components/sections/ContactForm';
 import PageHero from '@/components/sections/PageHero';
 
 export const metadata: Metadata = {
-  title: 'Recent Projects — NYC Handyman Work | Handlyr',
+  title: 'Recent Projects — Handyman Work in Brooklyn & Queens',
   description:
     'See recent handyman projects by Handlyr across Brooklyn and Queens — TV mounting, furniture assembly, floating shelves, drywall repair, cabinet installs & more.',
   keywords: [
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     'handyman near me',
   ],
   openGraph: {
-    title: 'Recent Handyman Projects | Handlyr NYC',
+    title: 'Recent Handyman Projects | Handlyr',
     description:
       'Browse completed handyman jobs across Brooklyn and Queens: TV mounting, furniture assembly, floating shelves, drywall repair, and more.',
     type: 'website',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Recent Handyman Projects | Handlyr NYC',
+    title: 'Recent Handyman Projects | Handlyr',
     description:
       'Browse completed handyman jobs across Brooklyn and Queens: TV mounting, furniture assembly, floating shelves, drywall repair, and more.',
   },

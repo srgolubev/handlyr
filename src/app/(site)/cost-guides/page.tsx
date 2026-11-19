@@ -30,7 +30,7 @@ export default function CostGuidesIndex() {
 
       <PageHero
         label="Cost Guides"
-        title="What Handyman Jobs Cost in NYC"
+        title="What Handyman Jobs Cost in Brooklyn & Queens"
         description={`Straight answers from a Brooklyn & Queens handyman. One simple rate: $${PRICING.hourlyRate}/hour, ${PRICING.minimumHours}-hour minimum ($${MIN}).`}
       />
 

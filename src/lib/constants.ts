@@ -3,11 +3,11 @@ export const BUSINESS = {
   phone: '(347) 799-8402',
   phoneHref: 'tel:+13477998402',
   smsHref: 'sms:+13477998402?body=Hi%20Serge!%20I%20need%20help%20with%20',
-  location: 'New York City',
+  location: 'Brooklyn & Queens, NY',
   experience: '15+',
   founded: '2009',
   email: 'order@handlyr.org',
-  tagline: 'Professional handyman services across New York City.',
+  tagline: 'Professional handyman services in Brooklyn and Queens, NY.',
   responseTime: 'within 20 minutes',
   guarantee: '30-Day Workmanship Guarantee',
 };
