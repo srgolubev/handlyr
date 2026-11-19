@@ -13,11 +13,11 @@ export const BUSINESS = {
 };
 
 // Single source of truth for verified reputation (Thumbtack + Google).
-// Thumbtack displays 48 reviews, including imported Google reviews (checked 2026-09-16).
+// Thumbtack displays 52 reviews, including imported Google reviews (checked 2026-11-19).
 // Use the displayed total; do not add Google reviews a second time.
 export const RATING = {
   value: '4.9',
-  count: 48,
+  count: 52,
   best: '5',
   worst: '1',
 } as const;
