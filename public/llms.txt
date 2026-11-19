@@ -27,6 +27,11 @@
 - Drywall repair — holes, cracks, water damage; smooth, paint-ready finish: https://handlyr.org/services/drywall-repair
 - General handyman repairs — doors, hinges, faucets, fixtures, picture hanging, punch lists: https://handlyr.org/services/general-repairs
 
+## Services by Borough
+Each service has a page per borough: https://handlyr.org/services/{service}/{brooklyn|queens}
+- Brooklyn: https://handlyr.org/services/furniture-assembly/brooklyn, https://handlyr.org/services/tv-mounting/brooklyn, https://handlyr.org/services/shelf-installation/brooklyn, https://handlyr.org/services/blinds-installation/brooklyn, https://handlyr.org/services/cabinet-installation/brooklyn, https://handlyr.org/services/drywall-repair/brooklyn, https://handlyr.org/services/general-repairs/brooklyn
+- Queens: https://handlyr.org/services/furniture-assembly/queens, https://handlyr.org/services/tv-mounting/queens, https://handlyr.org/services/shelf-installation/queens, https://handlyr.org/services/blinds-installation/queens, https://handlyr.org/services/cabinet-installation/queens, https://handlyr.org/services/drywall-repair/queens, https://handlyr.org/services/general-repairs/queens
+
 ## Pricing
 - Rate: $69/hour, with a 2-hour minimum (minimum $138 per visit). If the job
   finishes early, the remaining time is used for other small tasks around the home.
