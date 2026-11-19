@@ -55,7 +55,7 @@ export default function Hero() {
               className="mt-5 text-lg lg:text-xl max-w-lg mx-auto lg:mx-0 leading-relaxed"
               style={{ color: 'rgba(255,255,255,0.82)' }}
             >
-              Furniture assembly, TV mounting, shelving and repairs across Brooklyn and Queens — done cleanly and professionally.
+              Furniture assembly, TV mounting, shelving and repairs — done cleanly and professionally.
             </p>
 
             {/* CTA buttons — one primary (text a photo) + one secondary (form) */}
