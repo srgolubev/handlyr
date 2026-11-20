@@ -29,7 +29,7 @@ export async function generateMetadata({ params }: { params: Params }): Promise<
   if (!guide) return {};
   const canonical = `${BASE_URL}/cost-guides/${guide.slug}`;
   return {
-    title: { absolute: `${guide.title} (NYC, 2026 Prices) | Handlyr` },
+    title: { absolute: `${guide.title} (2026 Prices) | Handlyr` },
     description: guide.metaDescription,
     openGraph: { title: guide.title, description: guide.metaDescription, type: 'article', url: canonical },
     twitter: { card: 'summary_large_image', title: guide.title, description: guide.metaDescription },
@@ -96,7 +96,7 @@ export default async function CostGuidePage({ params }: { params: Params }) {
       <PageHero
         label="Cost Guide"
         title={guide.title}
-        description={`Real prices from a Brooklyn & Queens handyman — $${PRICING.hourlyRate}/hour, ${PRICING.minimumHours}-hour minimum.`}
+        description={`Real 2026 prices from a Brooklyn & Queens, NYC handyman — $${PRICING.hourlyRate}/hour, ${PRICING.minimumHours}-hour minimum.`}
       />
 
       <article className="bg-white py-14 px-4 lg:py-20">
