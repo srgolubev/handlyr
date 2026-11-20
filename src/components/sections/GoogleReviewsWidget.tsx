@@ -46,7 +46,7 @@ export default async function GoogleReviewsWidget() {
           <div className="grw-title">Google Reviews</div>
           <div className="grw-rating">
             <span className="grw-score">{data.rating.toFixed(1)}</span>
-            <span className="grw-stars" aria-label={`${data.rating.toFixed(1)} out of 5`}>
+            <span className="grw-stars" role="img" aria-label={`${data.rating.toFixed(1)} out of 5`}>
               {[...Array(5)].map((_, i) => (
                 <StarIcon key={i} className="grw-star" />
               ))}
@@ -58,7 +58,7 @@ export default async function GoogleReviewsWidget() {
 
       <div className="grw-review">
         <div className="grw-author-row">
-          <span className="grw-stars" aria-label={`${fullStars} out of 5 stars`}>
+          <span className="grw-stars" role="img" aria-label={`${fullStars} out of 5 stars`}>
             {[...Array(fullStars)].map((_, i) => (
               <StarIcon key={i} className="grw-star" />
             ))}

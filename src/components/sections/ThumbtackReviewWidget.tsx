@@ -1,6 +1,7 @@
 'use client';
 
 import { useEffect, useRef } from 'react';
+import { useNearViewport } from '@/lib/useNearViewport';
 import { RATING, REVIEWS } from '@/lib/constants';
 
 const latestThumbtackReview = REVIEWS.find((review) => review.id === 25)!;
@@ -20,18 +21,18 @@ const TT_PROFILE_URL =
  * (scoped to `#tt-review-widget-one`) so it survives the script re-render.
  */
 export default function ThumbtackReviewWidget() {
-  const containerRef = useRef<HTMLDivElement>(null);
+  const [containerRef, near] = useNearViewport<HTMLDivElement>();
   const injected = useRef(false);
 
   useEffect(() => {
-    if (injected.current || !containerRef.current) return;
+    if (!near || injected.current || !containerRef.current) return;
     injected.current = true;
 
     const script = document.createElement('script');
     script.src = TT_SCRIPT_SRC;
     script.async = true;
     containerRef.current.appendChild(script);
-  }, []);
+  }, [near, containerRef]);
 
   return (
     <div className="widget" id="tt-review-widget-one" ref={containerRef}>

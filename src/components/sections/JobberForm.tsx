@@ -2,6 +2,7 @@
 
 import { useEffect, useRef, useState } from 'react';
 import { BUSINESS } from '@/lib/constants';
+import { useNearViewport } from '@/lib/useNearViewport';
 
 const JOBBER_ID = 'd414ffea-724d-4732-bb6f-884d8b3b05e6-2259100';
 const JOBBER_CSS = 'https://d3ey4dbjkt2f6s.cloudfront.net/assets/external/work_request_embed.css';
@@ -69,6 +70,23 @@ function Skeleton() {
 }
 
 export default function JobberForm() {
+  const [ref, near] = useNearViewport<HTMLDivElement>();
+  // Defer the Jobber embed (it pulls reCAPTCHA + Google Maps, ~1 MB) until the
+  // visitor scrolls near the form.
+  return (
+    <div ref={ref}>
+      {near ? (
+        <JobberEmbed />
+      ) : (
+        <div className="relative" style={{ minHeight: '540px' }}>
+          <Skeleton />
+        </div>
+      )}
+    </div>
+  );
+}
+
+function JobberEmbed() {
   const containerRef = useRef<HTMLDivElement>(null);
   const [loaded, setLoaded] = useState(false);
   const [failed, setFailed] = useState(false);

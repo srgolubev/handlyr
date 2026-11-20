@@ -36,7 +36,7 @@ export default function Reviews() {
               className="flex flex-col p-6 bg-white border border-neutral-200 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-150"
             >
               {/* Stars */}
-              <div className="flex gap-1" aria-label={`${review.stars} out of 5 stars`}>
+              <div className="flex gap-1" role="img" aria-label={`${review.stars} out of 5 stars`}>
                 {[...Array(review.stars)].map((_, i) => (
                   <StarIcon key={i} className="w-[18px] h-[18px] text-yellow-400" />
                 ))}

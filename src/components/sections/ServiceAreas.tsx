@@ -3,6 +3,7 @@
 import dynamic from 'next/dynamic';
 import { SERVICE_AREAS, BUSINESS } from '@/lib/constants';
 import { MapPinIcon } from '@/components/icons';
+import { useNearViewport } from '@/lib/useNearViewport';
 
 // Dynamic import with SSR disabled — Leaflet requires the browser DOM
 const ServiceAreasMap = dynamic(
@@ -20,6 +21,7 @@ const ServiceAreasMap = dynamic(
 );
 
 export default function ServiceAreas() {
+  const [mapRef, mapNear] = useNearViewport<HTMLDivElement>();
   return (
     <section id="service-areas" className="bg-white py-16 px-4 lg:py-20 lg:px-6">
       <div className="max-w-6xl mx-auto">
@@ -71,8 +73,8 @@ export default function ServiceAreas() {
           </div>
 
           {/* Right column: interactive Leaflet service-areas map */}
-          <div className="rounded-2xl overflow-hidden shadow-lg" style={{ height: '420px', isolation: 'isolate' }}>
-            <ServiceAreasMap />
+          <div ref={mapRef} className="rounded-2xl overflow-hidden shadow-lg" style={{ height: '420px', isolation: 'isolate' }}>
+            {mapNear ? <ServiceAreasMap /> : <div className="w-full h-full bg-neutral-100" aria-hidden="true" />}
           </div>
         </div>
       </div>
