@@ -11,6 +11,7 @@ const SERVICE_SLUGS = [
   'cabinet-installation',
   'drywall-repair',
   'general-repairs',
+  'interior-painting',
 ];
 
 const AREA_SLUGS = [
@@ -47,7 +48,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.85,
   }));
 
-  const serviceAreaPages: MetadataRoute.Sitemap = SERVICE_SLUGS.flatMap((service) =>
+  const serviceAreaPages: MetadataRoute.Sitemap = SERVICE_SLUGS.filter((s) => s !== 'interior-painting').flatMap((service) =>
     AREA_SLUGS.map((area) => ({
       url: `${BASE_URL}/services/${service}/${area}`,
       lastModified,

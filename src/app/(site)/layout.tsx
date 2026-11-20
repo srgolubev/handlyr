@@ -2,7 +2,7 @@ import Header from '@/components/layout/Header';
 import Footer from '@/components/layout/Footer';
 import StickyMobileCTA from '@/components/layout/StickyMobileCTA';
 import JsonLd from '@/components/JsonLd';
-import { SERVICES, PRICING } from '@/lib/constants';
+import { SERVICES, PRICING, QUOTE_ONLY_SERVICES } from '@/lib/constants';
 
 // Public profiles where the business can be corroborated (helps both local SEO
 // entity matching and AI answer-engine citation/trust).
@@ -46,6 +46,8 @@ const localBusinessSchema = {
     name: 'Handyman Services',
     itemListElement: SERVICES.map((s) => ({
       '@type': 'Offer',
+      // Quote-only services (painting) carry no hourly price.
+      ...(QUOTE_ONLY_SERVICES.has(s.slug) ? {} : {
       priceCurrency: PRICING.currency,
       priceSpecification: {
         '@type': 'UnitPriceSpecification',
@@ -57,6 +59,7 @@ const localBusinessSchema = {
         // price-range minPrice (which schema readers treat as range metadata).
         eligibleQuantity: { '@type': 'QuantitativeValue', minValue: String(PRICING.minimumHours), unitCode: 'HUR' },
       },
+      }),
       itemOffered: {
         '@type': 'Service',
         name: s.name,

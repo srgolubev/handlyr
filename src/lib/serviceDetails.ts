@@ -259,4 +259,56 @@ export const SERVICES_DETAIL: Record<string, ServiceData> = {
       'handyman services near me',
     ],
   },
+  'interior-painting': {
+    slug: 'interior-painting',
+    name: 'Interior Painting',
+    icon: '🖌️',
+    tagline: 'Touch-ups, full rooms, ceilings, doors and trim — walls patched and painted clean.',
+    body: [
+      'Interior painting in Brooklyn and Queens apartments and homes, from a few touch-ups to a whole room. We paint walls, ceilings, doors and trim, and we can combine painting with other handyman work in the same visit.',
+      'Good paint starts with the wall. Before painting, we patch nail holes, dents and small cracks so the finish comes out smooth. That makes painting a natural next step after drywall repair, a TV removal or a move-out.',
+      'Every painting job is different — the size of the room, the ceiling height, the condition of the walls and how many coats it needs — so painting is quoted per job. Text us photos of the space and we will send you a price. Use your own paint, or we can pick it up for you (the cost of paint is billed separately).',
+    ],
+    whatToExpect: [
+      'A clear quote for your job before work starts',
+      'Nail holes, dents and small cracks patched before painting',
+      'Walls, ceilings, doors and trim — one room or several',
+      'Your paint, or paint we pick up for you (billed separately)',
+      'Clean-up before we leave, backed by our 30-day workmanship guarantee',
+    ],
+    faqs: [
+      {
+        q: 'How much does interior painting cost?',
+        a: 'Painting is quoted per job, because the price depends on the size of the room, the ceiling height, the condition of the walls and the number of coats. Text us photos of the space for a free quote.',
+      },
+      {
+        q: 'Do I need to buy the paint?',
+        a: 'You can use your own paint, or we can pick it up for you. The cost of paint is billed separately from the work.',
+      },
+      {
+        q: 'Can you paint just a few spots after a repair?',
+        a: 'Yes. Touch-ups after drywall repair, TV or shelf removal, or a move-out are a common job. We patch the wall first, then paint.',
+      },
+      {
+        q: 'Do you paint ceilings, doors and trim?',
+        a: 'Yes — walls, ceilings, doors and trim.',
+      },
+      {
+        q: 'Do you do exterior painting?',
+        a: 'No, we only paint interiors.',
+      },
+    ],
+    reviewIds: [7],
+    seoDescription:
+      'Interior painting in Brooklyn & Queens, NYC: touch-ups, full rooms, ceilings, doors and trim. Walls patched before painting. Free quote by text.',
+    keywords: [
+      'interior painting Brooklyn',
+      'interior painting Queens',
+      'apartment painting NYC',
+      'room painting Brooklyn',
+      'painter near me',
+      'paint touch up NYC',
+      'ceiling painting Brooklyn',
+    ],
+  },
 };

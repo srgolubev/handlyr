@@ -10,6 +10,7 @@ import {
   REVIEWS,
   PRICING,
   SHARED_FAQS,
+  hasAreaPage,
   GALLERY_ITEMS,
   RATING,
 } from '@/lib/constants';
@@ -395,7 +396,7 @@ export default async function ServiceAreaComboPage({ params }: { params: Params 
               return (
                 <Link
                   key={s.slug}
-                  href={`/services/${s.slug}/${area.slug}`}
+                  href={hasAreaPage(s.slug) ? `/services/${s.slug}/${area.slug}` : `/services/${s.slug}`}
                   className="flex items-center gap-3 p-4 bg-white rounded-2xl border border-neutral-200 hover:shadow-md transition-shadow duration-200 group"
                 >
                   <span className="w-10 h-10 rounded-xl flex items-center justify-center flex-shrink-0 bg-primary-100 text-primary-600">

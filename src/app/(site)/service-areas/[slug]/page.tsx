@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import PageHero from '@/components/sections/PageHero';
-import { BUSINESS, SERVICES, REVIEWS, PRICING, SHARED_FAQS } from '@/lib/constants';
+import { BUSINESS, SERVICES, REVIEWS, PRICING, SHARED_FAQS, hasAreaPage } from '@/lib/constants';
 import { SERVICE_ICON } from '@/lib/serviceIcons';
 import { AREAS } from '@/lib/areaDetails';
 import { PhoneIcon, ShieldCheckIcon, ZapIcon, SparklesIcon, DollarSignIcon } from '@/components/icons';
@@ -176,7 +176,7 @@ export default async function ServiceAreaPage({
             Services Available in {area.name}
           </h2>
           <p className="text-center text-text-muted mb-10">
-            Every job includes a free text quote and professional, clean work — ${PRICING.hourlyRate}/hour, {PRICING.minimumHours}-hour minimum.
+            Every job includes a free text quote and professional, clean work — ${PRICING.hourlyRate}/hour, {PRICING.minimumHours}-hour minimum (painting is quoted per job).
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {SERVICES.map((service) => {
@@ -191,7 +191,7 @@ export default async function ServiceAreaPage({
                 </div>
                 <h3 className="text-lg font-heading font-bold text-text-dark mb-1">
                   <Link
-                    href={`/services/${service.slug}/${area.slug}`}
+                    href={hasAreaPage(service.slug) ? `/services/${service.slug}/${area.slug}` : `/services/${service.slug}`}
                     className="hover:text-primary-600 transition-colors"
                   >
                     {service.name} in {area.name}
@@ -208,7 +208,7 @@ export default async function ServiceAreaPage({
                     Get a Quote
                   </a>
                   <Link
-                    href={`/services/${service.slug}/${area.slug}`}
+                    href={hasAreaPage(service.slug) ? `/services/${service.slug}/${area.slug}` : `/services/${service.slug}`}
                     className="inline-flex items-center text-sm font-semibold text-primary-600 hover:text-primary-700 transition-colors"
                     aria-label={`Learn more about ${service.name} in ${area.name}`}
                   >

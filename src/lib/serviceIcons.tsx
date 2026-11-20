@@ -7,6 +7,7 @@ import {
   CabinetIcon,
   WrenchIcon,
   SettingsIcon,
+  PaintRollerIcon,
 } from '@/components/icons';
 
 type IconComponent = ComponentType<{ className?: string }>;
@@ -22,4 +23,5 @@ export const SERVICE_ICON: Record<string, IconComponent> = {
   'cabinet-installation': CabinetIcon,
   'drywall-repair': WrenchIcon,
   'general-repairs': SettingsIcon,
+  'interior-painting': PaintRollerIcon,
 };

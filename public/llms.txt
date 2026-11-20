@@ -26,6 +26,7 @@
 - Cabinet installation — kitchen, bathroom vanity, medicine, storage cabinets: https://handlyr.org/services/cabinet-installation
 - Drywall repair — holes, cracks, water damage; smooth, paint-ready finish: https://handlyr.org/services/drywall-repair
 - General handyman repairs — doors, hinges, faucets, fixtures, picture hanging, punch lists: https://handlyr.org/services/general-repairs
+- Interior painting — touch-ups, full rooms, ceilings, doors and trim; walls patched first; quoted per job (no exterior painting): https://handlyr.org/services/interior-painting
 
 ## Services by Borough
 Each service has a page per borough: https://handlyr.org/services/{service}/{brooklyn|queens}
@@ -37,7 +38,7 @@ Each service has a page per borough: https://handlyr.org/services/{service}/{bro
   finishes early, the remaining time is used for other small tasks around the home.
 - On-site estimate visit: $69, credited toward the cost of the job if you proceed.
 - Quotes by text (send a photo): free, no obligation.
-- Pricing is the same across all services and service areas. No hidden fees.
+- Pricing is the same across all handyman services and service areas. Interior painting is quoted per job. No hidden fees.
 
 ## Cost Guides
 Typical job times and prices at $69/hour (2-hour minimum):

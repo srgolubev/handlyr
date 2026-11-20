@@ -2,7 +2,7 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import Link from 'next/link';
 import PageHero from '@/components/sections/PageHero';
-import { BUSINESS, SERVICE_AREAS, REVIEWS, PRICING, SHARED_FAQS } from '@/lib/constants';
+import { BUSINESS, SERVICE_AREAS, REVIEWS, PRICING, SHARED_FAQS, QUOTE_ONLY_SERVICES, hasAreaPage } from '@/lib/constants';
 import { SERVICE_ICON } from '@/lib/serviceIcons';
 import { SERVICES_DETAIL } from '@/lib/serviceDetails';
 import { COST_GUIDE_BY_SERVICE } from '@/lib/costGuides';
@@ -72,8 +72,14 @@ export default async function ServicePage({
 
   const serviceReviews = REVIEWS.filter((r) => service.reviewIds.includes(r.id));
 
+  const quoteOnly = QUOTE_ONLY_SERVICES.has(service.slug);
+
   // Service-specific FAQs first, then shared pricing/scheduling/coverage FAQs.
-  const faqs = [...service.faqs, ...SHARED_FAQS];
+  // Quote-only services skip the shared hourly-rate answers.
+  const sharedFaqs = quoteOnly
+    ? SHARED_FAQS.filter((f) => !/cost|estimate/i.test(f.q))
+    : SHARED_FAQS;
+  const faqs = [...service.faqs, ...sharedFaqs];
 
   const faqSchema = {
     '@context': 'https://schema.org',
@@ -199,18 +205,27 @@ export default async function ServicePage({
           {/* Pricing */}
           <div className="mt-6 p-6 rounded-2xl border border-accent-100 bg-accent-100/40">
             <h3 className="font-heading font-bold text-xl mb-3 text-primary-800">
-              Simple, Upfront Pricing
+              {quoteOnly ? 'Priced Per Job' : 'Simple, Upfront Pricing'}
             </h3>
-            <p className="text-text-muted text-base leading-relaxed">
-              <strong className="text-primary-800">
-                ${PRICING.hourlyRate}/hour
-              </strong>{' '}
-              with a {PRICING.minimumHours}-hour minimum (${PRICING.hourlyRate * PRICING.minimumHours} minimum).{' '}
-              {PRICING.rateSummary.split('. ').slice(1).join('. ')}
-            </p>
-            <p className="text-text-muted text-sm leading-relaxed mt-2">
-              {PRICING.estimateSummary}
-            </p>
+            {quoteOnly ? (
+              <p className="text-text-muted text-base leading-relaxed">
+                {service.name} is quoted individually for each job. Text us photos of the space and we will send you a{' '}
+                <strong className="text-primary-800">free quote</strong> before any work starts.
+              </p>
+            ) : (
+              <>
+                <p className="text-text-muted text-base leading-relaxed">
+                  <strong className="text-primary-800">
+                    ${PRICING.hourlyRate}/hour
+                  </strong>{' '}
+                  with a {PRICING.minimumHours}-hour minimum (${PRICING.hourlyRate * PRICING.minimumHours} minimum).{' '}
+                  {PRICING.rateSummary.split('. ').slice(1).join('. ')}
+                </p>
+                <p className="text-text-muted text-sm leading-relaxed mt-2">
+                  {PRICING.estimateSummary}
+                </p>
+              </>
+            )}
             {COST_GUIDE_BY_SERVICE[service.slug] && (
               <p className="mt-3 text-sm">
                 <Link
@@ -232,13 +247,13 @@ export default async function ServicePage({
             Available in Brooklyn and Queens
           </h2>
           <p className="text-text-muted mb-8">
-            We provide {service.name.toLowerCase()} across all our service areas. Same quality, same pricing.
+            We provide {service.name.toLowerCase()} across all our service areas.{quoteOnly ? '' : ' Same quality, same pricing.'}
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {SERVICE_AREAS.map((area) => (
               <Link
                 key={area.name}
-                href={`/services/${service.slug}/${area.slug}`}
+                href={hasAreaPage(service.slug) ? `/services/${service.slug}/${area.slug}` : `/service-areas/${area.slug}`}
                 className="flex items-start gap-3 p-4 bg-white rounded-2xl border border-neutral-200 hover:shadow-md transition-shadow duration-200 group"
               >
                 <span className="text-accent-600 mt-0.5"><MapPinIcon className="w-5 h-5" /></span>

@@ -117,9 +117,23 @@ export const SERVICES = [
     icon: 'tool',
     slug: 'general-repairs',
   },
+  {
+    id: 'interior-painting',
+    name: 'Interior Painting',
+    description:
+      'Touch-ups, full rooms, ceilings, doors and trim — walls patched and painted clean.',
+    icon: 'paint-roller',
+    slug: 'interior-painting',
+  },
 ] as const;
 
 export type Service = (typeof SERVICES)[number];
+
+// Services priced per job (custom quote) instead of the $69/hour rate.
+export const QUOTE_ONLY_SERVICES: ReadonlySet<string> = new Set(['interior-painting']);
+
+// Services with dedicated service × borough pages (see SERVICE_AREA_COPY).
+export const hasAreaPage = (serviceSlug: string) => !QUOTE_ONLY_SERVICES.has(serviceSlug);
 
 export const SERVICE_AREAS = [
   {
